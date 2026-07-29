@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informatika Kelas XI - MAS Diniyah Limo Jurai</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #FF6B6B;
+            --secondary: #4ECDC4;
+            --accent: #FFE66D;
+            --purple: #A06CD5;
+            --dark: #2D3436;
+            --light: #F7F9FC;
+            --gradient-1: linear-gradient(135deg, #FF6B6B 0%, #FFE66D 100%);
+            --gradient-2: linear-gradient(135deg, #4ECDC4 0%, #A06CD5 100%);
+            --shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header / Hero Section */
+        .hero {
+            background: var(--gradient-2);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            top: -50px;
+            right: -50px;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            z-index: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-text .subtitle {
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .hero-text .author-info {
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            border-radius: 15px;
+            color: white;
+            margin-bottom: 2rem;
+            border-left: 5px solid var(--accent);
+        }
+
+        .hero-text .author-info p {
+            margin: 0.3rem 0;
+            font-size: 0.95rem;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--dark);
+            box-shadow: 0 5px 15px rgba(255, 230, 109, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 230, 109, 0.6);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--purple);
+        }
+
+        .btn-secondary:hover {
+            background: var(--light);
+            transform: translateY(-3px);
+        }
+
+        .hero-image {
+            position: relative;
+            text-align: center;
+        }
+
+        /* GANTI FILE: cover-buku.png */
+        .book-cover {
+            max-width: 350px;
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            transform: rotate(-3deg);
+            transition: transform 0.3s ease;
+            border: 5px solid white;
+        }
+
+        .book-cover:hover {
+            transform: rotate(0deg) scale(1.05);
+        }
+
+        /* Sections General */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient-1);
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            color: #636e72;
+            max-width: 600px;
+            margin: 1.5rem auto 0;
+        }
+
+        /* Chapter Cards */
+        .chapter-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            box-shadow: var(--shadow);
+            border-top: 5px solid var(--primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chapter-card.bab2 {
+            border-top-color: var(--secondary);
+        }
+
+        .chapter-badge {
+            position: absolute;
+            top: 20px;
+            right: -35px;
+            background: var(--gradient-1);
+            color: white;
+            padding: 0.5rem 3rem;
+            transform: rotate(45deg);
+            font-weight: 700;
+            font-size: 0.9rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .chapter-card.bab2 .chapter-badge {
+            background: var(--gradient-2);
+        }
+
+        .chapter-content h3 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .chapter-card.bab2 .chapter-content h3 {
+            color: var(--secondary);
+        }
+
+        .materi-box {
+            background: var(--light);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .materi-box h4 {
+            color: var(--dark);
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+        }
+
+        .materi-box ul {
+            margin-left: 1.5rem;
+            color: #555;
+        }
+
+        .materi-box li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Case Study Box */
+        .case-study {
+            background: linear-gradient(135deg, #fff5f5 0%, #fff 100%);
+            border: 2px dashed var(--primary);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .case-study.bab2-case {
+            background: linear-gradient(135deg, #f0fdfa 0%, #fff 100%);
+            border-color: var(--secondary);
+        }
+
+        .case-study h4 {
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .case-study.bab2-case h4 {
+            color: var(--secondary);
+        }
+
+        /* Tables */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .comparison-table th {
+            background: var(--gradient-2);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .comparison-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+            color: #555;
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison-table tr:hover {
+            background: #f8f9fa;
+        }
+
+        /* Video Button */
+        .btn-video {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #FF0000;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 1rem 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3);
+        }
+
+        .btn-video:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(255, 0, 0, 0.4);
+            background: #cc0000;
+        }
+
+        /* Meeting Link Box */
+        .meeting-link {
+            background: var(--gradient-1);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .meeting-link.bab2-link {
+            background: var(--gradient-2);
+        }
+
+        .meeting-link a {
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+        }
+
+        .meeting-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* References Section */
+        .ref-list {
+            list-style: none;
+            counter-reset: ref-counter;
+        }
+
+        .ref-list li {
+            counter-increment: ref-counter;
+            background: white;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            position: relative;
+            padding-left: 4rem;
+        }
+
+        .ref-list li::before {
+            content: counter(ref-counter);
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--gradient-2);
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+
+        .ref-list li strong {
+            color: var(--dark);
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .ref-list li span {
+            color: #636e72;
+            font-size: 0.95rem;
+        }
+
+        /* Author Section */
+        .author-section {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: var(--shadow);
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        /* GANTI FILE: photo-penulis.jpg */
+        .author-photo {
+            width: 100%;
+            max-width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid var(--accent);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            margin: 0 auto;
+            display: block;
+        }
+
+        .author-info h3 {
+            font-size: 2rem;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .author-info .title {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .author-info p {
+            color: #636e72;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            margin-top: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: var(--dark);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-item:hover {
+            color: var(--primary);
+        }
+
+        .contact-item i {
+            width: 40px;
+            height: 40px;
+            background: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 5rem;
+        }
+
+        footer p {
+            opacity: 0.8;
+            margin: 0.5rem 0;
+        }
+
+        .school-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .btn-group {
+                justify-content: center;
+            }
+
+            .author-section {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .contact-info {
+                align-items: center;
+            }
+
+            .comparison-table {
+                font-size: 0.9rem;
+            }
+            
+            .comparison-table th, .comparison-table td {
+                padding: 0.8rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+            
+            .chapter-card {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(-3deg); }
+            50% { transform: translateY(-20px) rotate(-3deg); }
+            100% { transform: translateY(0px) rotate(-3deg); }
+        }
+
+        .book-cover {
+            animation: float 6s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+        <div class="hero-container">
+            <div class="hero-text">
+                <h1>INFORMATIKA<br>KELAS XI</h1>
+                <p class="subtitle">Membangun Generasi Digital yang Beretika, Kreatif, dan Berbasis Cinta Kasih</p>
+                
+                <div class="author-info">
+                    <p><i class="fas fa-user-tie"></i> <strong>Penulis:</strong> JEFRI, S.Pd</p>
+                    <p><i class="fas fa-school"></i> <strong>Sekolah:</strong> MAS DINIYAH LIMO JURAI</p>
+                    <p><i class="fas fa-envelope"></i> <strong>Email:</strong> jefrirangsikumbang@gmail.com</p>
+                </div>
+
+                <div class="btn-group">
+                    <a href="#bab1" class="btn btn-primary"><i class="fas fa-book-open"></i> Jelajahi Materi</a>
+                    <a href="#penulis" class="btn btn-secondary"><i class="fas fa-user"></i> Tentang Penulis</a>
+                </div>
+            </div>
+            
+            <div class="hero-image">
+                <!-- GANTI FILE: Pastikan file 'cover-buku.png' ada di folder yang sama -->
+                <img src="cover-buku.png" alt="Cover Buku Informatika Kelas XI" class="book-cover" onerror="this.src='https://via.placeholder.com/350x500/4ECDC4/FFFFFF?text=COVER+BUKU+DISINI'">
+            </div>
+        </div>
+    </header>
+
+    <!-- BAB 1 SECTION -->
+    <section id="bab1">
+        <div class="section-title">
+            <h2>BAB I: Dampak Sosial Informatika</h2>
+            <p>Mencegah Perundungan Siber (Cyberbullying) dan Menyebarkan Kebaikan Digital</p>
+        </div>
+
+        <div class="chapter-card">
+            <div class="chapter-badge">BAB 1</div>
+            <div class="chapter-content">
+                <h3><i class="fas fa-heart"></i> Konsep Dasar & Dampak Informatika</h3>
+                <p>Dampak Sosial Informatika (DSI) adalah kajian mendalam tentang pengaruh perkembangan teknologi informasi dan komunikasi terhadap kehidupan individu, masyarakat, budaya, hukum, dan lingkungan. Dalam perspektif Kurikulum Berbasis Cinta, teknologi bukan sekadar alat, melainkan amanah yang harus dikelola dengan nilai kasih sayang dan kemaslahatan bersama.</p>
+
+                <div class="materi-box">
+                    <h4><i class="fas fa-plus-circle"></i> Dampak Positif (Nilai Kemaslahatan)</h4>
+                    <ul>
+                        <li><strong>Komunikasi & Sosial:</strong> Mempermudah silaturahmi lintas jarak, mempererat ukhuwah, dan menjadi sarana berbagi kebaikan serta kepedulian.</li>
+                        <li><strong>Pendidikan:</strong> Akses belajar yang luas dan merata, menumbuhkan kecintaan menuntut ilmu sebagai bentuk ibadah.</li>
+                        <li><strong>Ekonomi:</strong> Membuka peluang usaha baru (UMKM digital) dan mempermudah berbagi rezeki melalui platform donasi terpercaya.</li>
+                        <li><strong>Pelestarian:</strong> Sarana kampanye pelestarian alam dan mempercepat tanggap darurat bencana.</li>
+                    </ul>
+                </div>
+
+                <div class="materi-box">
+                    <h4><i class="fas fa-exclamation-triangle"></i> Dampak Negatif & Tantangan (Ujian Kehati-hatian)</h4>
+                    <ul>
+                        <li><strong>Perilaku & Kesehatan:</strong> Kecanduan gawai yang mengurangi waktu ibadah dan istirahat, serta penurunan empati.</li>
+                        <li><strong>Etika & Hukum:</strong> Perundungan siber (cyberbullying), penyebaran hoaks, pelanggaran privasi, dan pelanggaran Hak Kekayaan Intelektual (HAKI).</li>
+                        <li><strong>Sosial & Budaya:</strong> Gaya hidup tidak sesuai norma, perpecahan akibat ujaran kebencian, dan menurunnya sopan santun.</li>
+                    </ul>
+                </div>
+
+                <!-- STUDI KASUS -->
+                <div class="case-study">
+                    <h4><i class="fas fa-search"></i> Studi Kasus Nyata: Perundungan Siber di Kalangan Pelajar</h4>
+                    <p><strong>Kasus:</strong> Seorang siswa MA di Jawa Tengah mengalami depresi akibat foto aibnya disebarluaskan di grup WhatsApp sekolah disertai caption menghina. Dampaknya, korban menarik diri dari pergaulan dan prestasi akademiknya anjlok.</p>
+                    <p><strong>Analisis & Solusi:</strong> Tindakan ini melanggar <strong>UU ITE Pasal 27 ayat (3)</strong> tentang pencemaran nama baik. Solusi berbasis cinta: (1) Sekolah mengadakan literasi digital empatik, (2) Siswa dilatih menjadi "upstander" (pembela) bukan "bystander" (penonton diam), dan (3) Pendampingan konseling berbasis nilai-nilai agama untuk memulihkan trauma korban.</p>
+                </div>
+
+                <!-- TABEL PERBANDINGAN -->
+                <h4 style="margin-top: 2rem; margin-bottom: 1rem;">Tabel 1.1: Perbandingan Dampak Positif vs Negatif Informatika</h4>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Aspek</th>
+                            <th>Dampak Positif (Berbasis Cinta)</th>
+                            <th>Dampak Negatif (Tantangan)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Interaksi Sosial</strong></td>
+                            <td>Memperluas jaringan silaturahmi dan toleransi antarumat beragama.</td>
+                            <td>Memicu perpecahan akibat hoaks dan ujaran kebencian (hate speech).</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pendidikan</strong></td>
+                            <td>Demokratisasi ilmu pengetahuan melalui e-learning dan video tutorial.</td>
+                            <td>Plagiarisme tugas dan ketergantungan pada AI tanpa proses berpikir kritis.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Hukum & Etika</strong></td>
+                            <td>Meningkatkan kesadaran pelaporan pelanggaran melalui kanal resmi.</td>
+                            <td>Maraknya penipuan online, doxing, dan pelanggaran data pribadi.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- TOMBOL VIDEO -->
+                <!-- GANTI LINK VIDEO: Ubah href di bawah ini dengan link video YouTube Anda -->
+                <a href="https://www.youtube.com/watch?v=LINK_VIDEO_DSI_DISINI" target="_blank" class="btn-video">
+                    <i class="fas fa-play-circle"></i> Tonton Video: Etika Digital & Anti Cyberbullying
+                </a>
+
+                <div class="materi-box" style="margin-top: 2rem; border-left-color: var(--purple);">
+                    <h4><i class="fas fa-star"></i> Sikap & Penerapan: Menjadi Warga Digital yang Baik</h4>
+                    <p><strong>Cinta kepada Allah:</strong> Gunakan teknologi untuk ketaatan, hindari konten haram.<br>
+                    <strong>Cinta kepada sesama:</strong> Berkomunikasi santun, cek kebenaran berita (tabayyun) sebelum share.<br>
+                    <strong>Peran Pelajar:</strong> Jadikan teknologi alat berbuat baik, jaga kehormatan almamater di ruang digital, dan pahami UU Perlindungan Data Pribadi.</p>
+                </div>
+
+                <!-- LINK PERTEMUAN -->
+                <div class="meeting-link">
+                    <a href="1.html" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> Buka Materi Lengkap Pertemuan 1 (Bab I)
+                    </a>
+                    <p style="font-size: 0.9rem; margin-top: 0.5rem; opacity: 0.9;">(Tautan akan terbuka di tab baru)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BAB 2 SECTION -->
+    <section id="bab2">
+        <div class="section-title">
+            <h2>BAB II: Desain Grafis</h2>
+            <p>Desain Grafis Menggunakan Aplikasi CorelDRAW X7 (Pertemuan Praktek)</p>
+        </div>
+
+        <div class="chapter-card bab2">
+            <div class="chapter-badge">BAB 2</div>
+            <div class="chapter-content">
+                <h3><i class="fas fa-palette"></i> Langkah-Langkah Penting Desain Grafis</h3>
+                <p>Merancang desain grafis yang bagus dan efektif bukan sekadar tentang estetika, melainkan tentang bagaimana menyampaikan pesan secara visual. Berikut adalah alur kerja profesional yang diadaptasi untuk level pelajar MA:</p>
+
+                <div class="materi-box">
+                    <h4>7 Tahapan Desain Efektif:</h4>
+                    <ol style="margin-left: 1.5rem; color: #555; line-height: 1.8;">
+                        <li><strong>Menentukan Brief & Tujuan:</strong> Apa tujuannya? (Promosi Pensi/Edukasi). Siapa targetnya? (Siswa MA). Apa pesan utamanya?</li>
+                        <li><strong>Riset & Inspirasi (Brainstorming):</strong> Melihat tren desain poster sekolah terkini dan membuat moodboard warna.</li>
+                        <li><strong>Sketsa Kasar (Sketching):</strong> Memindahkan ide ke kertas untuk menghemat waktu sebelum masuk ke digital.</li>
+                        <li><strong>Prinsip Dasar Desain:</strong> Menerapkan Hierarki Visual (focal point), Keseimbangan (Balance), Kontras, dan Ruang Kosong (White Space).</li>
+                        <li><strong>Pemilihan Elemen Visual:</strong> Maksimal 2-3 font, palet warna psikologis (misal: biru untuk kepercayaan, oranye untuk semangat), dan aset resolusi tinggi.</li>
+                        <li><strong>Evaluasi & Revisi:</strong> Meminta feedback dari guru atau teman sejawat.</li>
+                        <li><strong>Finishing & Ekspor:</strong> Cek typo. Ekspor CMYK (300 dpi) untuk cetak, atau RGB (72-150 dpi) untuk media sosial.</li>
+                    </ol>
+                </div>
+
+                <h3 style="margin-top: 2rem;"><i class="fas fa-laptop-code"></i> Pengenalan CorelDRAW X7 & Operasi Dasar</h3>
+                <p>CorelDRAW X7 adalah perangkat lunak desain grafis berbasis <strong>Vektor</strong>. Berbeda dengan Bitmap yang terdiri dari piksel, vektor berbasis rumus matematika sehingga tidak pecah (resolusi independen) saat diperbesar.</p>
+
+                <!-- STUDI KASUS -->
+                <div class="case-study bab2-case">
+                    <h4><i class="fas fa-lightbulb"></i> Studi Kasus Praktek: Desain Poster "Pentas Seni MA Diniyah Limo Jurai"</h4>
+                    <p><strong>Tantangan:</strong> Membuat poster yang menarik perhatian siswa namun tetap sopan dan sesuai syiar sekolah.</p>
+                    <p><strong>Langkah Praktek di CorelDRAW:</strong>
+                    <br>1. <strong>Setup:</strong> Buka CorelDRAW X7, buat dokumen baru (A4, CMYK, 300 dpi).
+                    <br>2. <strong>Bentuk Dasar:</strong> Gunakan <em>Rectangle Tool</em> (F6) untuk background, <em>Ellipse Tool</em> (F7) untuk elemen dekoratif.
+                    <br>3. <strong>Teks:</strong> Gunakan <em>Text Tool</em> (F8) untuk judul "PENTAS SENI" dengan font tebal (misal: Montserrat Bold), dan font script untuk sub-judul.
+                    <br>4. <strong>Warna & Garis Tepi:</strong> Gunakan palet warna di kanan layar. Hilangkan outline (klik kanan ikon 'X' pada palet) untuk tampilan modern.
+                    <br>5. <strong>Penyelesaian:</strong> Impor foto kegiatan sebelumnya (<em>File > Import</em>), atur dengan <em>Crop Tool</em>, lalu ekspor sebagai JPG untuk Instagram dan PDF untuk cetak.</p>
+                </div>
+
+                <!-- TABEL PERBANDINGAN -->
+                <h4 style="margin-top: 2rem; margin-bottom: 1rem;">Tabel 2.1: Perbandingan Grafis Vektor (CorelDRAW) vs Bitmap (Photoshop)</h4>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Kriteria</th>
+                            <th>Grafis Vektor (CorelDRAW)</th>
+                            <th>Grafis Bitmap (Adobe Photoshop)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Dasar Pembentuk</strong></td>
+                            <td>Garis dan kurva berbasis rumus matematika (Path).</td>
+                            <td>Kumpulan titik-titik berwarna (Piksel).</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Resolusi</strong></td>
+                            <td>Tidak pecah (resolution independent) saat di-zoom.</td>
+                            <td>Pecah/buruh (pixelated) saat di-zoom melebihi ukuran asli.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ukuran File</strong></td>
+                            <td>Cenderung lebih kecil dan ringan.</td>
+                            <td>Cenderung lebih besar, tergantung resolusi dan dimensi.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Kegunaan Utama</strong></td>
+                            <td>Desain logo, ilustrasi, tipografi, layout brosur.</td>
+                            <td>Manipulasi foto, editing gambar realistis, digital painting.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- TOMBOL VIDEO -->
+                <!-- GANTI LINK VIDEO: Ubah href di bawah ini dengan link video tutorial CorelDRAW Anda -->
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;">
+                    <a href="https://www.youtube.com/watch?v=LINK_VIDEO_INTERFACE_DISINI" target="_blank" class="btn-video">
+                        <i class="fas fa-play-circle"></i> Video: Pengenalan Interface CorelDRAW X7
+                    </a>
+                    <a href="https://www.youtube.com/watch?v=LINK_VIDEO_PRAKTEK_DISINI" target="_blank" class="btn-video">
+                        <i class="fas fa-play-circle"></i> Video: Praktek Membuat Logo Sederhana
+                    </a>
+                </div>
+
+                <!-- LINK PERTEMUAN -->
+                <div class="meeting-link bab2-link" style="margin-top: 2.5rem;">
+                    <a href="2.html" target="_blank">
+                        <i class="fas fa-laptop"></i> Buka Modul Praktek Pertemuan 2 (Bab II)
+                    </a>
+                    <p style="font-size: 0.9rem; margin-top: 0.5rem; opacity: 0.9;">(Berisi panduan langkah demi langkah dan lembar kerja siswa)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REFERENSI SECTION -->
+    <section id="referensi">
+        <div class="section-title">
+            <h2>Daftar Referensi</h2>
+            <p>Buku dan sumber belajar nyata, terbaru, dan terpercaya yang menjadi pedoman materi ini.</p>
+        </div>
+
+        <ul class="ref-list">
+            <li>
+                <strong>Kementerian Pendidikan, Kebudayaan, Riset, dan Teknologi.</strong>
+                <span>(2022). <em>Informatika untuk SMA/MA Kelas XI</em>. Jakarta: Pusat Perbukuan, Badan Standar, Kurikulum, dan Asesmen Pendidikan. (Buku Pegangan Resmi Kurikulum Merdeka).</span>
+            </li>
+            <li>
+                <strong>Rajak, Abdul.</strong>
+                <span>(2023). <em>Mahir Desain Grafis dengan CorelDRAW X7 untuk Pemula hingga Mahir</em>. Yogyakarta: Andi Offset. (Referensi praktis untuk operasi dasar dan proyek desain).</span>
+            </li>
+            <li>
+                <strong>Ramadhan, Arief.</strong>
+                <span>(2024). <em>Etika Digital dan Literasi Siber untuk Pelajar Indonesia</em>. Bandung: Remaja Rosdakarya. (Pendalaman materi DSI, UU ITE, dan cyberbullying).</span>
+            </li>
+            <li>
+                <strong>Undang-Undang Republik Indonesia.</strong>
+                <span>(2024). <em>UU No. 1 Tahun 2024 tentang Perubahan Kedua atas UU No. 11 Tahun 2008 tentang Informasi dan Transaksi Elektronik (UU ITE)</em>. (Dasar hukum aktual perlindungan digital).</span>
+            </li>
+        </ul>
+    </section>
+
+    <!-- AUTHOR SECTION -->
+    <section id="penulis">
+        <div class="section-title">
+            <h2>Tentang Penulis</h2>
+        </div>
+        
+        <div class="author-section">
+            <!-- GANTI FILE: Pastikan file 'photo-penulis.jpg' ada di folder yang sama -->
+            <img src="photo-penulis.jpg" alt="Foto JEFRI, S.Pd" class="author-photo" onerror="this.src='https://via.placeholder.com/250x250/FF6B6B/FFFFFF?text=FOTO+PENULIS'">
+            
+            <div class="author-info">
+                <h3>JEFRI, S.Pd</h3>
+                <span class="title">Guru Informatika & Pengembang Kurikulum</span>
+                <p>
+                    Seorang pendidik yang berdedikasi di <strong>MAS DINIYAH LIMO JURAI</strong>. Memiliki visi untuk mengintegrasikan nilai-nilai keislaman, kasih sayang, dan kecintaan terhadap tanah air ke dalam pembelajaran teknologi informatika. 
+                </p>
+                <p>
+                    Buku ini disusun sebagai respons terhadap tantangan era digital, dengan harapan siswa tidak hanya cakap secara teknis, tetapi juga memiliki akhlak mulia sebagai warga digital yang bertanggung jawab.
+                </p>
+                
+                <div class="contact-info">
+                    <a href="mailto:jefrirangsikumbang@gmail.com" class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>jefrirangsikumbang@gmail.com</span>
+                    </a>
+                    <div class="contact-item">
+                        <i class="fas fa-school"></i>
+                        <span>MAS DINIYAH LIMO JURAI</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="school-name">MAS DINIYAH LIMO JURAI</div>
+        <p>&copy; 2026 JEFRI, S.Pd. Hak Cipta Dilindungi Undang-Undang.</p>
+        <p>Dibuat untuk Generasi Digital Indonesia yang Berakhlak.</p>
+    </footer>
+
+    <!-- Smooth Scroll Script -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

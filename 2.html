@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bab 2 - Desain Grafis CorelDRAW X7 | Informatika Kelas XI</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  body {
+    font-family: 'Poppins', 'Segoe UI', Tahoma, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%);
+    background-attachment: fixed;
+    color: #2c3e50;
+    line-height: 1.8;
+    min-height: 100vh;
+  }
+  
+  .header {
+    background: linear-gradient(135deg, #ff6b6b 0%, #feca57 25%, #48dbfb 50%, #ff9ff3 75%, #54a0ff 100%);
+    color: white;
+    padding: 80px 20px 100px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+  }
+  
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+    background-size: 30px 30px;
+    animation: moveBackground 20s linear infinite;
+  }
+  
+  @keyframes moveBackground {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(30px, 30px); }
+  }
+  
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 60%);
+  }
+  
+  .header .badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.3);
+    backdrop-filter: blur(10px);
+    padding: 8px 24px;
+    border-radius: 30px;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    font-weight: 600;
+    border: 2px solid rgba(255,255,255,0.5);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  }
+  
+  .header h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+    position: relative;
+    z-index: 1;
+  }
+  
+  .header p {
+    font-size: 1.2rem;
+    opacity: 0.95;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+  }
+  
+  .container {
+    max-width: 1000px;
+    margin: -50px auto 40px;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .nav-back {
+    display: inline-block;
+    margin-bottom: 25px;
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    background: linear-gradient(135deg, #ff6b6b, #feca57);
+    padding: 12px 28px;
+    border-radius: 30px;
+    box-shadow: 0 6px 20px rgba(255,107,107,0.4);
+    transition: all 0.3s;
+    font-size: 1rem;
+  }
+  
+  .nav-back:hover { 
+    transform: translateY(-3px) scale(1.05); 
+    box-shadow: 0 8px 25px rgba(255,107,107,0.6);
+  }
+  
+  .card {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+    border: 3px solid transparent;
+    background-clip: padding-box;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3, #54a0ff);
+  }
+  
+  .card h2 {
+    color: #667eea;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 4px solid;
+    border-image: linear-gradient(90deg, #ff6b6b, #feca57, #48dbfb) 1;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .card h2 .num {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 15px rgba(102,126,234,0.4);
+  }
+  
+  .card h3 {
+    color: #ff6b6b;
+    margin: 25px 0 12px;
+    font-size: 1.3rem;
+    padding-left: 15px;
+    border-left: 4px solid #feca57;
+  }
+  
+  .card p { margin-bottom: 15px; text-align: justify; font-size: 1.05rem; }
+  .card ul, .card ol { margin: 12px 0 18px 25px; }
+  .card li { margin-bottom: 10px; font-size: 1.05rem; }
+  
+  .highlight-box {
+    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    border-left: 6px solid #48dbfb;
+    padding: 20px 25px;
+    border-radius: 12px;
+    margin: 20px 0;
+    box-shadow: 0 4px 15px rgba(72,219,251,0.2);
+  }
+  
+  .highlight-box.warn {
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    border-left-color: #ff9a56;
+    box-shadow: 0 4px 15px rgba(255,154,86,0.2);
+  }
+  
+  .highlight-box.danger {
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    border-left-color: #ff6b6b;
+    box-shadow: 0 4px 15px rgba(255,107,107,0.2);
+  }
+  
+  .highlight-box.love {
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 50%, #ff9a9e 100%);
+    border-left-color: #ff6b6b;
+    box-shadow: 0 4px 15px rgba(255,107,107,0.3);
+  }
+  
+  .highlight-box strong { color: #667eea; }
+  
+  .case-study {
+    background: linear-gradient(135deg, #fff5e6 0%, #ffe0f0 100%);
+    border: 3px dashed #ff9ff3;
+    padding: 25px;
+    border-radius: 15px;
+    margin: 25px 0;
+    box-shadow: 0 6px 20px rgba(255,159,243,0.2);
+  }
+  
+  .case-study h4 {
+    color: #ff6b6b;
+    margin-bottom: 12px;
+    font-size: 1.2rem;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  }
+  
+  table th {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 15px;
+    text-align: left;
+    font-weight: 700;
+    font-size: 1.05rem;
+  }
+  
+  table td {
+    padding: 15px;
+    border-bottom: 2px solid #f0f0f0;
+    font-size: 1rem;
+  }
+  
+  table tr:last-child td { border-bottom: none; }
+  table tr:nth-child(even) { background: linear-gradient(90deg, #f8f9ff, #fff0f5); }
+  table tr:hover { background: linear-gradient(90deg, #e8f4ff, #ffe8f5); }
+  
+  .quiz-container {
+    background: linear-gradient(135deg, #fff9e6 0%, #ffe8f0 50%, #e8f4ff 100%);
+    border-radius: 15px;
+    padding: 25px;
+    margin: 15px 0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  }
+  
+  .quiz-question {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 18px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #667eea;
+    transition: all 0.3s;
+  }
+  
+  .quiz-question.correct {
+    border-left-color: #10ac84;
+    background: linear-gradient(135deg, #d4f5e9 0%, #ffffff 100%);
+  }
+  
+  .quiz-question.wrong {
+    border-left-color: #ee5253;
+    background: linear-gradient(135deg, #ffe0e0 0%, #ffffff 100%);
+  }
+  
+  .quiz-question .q-number {
+    display: inline-block;
+    background: linear-gradient(135deg, #ff6b6b, #feca57);
+    color: white;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 35px;
+    font-weight: 700;
+    margin-right: 10px;
+    box-shadow: 0 3px 8px rgba(255,107,107,0.3);
+  }
+  
+  .quiz-question .q-text {
+    font-weight: 600;
+    color: #2c3e50;
+    font-size: 1.05rem;
+    margin-bottom: 12px;
+    display: inline;
+  }
+  
+  .quiz-options {
+    list-style: none;
+    margin: 12px 0 0 0;
+    padding: 0;
+  }
+  
+  .quiz-options li {
+    margin-bottom: 8px;
+  }
+  
+  .quiz-options label {
+    display: block;
+    background: #f8f9ff;
+    padding: 12px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: 2px solid transparent;
+    font-size: 1rem;
+  }
+  
+  .quiz-options label:hover {
+    background: linear-gradient(135deg, #e0c3fc, #8ec5fc);
+    transform: translateX(5px);
+  }
+  
+  .quiz-options input[type="radio"] {
+    margin-right: 10px;
+    accent-color: #667eea;
+    transform: scale(1.2);
+    cursor: pointer;
+  }
+  
+  .quiz-options input[type="radio"]:checked + span {
+    font-weight: 600;
+    color: #667eea;
+  }
+  
+  .feedback {
+    display: none;
+    margin-top: 12px;
+    padding: 12px 15px;
+    border-radius: 10px;
+    font-weight: 600;
+    animation: fadeIn 0.5s;
+  }
+  
+  .feedback.show { display: block; }
+  
+  .feedback.correct {
+    background: linear-gradient(135deg, #10ac84, #1dd1a1);
+    color: white;
+  }
+  
+  .feedback.wrong {
+    background: linear-gradient(135deg, #ee5253, #ff6b6b);
+    color: white;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .quiz-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 25px;
+  }
+  
+  .btn-quiz {
+    padding: 14px 30px;
+    border: none;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  }
+  
+  .btn-check {
+    background: linear-gradient(135deg, #10ac84, #1dd1a1);
+    color: white;
+  }
+  
+  .btn-check:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(16,172,132,0.5);
+  }
+  
+  .btn-reset {
+    background: linear-gradient(135deg, #ff6b6b, #feca57);
+    color: white;
+  }
+  
+  .btn-reset:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255,107,107,0.5);
+  }
+  
+  .score-result {
+    display: none;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    margin-top: 20px;
+    box-shadow: 0 8px 25px rgba(102,126,234,0.4);
+    animation: fadeIn 0.6s;
+  }
+  
+  .score-result.show { display: block; }
+  
+  .score-result .score-number {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin: 10px 0;
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+  }
+  
+  .score-result .score-message {
+    font-size: 1.2rem;
+    margin-top: 10px;
+  }
+  
+  .glosarium dt {
+    font-weight: 700;
+    color: #667eea;
+    margin-top: 15px;
+    font-size: 1.1rem;
+  }
+  
+  .glosarium dd { 
+    margin-left: 25px; 
+    color: #555; 
+    padding-left: 15px;
+    border-left: 3px solid #feca57;
+  }
+  
+  .activity-box {
+    background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+    border-radius: 15px;
+    padding: 25px;
+    margin: 20px 0;
+    border-left: 6px solid #ff9ff3;
+    box-shadow: 0 6px 20px rgba(224,195,252,0.3);
+  }
+  
+  .activity-box h4 { 
+    color: #667eea; 
+    margin-bottom: 12px; 
+    font-size: 1.2rem;
+  }
+  
+  .checklist { list-style: none; margin-left: 0; }
+  .checklist li {
+    padding: 10px 0 10px 35px;
+    position: relative;
+    font-size: 1.05rem;
+  }
+  
+  .checklist li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    background: linear-gradient(135deg, #48dbfb, #0abde3);
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(72,219,251,0.4);
+  }
+  
+  .footer {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 50px;
+    box-shadow: 0 -5px 20px rgba(0,0,0,0.2);
+  }
+  
+  .footer a { color: #feca57; text-decoration: none; font-weight: 700; }
+  .footer a:hover { text-decoration: underline; }
+  
+  .next-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #ff6b6b, #feca57, #48dbfb);
+    color: white;
+    padding: 16px 35px;
+    border-radius: 35px;
+    text-decoration: none;
+    font-weight: 700;
+    margin: 10px 8px;
+    box-shadow: 0 6px 20px rgba(255,107,107,0.4);
+    transition: all 0.3s;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .next-btn:hover { 
+    transform: translateY(-5px) scale(1.05); 
+    box-shadow: 0 10px 30px rgba(255,107,107,0.6);
+  }
+  
+  .btn-formatif {
+    display: inline-block;
+    background: linear-gradient(135deg, #10ac84 0%, #1dd1a1 50%, #48dbfb 100%);
+    color: white;
+    padding: 16px 35px;
+    border-radius: 35px;
+    text-decoration: none;
+    font-weight: 700;
+    margin: 10px 8px;
+    box-shadow: 0 6px 20px rgba(16,172,132,0.4);
+    transition: all 0.3s;
+    font-size: 1.05rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .btn-formatif::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s;
+  }
+  
+  .btn-formatif:hover::before { left: 100%; }
+  
+  .btn-formatif:hover { 
+    transform: translateY(-5px) scale(1.05); 
+    box-shadow: 0 10px 30px rgba(16,172,132,0.6);
+  }
+  
+  @media (max-width: 768px) {
+    .header h1 { font-size: 2rem; }
+    .header p { font-size: 1rem; }
+    .card { padding: 25px; }
+    .card h2 { font-size: 1.5rem; }
+    table { font-size: 0.9rem; }
+    table th, table td { padding: 10px; }
+    .score-result .score-number { font-size: 2.5rem; }
+    .btn-formatif, .next-btn { padding: 14px 25px; font-size: 0.95rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <span class="badge">🎨 BAB II • PERTEMUAN 2</span>
+  <h1>🖌️ Desain Grafis CorelDRAW X7</h1>
+  <p>Menciptakan Karya Visual yang Kreatif, Efektif, dan Bermakna</p>
+</div>
+
+<div class="container">
+  <a href="index.html" class="nav-back">← Kembali ke Beranda</a>
+
+  <!-- PENGANTAR -->
+  <div class="card">
+    <h2><span class="num">🌟</span> Pengantar Bab</h2>
+    <p>Desain grafis adalah seni berkomunikasi melalui elemen visual — garis, bentuk, warna, tipografi, dan ruang. Di era digital ini, kemampuan mendesain bukan lagi milik segelintir orang, melainkan <strong>keterampilan penting</strong> yang harus dikuasai setiap pelajar.</p>
+    <p>Dalam bab ini, kita akan mempelajari <strong>langkah-langkah profesional desain grafis</strong> dan mempraktikkannya menggunakan <strong>CorelDRAW X7</strong>, perangkat lunak desain vektor yang powerful untuk membuat logo, poster, brosur, dan berbagai karya visual lainnya.</p>
+    <div class="highlight-box love">
+      💡 <strong>Filosofi Desain:</strong> "Desain yang baik bukan hanya yang indah dipandang, tetapi juga yang mudah dipahami dan membawa kebaikan bagi yang melihatnya."
+    </div>
+  </div>
+<br><br>
+  <!-- BAGIAN A -->
+  <div class="card">
+    <h2><span class="num">A</span> Langkah-Langkah Penting Desain Grafis</h2>
+    <p>Merancang desain grafis yang bagus dan efektif bukan sekadar tentang estetika, melainkan tentang <strong>bagaimana menyampaikan pesan secara visual</strong>. Agar hasilnya maksimal dan terstruktur, ikuti 7 langkah penting berikut:</p>
+
+    <h3>1. Menentukan Brief dan Tujuan Desain</h3>
+    <p>Sebelum menyentuh software desain, pahami dasar dari proyek tersebut:</p>
+    <ul>
+      <li><strong>Apa tujuannya?</strong> (Apakah untuk promosi, edukasi, branding, atau sekadar informasi?)</li>
+      <li><strong>Siapa target audiensnya?</strong> (Sesuaikan gaya desain dengan usia, profesi, atau minat audiens).</li>
+      <li><strong>Apa pesan utamanya?</strong> (Tentukan satu hal yang harus langsung ditangkap oleh audiens saat melihat desain).</li>
+    </ul>
+
+    <h3>2. Riset dan Mencari Inspirasi (Brainstorming)</h3>
+    <ul>
+      <li>Lakukan riset kompetitor atau tren desain terkini yang relevan.</li>
+      <li>Buat <strong>moodboard</strong> (kumpulan gambar, warna, dan tipografi) untuk membantu memvisualisasikan arah desain.</li>
+    </ul>
+
+    <h3>3. Membuat Sketsa Kasar (Sketching & Wireframing)</h3>
+    <ul>
+      <li>Pindahkan ide dari kepala ke kertas. Buat beberapa alternatif tata letak (layout) secara cepat tanpa mengkhawatirkan detail.</li>
+      <li>Langkah ini sangat menghemat waktu sebelum Anda masuk ke tahap digital.</li>
+    </ul>
+
+    <h3>4. Menerapkan Prinsip Dasar Desain</h3>
+    <p>Saat mulai mengeksekusi desain secara digital, pastikan Anda menerapkan poin-poin berikut:</p>
+    <ul>
+      <li><strong>Hierarki Visual:</strong> Posisikan elemen terpenting (misalnya judul atau Call to Action) sebagai poin utama yang paling pertama dilihat (focal point).</li>
+      <li><strong>Keseimbangan (Balance):</strong> Atur distribusi elemen visual baik secara simetris maupun asimetris agar desain nyaman dilihat.</li>
+      <li><strong>Kontras:</strong> Gunakan perbedaan warna atau ukuran (misalnya teks besar di atas latar belakang gelap) agar informasi mudah dibaca.</li>
+      <li><strong>Ruang Kosong (White Space):</strong> Jangan penuhi semua area. Berikan "ruang bernapas" agar desain tidak terlihat penuh dan berantakan.</li>
+    </ul>
+
+    <h3>5. Pemilihan Elemen Visual yang Tepat</h3>
+    <ul>
+      <li><strong>Tipografi:</strong> Gunakan maksimal 2-3 kombinasi font. Pastikan jenis font sesuai dengan karakter pesan (misalnya: font formal untuk akademis, atau font kasual untuk kreatif).</li>
+      <li><strong>Palet Warna:</strong> Batasi warna utama dan gunakan psikologi warna yang sesuai dengan tema.</li>
+      <li><strong>Aset Visual:</strong> Gunakan gambar, ilustrasi, atau ikon berkualitas tinggi (tidak pecah/resolusi rendah).</li>
+    </ul>
+
+    <h3>6. Evaluasi dan Revisi (Feedback)</h3>
+    <ul>
+      <li>Lihat kembali desain Anda setelah menjauh sejenak (untuk mendapatkan perspektif baru).</li>
+      <li>Mintalah masukan dari orang lain atau klien untuk memastikan pesan yang ingin disampaikan sudah berterima dengan baik.</li>
+    </ul>
+
+    <h3>7. Finishing dan Ekspor Format</h3>
+    <ul>
+      <li>Periksa kembali teks apakah ada kesalahan ketik (typo).</li>
+      <li>Ekspor file sesuai kebutuhan akhir: <strong>CMYK (dengan resolusi 300 dpi)</strong> untuk kebutuhan cetak, atau <strong>RGB (72-150 dpi)</strong> untuk kebutuhan digital/layar.</li>
+    </ul>
+
+    <div class="highlight-box">
+      <strong>🔑 Kata Kunci:</strong> Desain yang efektif = Pesan jelas + Visual menarik + Sesuai target audiens.
+    </div>
+  </div>
+
+  <!-- BAGIAN B -->
+  <div class="card">
+    <h2><span class="num">B</span> Pengenalan CorelDRAW X7 & Operasi Dasar</h2>
+    <p><strong>CorelDRAW X7</strong> adalah perangkat lunak desain grafis berbasis <strong>Vektor</strong>. Berbeda dengan Bitmap yang terdiri dari piksel, vektor berbasis rumus matematika sehingga <strong>tidak pecah (resolusi independen)</strong> saat diperbesar.</p>
+
+    <h3>Perbandingan Vektor vs Bitmap</h3>
+    <table>
+      <tr><th>Kriteria</th><th>Grafis Vektor (CorelDRAW)</th><th>Grafis Bitmap (Photoshop)</th></tr>
+      <tr><td><strong>Dasar Pembentuk</strong></td><td>Garis dan kurva berbasis rumus matematika (Path)</td><td>Kumpulan titik-titik berwarna (Piksel)</td></tr>
+      <tr><td><strong>Resolusi</strong></td><td>Tidak pecah saat di-zoom</td><td>Pecah/buram (pixelated) saat di-zoom</td></tr>
+      <tr><td><strong>Ukuran File</strong></td><td>Cenderung lebih kecil dan ringan</td><td>Cenderung lebih besar, tergantung resolusi</td></tr>
+      <tr><td><strong>Kegunaan Utama</strong></td><td>Desain logo, ilustrasi, tipografi, layout brosur</td><td>Manipulasi foto, editing gambar realistis</td></tr>
+    </table>
+<br><br><br><br>
+    <h3>Tampilan Antarmuka CorelDRAW X7</h3>
+    <p>Saat membuka CorelDRAW X7, Anda akan melihat beberapa komponen utama:</p>
+    <ul>
+      <li><strong>Menu Bar:</strong> Berisi perintah File, Edit, View, Layout, Arrange, Effects, Bitmap, Text, Tools, Window, dan Help.</li>
+      <li><strong>Property Bar:</strong> Menampilkan opsi yang berubah sesuai tool yang aktif.</li>
+      <li><strong>Toolbox (Kotak Alat):</strong> Terletak di sebelah kiri, berisi tool-tool untuk menggambar dan mengedit objek.</li>
+      <li><strong>Drawing Window (Halaman Kerja):</strong> Area utama untuk mendesain.</li>
+      <li><strong>Color Palette (Palet Warna):</strong> Terletak di sebelah kanan, untuk memilih warna isi dan garis tepi.</li>
+      <li><strong>Docker:</strong> Panel tambahan untuk pengaturan lanjutan (seperti Object Properties, Symbol Manager, dll).</li>
+    </ul>
+
+    <div class="highlight-box">
+      <strong>💡 Tips:</strong> Hafalkan shortcut keyboard untuk mempercepat kerja desain Anda! Contoh: <strong>F6</strong> (Rectangle), <strong>F7</strong> (Ellipse), <strong>F8</strong> (Text), <strong>Ctrl+Z</strong> (Undo).
+    </div>
+  </div>
+
+  <!-- BAGIAN C -->
+  <div class="card">
+    <h2><span class="num">C</span> Praktek Menggambar & Mengedit Bentuk</h2>
+    <p>Setelah mengenal antarmuka, saatnya mempraktikkan operasi dasar di CorelDRAW X7:</p>
+
+    <h3>1. Menggambar & Mengedit Bentuk Dasar</h3>
+    <ul>
+      <li><strong>Rectangle Tool (F6):</strong> Membuat persegi atau persegi panjang. Tahan <em>Ctrl</em> saat menggambar untuk membuat persegi sempurna.</li>
+      <li><strong>Ellipse Tool (F7):</strong> Membuat lingkaran atau elips. Tahan <em>Ctrl</em> untuk lingkaran sempurna.</li>
+      <li><strong>Polygon Tool:</strong> Membuat segi banyak (segitiga, bintang, dll).</li>
+      <li><strong>Shape Tool (F10):</strong> Mengedit node dan bentuk objek setelah dibuat.</li>
+    </ul>
+
+    <h3>2. Menggambar Garis, Kurva & Penggabungan Bentuk</h3>
+    <ul>
+      <li><strong>Freehand Tool:</strong> Menggambar garis atau kurva bebas.</li>
+      <li><strong>Bezier Tool:</strong> Membuat kurva presisi dengan node dan handle.</li>
+      <li><strong>Weld, Trim, Intersect:</strong> Menggabungkan atau memotong bentuk untuk membuat logo sederhana.</li>
+    </ul>
+
+    <h3>3. Pewarnaan, Garis Tepi & Pengaturan Objek</h3>
+    <ul>
+      <li><strong>Fill Color:</strong> Klik kiri pada warna di palet untuk memberi warna isi.</li>
+      <li><strong>Outline Color:</strong> Klik kanan pada warna di palet untuk memberi warna garis tepi.</li>
+      <li><strong>Hilangkan Outline:</strong> Klik kanan pada ikon 'X' (None) di palet warna.</li>
+      <li><strong>Outline Width:</strong> Atur ketebalan garis tepi di Property Bar.</li>
+      <li><strong>Arrange > Order:</strong> Mengatur urutan tumpukan objek (To Front, To Back, dll).</li>
+    </ul>
+
+    <h3>4. Penggunaan Teks & Penyisipan Gambar</h3>
+    <ul>
+      <li><strong>Text Tool (F8):</strong> Membuat teks artistik atau teks paragraf.</li>
+      <li><strong>File > Import:</strong> Menyisipkan gambar dari komputer ke halaman kerja.</li>
+      <li><strong>Crop Tool:</strong> Memotong bagian gambar yang tidak diperlukan.</li>
+    </ul>
+
+    <h3>5. Efek Sederhana & Penyesuaian Lanjutan</h3>
+    <ul>
+      <li><strong>Drop Shadow:</strong> Memberi efek bayangan pada objek.</li>
+      <li><strong>Transparency Tool:</strong> Membuat objek transparan atau gradasi transparansi.</li>
+      <li><strong>Envelope Tool:</strong> Mendistorsi bentuk objek sesuai kurva yang diatur.</li>
+      <li><strong>Contour:</strong> Membuat lapisan objek bertingkat (seperti efek 3D sederhana).</li>
+    </ul>
+
+    <div class="case-study">
+      <h4>📌 Studi Kasus: Membuat Logo Sederhana</h4>
+      <p><strong>Tantangan:</strong> Buat logo sederhana untuk kegiatan "Pentas Seni MA Diniyah Limo Jurai" menggunakan kombinasi bentuk dasar.</p>
+      <p><strong>Langkah:</strong></p>
+      <ol>
+        <li>Buat lingkaran dengan <em>Ellipse Tool</em> sebagai latar belakang.</li>
+        <li>Tambahkan bentuk bintang dengan <em>Polygon Tool</em> di tengah lingkaran.</li>
+        <li>Gabungkan kedua bentuk dengan <em>Weld</em> atau atur urutan dengan <em>Arrange > Order</em>.</li>
+        <li>Beri warna gradasi pada lingkaran dan warna solid pada bintang.</li>
+        <li>Tambahkan teks "PENTAS SENI" dengan <em>Text Tool</em> di bawah logo.</li>
+        <li>Simpan file dengan <em>Ctrl+S</em> dan ekspor sebagai PNG untuk penggunaan digital.</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- BAGIAN D -->
+  <div class="card">
+    <h2><span class="num">D</span> Proyek Desain Poster Sederhana</h2>
+    <p>Sebagai puncak pembelajaran, Anda akan membuat <strong>poster sederhana</strong> yang menerapkan seluruh konsep yang telah dipelajari.</p>
+
+    <h3>Tahapan Proyek Poster</h3>
+    <ol>
+      <li><strong>Setup Dokumen:</strong> Buka CorelDRAW X7, buat dokumen baru dengan ukuran A4, mode warna CMYK, resolusi 300 dpi.</li>
+      <li><strong>Background:</strong> Gunakan <em>Rectangle Tool</em> untuk membuat latar belakang dengan warna gradasi atau solid.</li>
+      <li><strong>Judul Utama:</strong> Gunakan <em>Text Tool</em> untuk judul poster dengan font tebal dan ukuran besar (hierarki visual).</li>
+      <li><strong>Sub-judul & Informasi:</strong> Tambahkan tanggal, tempat, dan informasi penting lainnya dengan font yang lebih kecil.</li>
+      <li><strong>Elemen Dekoratif:</strong> Tambahkan bentuk-bentuk (lingkaran, bintang, garis) untuk mempercantik desain.</li>
+      <li><strong>Penyisipan Gambar:</strong> Impor foto kegiatan atau ilustrasi yang relevan dengan <em>File > Import</em>.</li>
+      <li><strong>Finishing:</strong> Periksa typo, atur keseimbangan elemen, beri white space yang cukup.</li>
+      <li><strong>Ekspor:</strong> Simpan file CorelDRAW (.cdr), lalu ekspor sebagai JPG untuk media sosial dan PDF untuk cetak.</li>
+    </ol>
+
+    <div class="highlight-box">
+      <strong>🎯 Checklist Desainer Pemula:</strong>
+      <ul >
+        <li>Sudah menentukan brief dan tujuan desain</li>
+        <li>Sudah membuat sketsa kasar sebelum digital</li>
+        <li>Sudah menerapkan hierarki visual (judul paling menonjol)</li>
+        <li>Sudah menggunakan maksimal 2-3 jenis font</li>
+        <li>Sudah membatasi palet warna (tidak lebih dari 5 warna)</li>
+        <li>Sudah memberikan white space yang cukup</li>
+        <li>Sudah memeriksa typo sebelum ekspor</li>
+        <li>Sudah mengekspor dengan format CMYK 300 dpi untuk cetak</li>
+      </ul>
+    </div>
+  </div>
+<br><br><br>
+  <!-- RANGKUMAN -->
+  <div class="card">
+    <h2><span class="num">📝</span> Rangkuman</h2>
+    <p>Desain grafis adalah proses kreatif yang terstruktur, bukan sekadar menggambar asal-asalan. Dengan mengikuti <strong>7 langkah profesional</strong> dan menguasai <strong>operasi dasar CorelDRAW X7</strong>, Anda dapat menciptakan karya visual yang tidak hanya indah, tetapi juga <strong>efektif menyampaikan pesan</strong>.</p>
+    <p>Ingat, desain yang baik adalah desain yang <strong>berfungsi</strong> — mampu menarik perhatian, mudah dipahami, dan menggerakkan audiens untuk bertindak atau merasakan sesuatu.</p>
+    <div class="highlight-box love">
+      🎨 <strong>Pesan Kunci:</strong> "Jadilah desainer yang tidak hanya terampil menggunakan tools, tetapi juga memiliki kepekaan estetika dan kemampuan menyampaikan pesan melalui visual."
+    </div>
+  </div>
+
+  <!-- PENGAYAAN 1: SHORTCUT -->
+  <div class="card">
+    <h2><span class="num">⭐</span> Pengayaan 1 — Shortcut Penting CorelDRAW X7</h2>
+    <p>Hafalkan shortcut ini untuk mempercepat kerja desain Anda:</p>
+    <table>
+      <tr><th>Shortcut</th><th>Fungsi</th></tr>
+      <tr><td><strong>F2</strong></td><td>Zoom In</td></tr>
+      <tr><td><strong>F3</strong></td><td>Zoom Out</td></tr>
+      <tr><td><strong>F4</strong></td><td>Zoom to All Objects (melihat seluruh objek)</td></tr>
+      <tr><td><strong>F6</strong></td><td>Rectangle Tool (Persegi)</td></tr>
+      <tr><td><strong>F7</strong></td><td>Ellipse Tool (Lingkaran/Elips)</td></tr>
+      <tr><td><strong>F8</strong></td><td>Text Tool (Teks)</td></tr>
+      <tr><td><strong>F10</strong></td><td>Shape Tool (Edit node)</td></tr>
+      <tr><td><strong>Ctrl + Z</strong></td><td>Undo (membatalkan perintah terakhir)</td></tr>
+      <tr><td><strong>Ctrl + Y</strong></td><td>Redo (mengulangi perintah yang dibatalkan)</td></tr>
+      <tr><td><strong>Ctrl + S</strong></td><td>Save (menyimpan dokumen)</td></tr>
+      <tr><td><strong>Ctrl + C / Ctrl + V</strong></td><td>Copy / Paste objek</td></tr>
+      <tr><td><strong>Ctrl + G</strong></td><td>Group (menggabungkan objek)</td></tr>
+      <tr><td><strong>Ctrl + U</strong></td><td>Ungroup (memisahkan objek yang digabung)</td></tr>
+      <tr><td><strong>Delete</strong></td><td>Menghapus objek yang dipilih</td></tr>
+    </table>
+    <div class="highlight-box warn">
+      ⚠️ <strong>Tips:</strong> Cetak tabel shortcut ini dan tempel di dekat komputer Anda untuk referensi cepat saat mendesain!
+    </div>
+  </div>
+
+  <!-- PENGAYAAN 2: TIPS DESAIN -->
+  <div class="card">
+    <h2><span class="num">⭐</span> Pengayaan 2 — Tips Desain Poster yang Menarik</h2>
+    <p>Berikut tips praktis untuk membuat poster yang efektif dan menarik perhatian:</p>
+    <ol>
+      <li><strong>Gunakan Hierarki Visual yang Jelas:</strong> Judul harus paling besar dan menonjol, diikuti sub-judul, lalu informasi detail.</li>
+      <li><strong>Batasi Jumlah Font:</strong> Maksimal 2-3 jenis font. Gunakan font tebal untuk judul, font ringan untuk teks isi.</li>
+      <li><strong>Pilih Warna dengan Bijak:</strong> Gunakan psikologi warna (biru = kepercayaan, merah = semangat, hijau = alam, kuning = ceria).</li>
+      <li><strong>Beri White Space:</strong> Jangan penuhi seluruh area. Berikan ruang kosong agar desain "bernafas" dan mudah dibaca.</li>
+      <li><strong>Gunakan Gambar Berkualitas Tinggi:</strong> Hindari gambar pecah atau pixelated. Gunakan resolusi minimal 300 dpi untuk cetak.</li>
+      <li><strong>Buat Call to Action (CTA) yang Jelas:</strong> Apa yang ingin Anda lakukan audiens? (Datang ke acara, mendaftar, dll). Buat CTA menonjol.</li>
+      <li><strong>Uji Baca dari Jarak Jauh:</strong> Cetak poster dan lihat dari jarak 2-3 meter. Apakah judul dan informasi utama masih terbaca?</li>
+    </ol>
+    <div class="highlight-box">
+      💡 <strong>Contoh Palet Warna untuk Poster Sekolah:</strong> Biru tua (#1e3a8a) + Kuning emas (#fbbf24) + Putih (#ffffff) = Kombinasi elegan, ceria, dan mudah dibaca.
+    </div>
+  </div>
+
+  <!-- PENGAYAAN 3: CHECKLIST -->
+  <div class="card">
+    <h2><span class="num">⭐</span> Pengayaan 3 — Checklist Desainer Pemula</h2>
+    <p>Sebelum mengekspor desain akhir, pastikan Anda sudah memeriksa semua poin berikut:</p>
+    <ul class="checklist">
+      <li>Sudah menentukan brief dan tujuan desain dengan jelas</li>
+      <li>Sudah membuat sketsa kasar sebelum masuk ke digital</li>
+      <li>Sudah menerapkan hierarki visual (judul paling menonjol)</li>
+      <li>Sudah menggunakan maksimal 2-3 jenis font</li>
+      <li>Sudah membatasi palet warna (tidak lebih dari 5 warna utama)</li>
+      <li>Sudah memberikan white space yang cukup</li>
+      <li>Sudah menggunakan gambar berkualitas tinggi (tidak pecah)</li>
+      <li>Sudah memeriksa typo pada semua teks</li>
+      <li>Sudah mengatur keseimbangan elemen (simetris/asimetris)</li>
+      <li>Sudah mengekspor dengan format yang sesuai (CMYK 300 dpi untuk cetak, RGB untuk digital)</li>
+      <li>Sudah meminta feedback dari orang lain sebelum finalisasi</li>
+    </ul>
+  </div>
+
+  <!-- PENGAYAAN 4: AKTIVITAS -->
+  <div class="card">
+    <h2><span class="num">⭐</span> Pengayaan 4 — Aktivitas Praktek</h2>
+    <div class="activity-box">
+      <h4>🎨 Aktivitas 1: Membuat Moodboard Sederhana</h4>
+      <p><strong>Tujuan:</strong> Melatih kemampuan riset dan pemilihan elemen visual sebelum mendesain.</p>
+      <p><strong>Langkah:</strong></p>
+      <ol>
+        <li>Pilih tema: "Poster Lomba Pidato Bahasa Arab di MA Diniyah Limo Jurai".</li>
+        <li>Cari 3 referensi poster di internet (Pinterest/Canva) yang kamu sukai.</li>
+        <li>Tentukan: 2 font yang akan digunakan, 3 warna utama (beserta kode HEX/CMYK), dan 1 gaya ilustrasi/foto.</li>
+        <li>Tempelkan/gambarkan sketsa kasar ide tersebut di buku catatanmu.</li>
+      </ol>
+    </div>
+    <div class="activity-box">
+      <h4>🖌️ Aktivitas 2: Praktek Membuat Logo Sederhana</h4>
+      <p><strong>Tujuan:</strong> Menerapkan operasi dasar CorelDRAW X7 untuk membuat karya visual.</p>
+      <p><strong>Langkah:</strong></p>
+      <ol>
+        <li>Buka CorelDRAW X7, buat dokumen baru (ukuran 10x10 cm, RGB, 150 dpi).</li>
+        <li>Buat logo sederhana untuk "Ekstrakulikuler Desain Grafis MA Diniyah Limo Jurai" menggunakan kombinasi bentuk dasar (lingkaran, persegi, bintang).</li>
+        <li>Beri warna dan hilangkan outline untuk tampilan modern.</li>
+        <li>Tambahkan teks nama ekstrakulikuler di bawah logo.</li>
+        <li>Ekspor sebagai PNG dan kumpulkan ke guru.</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- PENGAYAAN 5: KUIS -->
+  <div class="card">
+    <h2><span class="num">⭐</span> Pengayaan 5 — Kuis Pilihan Ganda (10 Soal)</h2>
+    <p>Uji pemahamanmu tentang desain grafis dan CorelDRAW X7! Pilih satu jawaban yang paling tepat untuk setiap soal, lalu klik tombol <strong>"Cek Jawaban"</strong> untuk melihat hasilnya.</p>
+    
+    <form id="quizForm" class="quiz-container">
+      
+      <!-- Soal 1 -->
+      <div class="quiz-question" data-correct="c" data-id="1">
+        <span class="q-number">1</span>
+        <span class="q-text">Grafis yang dibentuk oleh garis dan kurva berbasis rumus matematika disebut ...</span>
+        <ul class="quiz-options">
+          <li><label><input type="radio" name="q1" value="a"><span>Bitmap</span></label></li>
+          <li><label><input type="radio" name="q1" value="b"><span>Raster</span></label></li>
+          <li><label><input type="radio" name="q1" value="c"><span>Vektor</span></label></li>
+          <li><label><input type="radio" name="q1" value="d"><span>Piksel</span></label></li>
+        </ul>
+        <div class="feedback"></div>
+      </div>
+
+      <!-- Soal 2 -->
+      <div class="quiz-question" data-correct="b" data-id="2">
+        <span class="q-number">2</span>
+        <span class="q-text">Kelebihan grafis vektor dibandingkan bitmap adalah ...</span>
+        <ul class="quiz-options">
+          <li><label><input type="radio" name="q2" value="a"><span>Lebih realistis untuk manipulasi foto</span></label></li>
+          <li><label><input type="radio" name="q2" value="b"><span>Tidak pecah (resolusi independen) saat diperbesar</span></label></li>
+          <li><label><input type="radio" name="q2" value="c"><span>Ukuran file selalu lebih besar</span></label></li>
+          <li><label><input type="radio" name="q2" value="d"><span>Terdiri dari kumpulan titik-titik berwarna</span></label></li>
+        </ul>
+        <div class="feedback"></div>
+      </div>
+
+      <!-- Soal 3 -->
+      <div class="quiz-question" data-correct="a" data-id="3">
+        <span class="q-number">3</span>
+        <span class="q-text">Shortcut keyboard untuk mengaktifkan Rectangle Tool di CorelDRAW adalah ...</span>
+        <ul class="quiz-options">
+          <li><label><input type="radio" name="q3" value="a"><span>F6</span></label></li>
+          <li><label><input type="radio" name="q3" value="b"><span>F7</span></label></li>
+          <li><label><input type="radio" name="q3" value="c"><span>F8</span></label></li>
+          <li><label><input type="radio" name="q3" value="d"><span>F4</span></label></li>
+        </ul>
+        <div class="feedback"></div>
+      </div>
+
+      <!-- Soal 4 -->
+      <div class="quiz-question" data-correct="d" data-id="4">
+        <span class="q-number">4</span>
+        <span class="q-text">Tool yang digunakan untuk membuat dan mengedit teks dalam CorelDRAW adalah ...</span>
+        <ul class="quiz-options">
+          <li><label><input type="radio" name="q4" value="a"><span>Pick Tool</span></label></li>
+          <li><label><input type="radio" name="q4" value="b"><span>Shape Tool</span></label></li>
+          <li><label><input type="radio" name="q4" value="c"><span>Crop Tool</span></label></li>
+          <li><label><input type="radio" name="q4" value="d"><span>Text Tool</span></label></li>
+        </ul>
+        <div class="feedback"></div>
+      </div>
+
+      <!-- Soal 5 -->
+      <div class="quiz-question" data-correct="c" data-id="5">
+        <span class="q-number">5</span>
+        <span class="q-text">Mode warna & resolusi yang tepat untuk kebutuhan cetak adalah ...</span>
+        <ul class="quiz-options">
+          <li><label><input type="radio" name="q5" value="a"><span>RGB, 72 dpi</span></label></li>
+          <li><label><input type="radio" name="q5" value="b"><span>RGB, 300 dpi</span></label></li>
+          <li><label><input type="radio" name="q5" value="c"><span>CMYK, 300 dpi</span></label></li>
+          <li><label><input type="radio" name="q5" value="d"><span>CMYK, 72 dpi</span></label></li>
+        </ul>
+        <div class="feedback"></div>
+      </div>
+
+      <!-- Soal 6 -->
+      <div class="quiz-question" data-correct="b" data-id="6">
+        <span class="q-number">6</span>
+        <span class="q-text">Mode warna RGB paling tepat digunakan untuk ...</span>
+        <ul class="quiz-options">
+          <li><label><input type="radio" name="q6" value="a"><span>Kebutuhan cetak brosur dan banner</span></label></li>
+          <li><label><input type="radio" name="q6" value="b"><span>Kebutuhan tampilan layar digital dan media sosial</span></label></li>
+          <li><label><input type="radio" name="q6" value="c"><span>Kebutuhan cetak stiker vinyl</span></label></li>
+          <li><label><input type="radio" name="q6" value="d"><span>Kebutuhan cetak undangan pernikahan</span></label></li>
+        </ul>
+        <div class="feedback"></div>
+      </div>
+
+      <!-- Soal 7 -->
+      <div class="quiz-question" data-correct="a" data-id="7">
+        <span class="q-number">7</span>
+        <span class="q-text">Prinsip desain yang menempatkan elemen terpenting sebagai focal point yang pertama kali dilihat disebut ...</span>
+        <ul class="quiz-options">
+          <li><label><input type="radio" name="q7" value="a"><span>Hierarki Visual</span></label></li>
+          <li><label><input type="radio" name="q7" value="b"><span>Keseimbangan (Balance)</span></label></li>
+          <li><label><input type="radio" name="q7" value="c"><span>Repetisi</span></label></li>
+          <li><label><input type="radio" name="q7" value="d"><span>Alignment</span></label></li>
+        </ul>
+        <div class="feedback"></div>
+      </div>
+
+      <!-- Soal 8 -->
+      <div class="quiz-question" data-correct="d" data-id="8">
+        <span class="q-number">8</span>
+        <span class="q-text">Fungsi memberikan "ruang kosong" dalam desain adalah ...</span>
+        <ul class="quiz-options">
+          <li><label><input type="radio" name="q8" value="a"><span>Menghemat tinta saat mencetak</span></label></li>
+          <li><label><input type="radio" name="q8" value="b"><span>Membuat file menjadi lebih kecil</span></label></li>
+          <li><label><input type="radio" name="q8" value="c"><span>Menutupi kekurangan desain</span></label></li>
+          <li><label><input type="radio" name="q8" value="d"><span>Memberikan "ruang bernapas" agar desain tidak berantakan</span></label></li>
+        </ul>
+        <div class="feedback"></div>
+      </div>
+
+      <!-- Soal 9 -->
+      <div class="quiz-question" data-correct="b" data-id="9">
+        <span class="q-number">9</span>
+        <span class="q-text">Tujuan utama membuat sketsa kasar (sketching) sebelum masuk ke digital adalah ...</span>
+        <ul class="quiz-options">
+          <li><label><input type="radio" name="q9" value="a"><span>Agar terlihat seperti seniman profesional</span></label></li>
+          <li><label><input type="radio" name="q9" value="b"><span>Menghemat waktu dan memvisualisasikan ide dengan cepat</span></label></li>
+          <li><label><input type="radio" name="q9" value="c"><span>Menggantikan proses desain digital sepenuhnya</span></label></li>
+          <li><label><input type="radio" name="q9" value="d"><span>Untuk dinilai oleh guru seni rupa</span></label></li>
+        </ul>
+        <div class="feedback"></div>
+      </div>
+
+      <!-- Soal 10 -->
+      <div class="quiz-question" data-correct="c" data-id="10">
+        <span class="q-number">10</span>
+        <span class="q-text">Tool di CorelDRAW yang berfungsi untuk memotong atau membuang bagian gambar yang tidak diperlukan adalah ...</span>
+        <ul class="quiz-options">
+          <li><label><input type="radio" name="q10" value="a"><span>Zoom Tool</span></label></li>
+          <li><label><input type="radio" name="q10" value="b"><span>Hand Tool</span></label></li>
+          <li><label><input type="radio" name="q10" value="c"><span>Crop Tool</span></label></li>
+          <li><label><input type="radio" name="q10" value="d"><span>Smart Fill Tool</span></label></li>
+        </ul>
+        <div class="feedback"></div>
+      </div>
+
+      <!-- Tombol Aksi -->
+      <div class="quiz-buttons">
+        <button type="button" class="btn-quiz btn-check" onclick="checkQuiz()">✅ Cek Jawaban</button>
+        <button type="button" class="btn-quiz btn-reset" onclick="resetQuiz()">🔄 Ulangi Kuis</button>
+      </div>
+
+      <!-- Hasil Skor -->
+      <div id="scoreResult" class="score-result">
+        <div>🎯 Skor Kamu:</div>
+        <div class="score-number" id="scoreNumber">0/10</div>
+        <div class="score-message" id="scoreMessage"></div>
+      </div>
+    </form>
+  </div>
+<br><br>
+  <!-- PENGAYAAN 6: GLOSARIUM -->
+  <div class="card">
+    <h2><span class="num">⭐</span> Pengayaan 6 — Glosarium</h2>
+    <dl class="glosarium">
+      <dt>Vektor</dt>
+      <dd>Grafis yang dibentuk oleh garis dan kurva berbasis rumus matematika (tidak pecah saat diperbesar).</dd>
+
+      <dt>Bitmap</dt>
+      <dd>Grafis yang dibentuk oleh kumpulan titik-titik berwarna (piksel), akan pecah saat diperbesar.</dd>
+
+      <dt>CMYK</dt>
+      <dd>Mode warna untuk cetak (Cyan, Magenta, Yellow, Key/Black).</dd>
+
+      <dt>RGB</dt>
+      <dd>Mode warna untuk layar/digital (Red, Green, Blue).</dd>
+
+      <dt>DPI</dt>
+      <dd><em>Dots Per Inch</em>, ukuran resolusi atau kepadatan titik dalam satu inci.</dd>
+
+      <dt>Brief</dt>
+      <dd>Ringkasan tujuan, target audiens, dan pesan utama dari sebuah proyek desain.</dd>
+
+      <dt>Moodboard</dt>
+      <dd>Kumpulan visual (gambar, warna, font) untuk menentukan arah gaya desain.</dd>
+
+      <dt>Hierarki Visual</dt>
+      <dd>Prinsip desain yang mengatur elemen terpenting sebagai focal point yang pertama dilihat.</dd>
+
+      <dt>White Space</dt>
+      <dd>Ruang kosong dalam desain yang memberikan "ruang bernapas" agar tidak berantakan.</dd>
+
+      <dt>Toolbox</dt>
+      <dd>Panel di CorelDRAW yang berisi tool-tool untuk menggambar dan mengedit objek.</dd>
+    </dl>
+  </div>
+
+  <!-- REFERENSI -->
+  <div class="card">
+    <h2><span class="num">📚</span> Referensi</h2>
+    <ol>
+      <li>Kemendikbudristek. (2022). <em>Informatika untuk SMA/MA Kelas XI</em>. Jakarta: Pusat Perbukuan.</li>
+      <li>Rajak, A. (2023). <em>Mahir Desain Grafis dengan CorelDRAW X7 untuk Pemula hingga Mahir</em>. Yogyakarta: Andi Offset.</li>
+      <li>Ramadhan, A. (2024). <em>Panduan Lengkap Desain Grafis untuk Pelajar</em>. Bandung: Remaja Rosdakarya.</li>
+      <li>Corel Corporation. (2024). <em>CorelDRAW X7 User Guide</em>. Retrieved from https://www.corel.com</li>
+    </ol>
+  </div>
+
+  <!-- NAVIGASI -->
+  <div class="card" style="text-align:center;">
+    <h2 style="border:none; justify-content:center;">🚀 Lanjutkan Perjalanan Belajarmu</h2>
+    <p>Setelah memahami materi dan mengikuti kuis, saatnya mengukur pemahamanmu secara lebih mendalam melalui <strong>Uji Formatif 2</strong>!</p>
+    
+    <div style="margin-top: 25px;">
+      <a href="uji-formatif-2.html" target="_blank" class="next-btn">📝 Uji Formatif 2</a>
+      <a href="index.html" class="next-btn">← Kembali ke Beranda</a>
+    </div>
+    
+    <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">
+      💡 <em>Tips: Kerjakan Uji Formatif setelah kamu yakin memahami seluruh materi Bab II dan sudah mempraktikkannya di CorelDRAW.</em>
+    </p>
+  </div>
+</div>
+
+<div class="footer">
+  <p>© 2026 <strong>MAS Diniyah Limo Jurai</strong> • Dibuat oleh <a href="mailto:jefrirangsikumbang@gmail.com">Jefri, S.Pd</a></p>
+  <p style="margin-top:8px; font-size:0.9rem; opacity:0.85;">"Generasi Digital yang Beretika, Kreatif, dan Berbasis Cinta Kasih"</p>
+</div>
+
+<script>
+  // ====== LOGIKA KUIS PILIHAN GANDA ======
+  const correctAnswers = {
+    1: 'c', 2: 'b', 3: 'a', 4: 'd', 5: 'c',
+    6: 'b', 7: 'a', 8: 'd', 9: 'b', 10: 'c'
+  };
+
+  const explanations = {
+    1: 'Vektor dibentuk oleh garis dan kurva berbasis rumus matematika, berbeda dengan bitmap yang berbasis piksel.',
+    2: 'Vektor tidak pecah (resolution independent) saat diperbesar, sehingga ideal untuk logo dan desain yang perlu diskalakan.',
+    3: 'F6 adalah shortcut untuk Rectangle Tool (Persegi). F7 untuk Ellipse, F8 untuk Text.',
+    4: 'Text Tool (F8) digunakan untuk membuat dan mengedit teks dalam CorelDRAW.',
+    5: 'Cetak memerlukan mode warna CMYK dan resolusi minimal 300 dpi agar hasil cetak tajam dan warna akurat.',
+    6: 'RGB (Red, Green, Blue) digunakan untuk tampilan layar/digital seperti media sosial, website, dll.',
+    7: 'Hierarki Visual mengatur elemen terpenting sebagai focal point yang pertama kali dilihat oleh audiens.',
+    8: 'White space memberikan ruang bernapas agar desain tidak terlihat penuh dan berantakan, serta membantu mata fokus.',
+    9: 'Sketsa kasar menghemat waktu dan memvisualisasikan ide dengan cepat sebelum masuk ke tahap digital.',
+    10: 'Crop Tool berfungsi untuk memotong atau membuang bagian gambar yang tidak diperlukan.'
+  };
+
+  function checkQuiz() {
+    let score = 0;
+    const totalQuestions = 10;
+    let allAnswered = true;
+
+    for (let i = 1; i <= totalQuestions; i++) {
+      const questionDiv = document.querySelector(`.quiz-question[data-id="${i}"]`);
+      const selected = document.querySelector(`input[name="q${i}"]:checked`);
+      const feedback = questionDiv.querySelector('.feedback');
+      const correct = correctAnswers[i];
+
+      // Reset state
+      questionDiv.classList.remove('correct', 'wrong');
+      feedback.classList.remove('show', 'correct', 'wrong');
+
+      if (!selected) {
+        allAnswered = false;
+        continue;
+      }
+
+      const userAnswer = selected.value;
+
+      if (userAnswer === correct) {
+        score++;
+        questionDiv.classList.add('correct');
+        feedback.classList.add('show', 'correct');
+        feedback.innerHTML = `✅ <strong>Benar!</strong> ${explanations[i]}`;
+      } else {
+        questionDiv.classList.add('wrong');
+        feedback.classList.add('show', 'wrong');
+        feedback.innerHTML = `❌ <strong>Salah.</strong> Jawaban yang benar adalah <strong>${correct.toUpperCase()}</strong>. ${explanations[i]}`;
+      }
+    }
+
+    if (!allAnswered) {
+      alert('⚠️ Mohon jawab semua 10 soal terlebih dahulu sebelum mengecek jawaban!');
+      return;
+    }
+
+    // Tampilkan skor
+    const scoreResult = document.getElementById('scoreResult');
+    const scoreNumber = document.getElementById('scoreNumber');
+    const scoreMessage = document.getElementById('scoreMessage');
+
+    scoreNumber.textContent = `${score}/${totalQuestions}`;
+
+    let message = '';
+    if (score === 10) {
+      message = '🏆 <strong>SEMPURNA!</strong> Kamu luar biasa! Sudah menguasai materi Desain Grafis dengan sangat baik. Lanjut ke Uji Formatif!';
+    } else if (score >= 8) {
+      message = '🌟 <strong>HEBAT!</strong> Pemahamanmu sangat baik tentang CorelDRAW dan prinsip desain. Tinggal sedikit lagi untuk sempurna!';
+    } else if (score >= 6) {
+      message = '👍 <strong>BAGUS!</strong> Kamu sudah cukup memahami materi. Baca kembali bagian yang belum dikuasai ya!';
+    } else if (score >= 4) {
+      message = '💪 <strong>LUMAYAN!</strong> Perlu belajar lebih giat. Coba baca ulang materinya dan ulangi kuis ini.';
+    } else {
+      message = '📚 <strong>SEMANGAT!</strong> Jangan menyerah! Baca kembali materi Bab II dengan teliti, lalu coba lagi.';
+    }
+
+    scoreMessage.innerHTML = message;
+    scoreResult.classList.add('show');
+    scoreResult.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  function resetQuiz() {
+    // Reset semua radio button
+    document.querySelectorAll('input[type="radio"]').forEach(radio => {
+      radio.checked = false;
+    });
+
+    // Reset feedback dan state
+    document.querySelectorAll('.quiz-question').forEach(q => {
+      q.classList.remove('correct', 'wrong');
+      const feedback = q.querySelector('.feedback');
+      feedback.classList.remove('show', 'correct', 'wrong');
+      feedback.innerHTML = '';
+    });
+
+    // Sembunyikan hasil skor
+    document.getElementById('scoreResult').classList.remove('show');
+
+    // Scroll ke atas kuis
+    document.querySelector('.quiz-container').scrollIntoView({ behavior: 'smooth' });
+  }
+</script>
+
+</body>
+</html>

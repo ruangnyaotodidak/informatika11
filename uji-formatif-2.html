@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uji Formatif 2 - Desain Grafis CorelDRAW | Informatika Kelas XI</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Poppins', 'Segoe UI', Tahoma, sans-serif;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 25%, #4facfe 50%, #43e97b 100%);
+    background-attachment: fixed; color: #2c3e50; line-height: 1.8; min-height: 100vh;
+  }
+  .header {
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 50%, #4facfe 100%);
+    color: white; padding: 60px 20px 80px; text-align: center; position: relative; overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+  }
+  .header::before {
+    content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+    background-size: 30px 30px; animation: moveBackground 20s linear infinite;
+  }
+  @keyframes moveBackground { 0% { transform: translate(0, 0); } 100% { transform: translate(30px, 30px); } }
+  .header::after {
+    content: ''; position: absolute; bottom: -1px; left: 0; width: 100%; height: 60px;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 60%);
+  }
+  .header .badge {
+    display: inline-block; background: rgba(255,255,255,0.3); backdrop-filter: blur(10px);
+    padding: 8px 24px; border-radius: 30px; font-size: 0.95rem; margin-bottom: 15px;
+    letter-spacing: 2px; font-weight: 600; border: 2px solid rgba(255,255,255,0.5);
+  }
+  .header h1 { font-size: 2.8rem; margin-bottom: 10px; text-shadow: 3px 3px 6px rgba(0,0,0,0.3); position: relative; z-index: 1; }
+  .header p { font-size: 1.15rem; opacity: 0.95; max-width: 800px; margin: 0 auto; position: relative; z-index: 1; }
+  
+  .container { max-width: 1000px; margin: -50px auto 40px; padding: 0 20px; position: relative; z-index: 2; }
+  .nav-back {
+    display: inline-block; margin-bottom: 25px; color: white; text-decoration: none; font-weight: 700;
+    background: linear-gradient(135deg, #fa709a, #fee140); padding: 12px 28px; border-radius: 30px;
+    box-shadow: 0 6px 20px rgba(250,112,154,0.4); transition: all 0.3s;
+  }
+  .nav-back:hover { transform: translateY(-3px) scale(1.05); }
+  
+  .card {
+    background: white; border-radius: 20px; padding: 40px; margin-bottom: 30px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15); position: relative; overflow: hidden;
+  }
+  .card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px;
+    background: linear-gradient(90deg, #fa709a, #fee140, #4facfe, #43e97b);
+  }
+  .card h2 {
+    color: #f5576c; font-size: 1.7rem; margin-bottom: 20px; padding-bottom: 15px;
+    border-bottom: 4px solid; border-image: linear-gradient(90deg, #fa709a, #fee140, #4facfe) 1;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .card h2 .num {
+    background: linear-gradient(135deg, #f093fb, #f5576c); color: white; width: 45px; height: 45px;
+    border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 1.1rem;
+  }
+  .card p { margin-bottom: 12px; text-align: justify; font-size: 1.05rem; }
+  
+  .exam-info { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 20px 0; }
+  .info-item {
+    background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%); padding: 18px;
+    border-radius: 12px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }
+  .info-item .label { font-size: 0.85rem; color: #f5576c; font-weight: 600; text-transform: uppercase; margin-bottom: 5px; }
+  .info-item .value { font-size: 1.3rem; font-weight: 700; color: #2c3e50; }
+  
+  .identity-form {
+    background: linear-gradient(135deg, #fff9e6 0%, #ffe0f0 100%); padding: 25px;
+    border-radius: 15px; margin: 20px 0; border: 2px dashed #fa709a;
+  }
+  .form-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-bottom: 15px; }
+  .form-group label { display: block; font-weight: 600; color: #f5576c; margin-bottom: 6px; font-size: 0.95rem; }
+  .form-group input, .form-group select {
+    width: 100%; padding: 10px 15px; border: 2px solid #e0e0e0; border-radius: 10px;
+    font-size: 1rem; font-family: inherit; transition: all 0.3s; background: white;
+  }
+  .form-group input:focus, .form-group select:focus { outline: none; border-color: #f5576c; box-shadow: 0 0 0 3px rgba(245,87,108,0.2); }
+  
+  .timer-container { position: sticky; top: 15px; z-index: 100; margin-bottom: 20px; }
+  .timer-box {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white;
+    padding: 15px 25px; border-radius: 50px; display: flex; align-items: center;
+    justify-content: space-between; box-shadow: 0 8px 25px rgba(245,87,108,0.5); flex-wrap: wrap; gap: 10px;
+  }
+  .timer-display { font-size: 1.8rem; font-weight: 800; font-family: 'Courier New', monospace; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+  .timer-display.warning { color: #fee140; animation: pulse 1s infinite; }
+  .timer-display.danger { color: #ffffff; animation: pulse 0.5s infinite; background: #ff4757; padding: 0 10px; border-radius: 10px; }
+  @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+  .timer-label { font-size: 0.9rem; opacity: 0.9; font-weight: 600; }
+  .btn-timer {
+    padding: 8px 18px; border: none; border-radius: 20px; font-weight: 700; cursor: pointer;
+    font-size: 0.9rem; transition: all 0.3s; background: white; color: #f5576c;
+  }
+  .btn-timer:hover { transform: scale(1.05); }
+  
+  .instruction-box {
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); padding: 22px;
+    border-radius: 15px; margin: 20px 0; border-left: 6px solid #fa709a;
+  }
+  .instruction-box h4 { color: #c0392b; margin-bottom: 10px; font-size: 1.15rem; }
+  .instruction-box ol { margin-left: 20px; }
+  .instruction-box li { margin-bottom: 6px; font-size: 1rem; }
+  
+  .section-divider {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white;
+    padding: 20px 30px; border-radius: 15px; margin: 30px 0 20px; text-align: center;
+  }
+  .section-divider h3 { color: white; border: none; padding: 0; margin: 0 0 5px; font-size: 1.4rem; }
+  .section-divider p { color: rgba(255,255,255,0.9); font-size: 0.95rem; margin: 0; }
+  
+  .question-block {
+    background: white; border-radius: 15px; padding: 22px; margin-bottom: 18px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08); border-left: 5px solid #f5576c; transition: all 0.3s;
+  }
+  .question-block:hover { transform: translateX(3px); box-shadow: 0 6px 20px rgba(0,0,0,0.12); }
+  .question-block.correct { border-left-color: #43e97b; background: linear-gradient(135deg, #d4f5e9 0%, #ffffff 100%); }
+  .question-block.wrong { border-left-color: #ff4757; background: linear-gradient(135deg, #ffe0e0 0%, #ffffff 100%); }
+  
+  .question-header { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px; }
+  .q-number {
+    background: linear-gradient(135deg, #fa709a, #fee140); color: white; min-width: 38px; height: 38px;
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 1rem; flex-shrink: 0;
+  }
+  .q-text { font-weight: 600; color: #2c3e50; font-size: 1.05rem; line-height: 1.6; padding-top: 5px; }
+  .q-score {
+    margin-left: auto; background: linear-gradient(135deg, #4facfe, #00f2fe); color: white;
+    padding: 4px 12px; border-radius: 15px; font-size: 0.8rem; font-weight: 700; flex-shrink: 0;
+  }
+  
+  .options-list { list-style: none; margin: 12px 0 0 50px; padding: 0; }
+  .options-list li { margin-bottom: 8px; }
+  .options-list label {
+    display: block; background: #f8f9ff; padding: 10px 15px; border-radius: 10px;
+    cursor: pointer; transition: all 0.3s; border: 2px solid transparent; font-size: 0.98rem;
+  }
+  .options-list label:hover { background: linear-gradient(135deg, #e0c3fc, #8ec5fc); transform: translateX(5px); }
+  .options-list input[type="radio"] { margin-right: 10px; accent-color: #f5576c; transform: scale(1.2); cursor: pointer; }
+  
+  .tf-options { display: flex; gap: 15px; margin: 12px 0 0 50px; flex-wrap: wrap; }
+  .tf-options label {
+    flex: 1; min-width: 120px; background: #f8f9ff; padding: 12px 20px; border-radius: 10px;
+    cursor: pointer; transition: all 0.3s; border: 2px solid transparent; text-align: center; font-weight: 600;
+  }
+  .tf-options label:hover { background: linear-gradient(135deg, #a1c4fd, #c2e9fb); transform: translateY(-2px); }
+  .tf-options input[type="radio"] { margin-right: 8px; accent-color: #f5576c; }
+  
+  .isian-input, .essay-input {
+    width: 100%; margin: 12px 0 0 0; padding: 12px 15px; border: 2px solid #e0e0e0;
+    border-radius: 10px; font-size: 1rem; font-family: inherit; transition: all 0.3s; resize: vertical;
+  }
+  .isian-input:focus, .essay-input:focus { outline: none; border-color: #f5576c; box-shadow: 0 0 0 3px rgba(245,87,108,0.2); }
+  .essay-input { min-height: 120px; }
+  
+  .feedback {
+    display: none; margin-top: 12px; padding: 12px 15px; border-radius: 10px;
+    font-weight: 600; font-size: 0.95rem; animation: fadeIn 0.5s;
+  }
+  .feedback.show { display: block; }
+  .feedback.correct { background: linear-gradient(135deg, #43e97b, #38f9d7); color: white; }
+  .feedback.wrong { background: linear-gradient(135deg, #ff4757, #ff6b81); color: white; }
+  .feedback.info { background: linear-gradient(135deg, #4facfe, #00f2fe); color: white; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+  
+  .action-buttons { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin: 30px 0; }
+  .btn-action {
+    padding: 14px 32px; border: none; border-radius: 35px; font-weight: 700; font-size: 1.05rem;
+    cursor: pointer; transition: all 0.3s; text-transform: uppercase; letter-spacing: 1px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15); text-decoration: none; display: inline-block;
+  }
+  .btn-submit { background: linear-gradient(135deg, #43e97b, #38f9d7); color: white; }
+  .btn-submit:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(67,233,123,0.5); }
+  .btn-reset { background: linear-gradient(135deg, #fa709a, #fee140); color: white; }
+  .btn-reset:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(250,112,154,0.5); }
+  .btn-print { background: linear-gradient(135deg, #f093fb, #f5576c); color: white; }
+  .btn-print:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(245,87,108,0.5); }
+  .btn-gmail { background: linear-gradient(135deg, #EA4335, #FBBC05); color: white; }
+  .btn-gmail:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(234,67,53,0.5); }
+  .btn-back { background: linear-gradient(135deg, #4facfe, #00f2fe); color: white; }
+  .btn-back:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(79,172,254,0.5); }
+  
+  .result-box {
+    display: none; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white; padding: 35px; border-radius: 20px; text-align: center; margin: 30px 0;
+    box-shadow: 0 10px 40px rgba(245,87,108,0.5); animation: slideUp 0.6s;
+  }
+  .result-box.show { display: block; }
+  @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+  .result-title { font-size: 1.5rem; margin-bottom: 15px; font-weight: 700; }
+  .result-score { font-size: 4.5rem; font-weight: 800; text-shadow: 3px 3px 6px rgba(0,0,0,0.3); margin: 15px 0; }
+  .result-grade {
+    display: inline-block; background: rgba(255,255,255,0.2); padding: 8px 25px;
+    border-radius: 25px; font-size: 1.2rem; font-weight: 700; margin: 10px 0; border: 2px solid rgba(255,255,255,0.5);
+  }
+  .result-message { font-size: 1.1rem; margin-top: 15px; line-height: 1.6; }
+  .result-details { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin-top: 25px; text-align: center; }
+  .result-detail-item { background: rgba(255,255,255,0.15); padding: 15px; border-radius: 12px; backdrop-filter: blur(10px); }
+  .result-detail-item .label { font-size: 0.85rem; opacity: 0.9; margin-bottom: 5px; }
+  .result-detail-item .value { font-size: 1.5rem; font-weight: 700; }
+  
+  .footer {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white; text-align: center; padding: 30px 20px; margin-top: 50px;
+  }
+  .footer a { color: #fee140; text-decoration: none; font-weight: 700; }
+  
+  @media print {
+    body { background: white; }
+    .header { background: white !important; color: black !important; padding: 20px; box-shadow: none; }
+    .header::before, .header::after { display: none; }
+    .header h1, .header p, .header .badge { color: black !important; text-shadow: none !important; }
+    .nav-back, .timer-container, .action-buttons, .btn-action, .footer { display: none !important; }
+    .card { box-shadow: none; border: 1px solid #ddd; page-break-inside: avoid; }
+    .result-box { background: white !important; color: black !important; border: 2px solid #f5576c; }
+    .result-score, .result-title { color: #f5576c !important; text-shadow: none !important; }
+  }
+  @media (max-width: 768px) {
+    .header h1 { font-size: 1.8rem; }
+    .card { padding: 22px; }
+    .options-list, .tf-options { margin-left: 0; }
+    .timer-display { font-size: 1.4rem; }
+    .result-score { font-size: 3rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <span class="badge">📝 UJI FORMATIF 2 • BAB II</span>
+  <h1>🎨 Uji Formatif: Desain Grafis</h1>
+  <p>Ukur Pemahamanmu tentang CorelDRAW X7 dan Prinsip Desain</p>
+</div>
+
+<div class="container">
+  <a href="2.html" class="nav-back">← Kembali ke Materi Bab II</a>
+
+  <div class="timer-container">
+    <div class="timer-box">
+      <div><div class="timer-label">⏰ Sisa Waktu</div><div class="timer-display" id="timerDisplay">60:00</div></div>
+      <div style="display:flex; gap:8px;">
+        <button class="btn-timer" id="btnStart" onclick="startTimer()">▶ Mulai</button>
+        <button class="btn-timer" id="btnPause" onclick="pauseTimer()" style="display:none;">⏸ Jeda</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="num">ℹ️</span> Informasi Ujian</h2>
+    <div class="exam-info">
+      <div class="info-item"><div class="label">Materi</div><div class="value">Bab II - Desain Grafis</div></div>
+      <div class="info-item"><div class="label">Jumlah Soal</div><div class="value">27 Soal</div></div>
+      <div class="info-item"><div class="label">Waktu</div><div class="value">60 Menit</div></div>
+      <div class="info-item"><div class="label">Nilai Maks</div><div class="value">100</div></div>
+    </div>
+    <div class="instruction-box">
+      <h4>📌 Petunjuk Pengerjaan</h4>
+      <ol>
+        <li><strong>Isi identitas</strong> (Nama, Kelas, No. Absen) dengan lengkap dan benar.</li>
+        <li>Klik tombol <strong>"▶ Mulai"</strong> untuk menjalankan timer 60 menit.</li>
+        <li><strong>Bagian A:</strong> 15 soal Pilihan Ganda (masing-masing 2 poin = 30 poin).</li>
+        <li><strong>Bagian B:</strong> 5 soal Benar/Salah (masing-masing 2 poin = 10 poin).</li>
+        <li><strong>Bagian C:</strong> 5 soal Isian Singkat (masing-masing 4 poin = 20 poin).</li>
+        <li><strong>Bagian D:</strong> 2 soal Uraian/Essay (masing-masing 20 poin = 40 poin, dinilai manual).</li>
+        <li>Klik <strong>"📤 Kumpulkan Jawaban"</strong> setelah selesai. Timer akan otomatis berhenti.</li>
+        <li>Hasil nilai akan muncul otomatis. Kamu bisa <strong>mencetak</strong> atau <strong>mengirim via Gmail</strong> (lembar jawaban otomatis terisi) untuk dikumpulkan ke guru.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="num">👤</span> Identitas Siswa</h2>
+    <div class="identity-form">
+      <div class="form-row">
+        <div class="form-group"><label for="nama">Nama Lengkap *</label><input type="text" id="nama" placeholder="Masukkan nama lengkap" required></div>
+        <div class="form-group"><label for="kelas">Kelas *</label>
+          <select id="kelas" required>
+            <option value="">-- Pilih Kelas --</option>
+            <option value="XI A">XI A</option>
+            <option value="XI B">XI B</option>
+            <option value="XI C">XI C</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label for="absen">No. Absen *</label><input type="number" id="absen" placeholder="Contoh: 12" min="1" max="40" required></div>
+        <div class="form-group"><label for="tanggal">Tanggal Mengerjakan</label><input type="date" id="tanggal"></div>
+      </div>
+    </div>
+  </div>
+
+  <form id="examForm">
+    <div class="section-divider"><h3>📝 BAGIAN A — Pilihan Ganda</h3><p>Pilihlah satu jawaban yang paling tepat! (15 soal × 2 poin = 30 poin)</p></div>
+
+    <div class="question-block" data-correct="c" data-id="pg1">
+      <div class="question-header"><div class="q-number">1</div><div class="q-text">Grafis yang dibentuk oleh garis dan kurva berbasis rumus matematika disebut ...</div><div class="q-score">2 poin</div></div>
+      <ul class="options-list">
+        <li><label><input type="radio" name="pg1" value="a"><span>Bitmap</span></label></li>
+        <li><label><input type="radio" name="pg1" value="b"><span>Raster</span></label></li>
+        <li><label><input type="radio" name="pg1" value="c"><span>Vektor</span></label></li>
+        <li><label><input type="radio" name="pg1" value="d"><span>Piksel</span></label></li>
+      </ul><div class="feedback"></div>
+    </div>
+
+    <div class="question-block" data-correct="b" data-id="pg2">
+      <div class="question-header"><div class="q-number">2</div><div class="q-text">Kelebihan utama grafis vektor dibandingkan bitmap adalah ...</div><div class="q-score">2 poin</div></div>
+      <ul class="options-list">
+        <li><label><input type="radio" name="pg2" value="a"><span>Lebih realistis untuk manipulasi foto</span></label></li>
+        <li><label><input type="radio" name="pg2" value="b"><span>Tidak pecah (resolusi independen) saat diperbesar</span></label></li>
+        <li><label><input type="radio" name="pg2" value="c"><span>Ukuran file selalu lebih besar</span></label></li>
+        <li><label><input type="radio" name="pg2" value="d"><span>Terdiri dari kumpulan titik-titik berwarna</span></label></li>
+      </ul><div class="feedback"></div>
+    </div>
+
+    <div class="question-block" data-correct="a" data-id="pg3">
+      <div class="question-header"><div class="q-number">3</div><div class="q-text">Shortcut keyboard untuk mengaktifkan Rectangle Tool di CorelDRAW adalah ...</div><div class="q-score">2 poin</div></div>
+      <ul class="options-list">
+        <li><label><input type="radio" name="pg3" value="a"><span>F6</span></label></li>
+        <li><label><input type="radio" name="pg3" value="b"><span>F7</span></label></li>
+        <li><label><input type="radio" name="pg3" value="c"><span>F8</span></label></li>
+        <li><label><input type="radio" name="pg3" value="d"><span>F4</span></label></li>
+      </ul><div class="feedback"></div>
+    </div>
+
+    <div class="question-block" data-correct="d" data-id="pg4">
+      <div class="question-header"><div class="q-number">4</div><div class="q-text">Tool yang digunakan untuk membuat dan mengedit teks dalam CorelDRAW adalah ...</div><div class="q-score">2 poin</div></div>
+      <ul class="options-list">
+        <li><label><input type="radio" name="pg4" value="a"><span>Pick Tool</span></label></li>
+        <li><label><input type="radio" name="pg4" value="b"><span>Shape Tool</span></label></li>
+        <li><label><input type="radio" name="pg4" value="c"><span>Crop Tool</span></label></li>
+        <li><label><input type="radio" name="pg4" value="d"><span>Text Tool</span></label></li>
+      </ul><div class="feedback"></div>
+    </div>
+
+    <div class="question-block" data-correct="c" data-id="pg5">
+      <div class="question-header"><div class="q-number">5</div><div class="q-text">Mode warna dan resolusi yang tepat untuk kebutuhan cetak (print) adalah ...</div><div class="q-score">2 poin</div></div>
+      <ul class="options-list">
+        <li><label><input type="radio" name="pg5" value="a"><span>RGB, 72 dpi</span></label></li>
+        <li><label><input type="radio" name="pg5" value="b"><span>RGB, 300 dpi</span></label></li>
+        <li><label><input type="radio" name="pg5" value="c"><span>CMYK, 300 dpi</span></label></li>
+        <li><label><input type="radio" name="pg5" value="d"><span>CMYK, 72 dpi</span></label></li>
+      </ul><div class="feedback"></div>
+    </div>
+
+    <div class="question-block" data-correct="b" data-id="pg6">
+      <div class="question-header"><div class="q-number">6</div><div class="q-text">Mode warna RGB paling tepat digunakan untuk kebutuhan ...</div><div class="q-score">2 poin</div></div>
+      <ul class="options-list">
+        <li><label><input type="radio" name="pg6" value="a"><span>Cetak brosur dan banner</span></label></li>
+        <li><label><input type="radio" name="pg6" value="b"><span>Tampilan layar digital dan media sosial</span></label></li>
+        <li><label><input type="radio" name="pg6" value="c"><span>Cetak stiker vinyl</span></label></li>
+        <li><label><input type="radio" name="pg6" value="d"><span>Cetak undangan pernikahan</span></label></li>
+      </ul><div class="feedback"></div>
+    </div>
+
+    <div class="question-block" data-correct="a" data-id="pg7">
+      <div class="question-header"><div class="q-number">7</div><div class="q-text">Prinsip desain yang menempatkan elemen terpenting sebagai focal point yang pertama kali dilihat disebut ...</div><div class="q-score">2 poin</div></div>
+      <ul class="options-list">
+        <li><label><input type="radio" name="pg7" value="a"><span>Hierarki Visual</span></label></li>
+        <li><label><input type="radio" name="pg7" value="b"><span>Keseimbangan (Balance)</span></label></li>
+        <li><label><input type="radio" name="pg7" value="c"><span>Repetisi</span></label></li>
+        <li><label><input type="radio" name="pg7" value="d"><span>Alignment</span></label></li>
+      </ul><div class="feedback"></div>
+    </div>
+
+    <div class="question-block" data-correct="d" data-id="pg8">
+      <div class="question-header"><div class="q-number">8</div><div class="q-text">Fungsi memberikan "ruang kosong" (white space) dalam desain adalah ...</div><div class="q-score">2 poin</div></div>
+      <ul class="options-list">
+        <li><label><input type="radio" name="pg8" value="a"><span>Menghemat tinta saat mencetak</span></label></li>
+        <li><label><input type="radio" name="pg8" value="b"><span>Membuat file menjadi lebih kecil</span></label></li>
+        <li><label><input type="radio" name="pg8" value="c"><span>Menutupi kekurangan desain</span></label></li>
+        <li><label><input type="radio" name="pg8" value="d"><span>Memberikan "ruang bernapas" agar desain tidak berantakan</span></label></li>
+      </ul><div class="feedback"></div>
+    </div>
+
+    <div class="question-block" data-correct="b" data-id="pg9">
+      <div class="question-header"><div class="q-number">9</div><div class="q-text">Tujuan utama membuat sketsa kasar (sketching) sebelum masuk ke digital adalah ...</div><div class="q-score">2 poin</div></div>
+      <ul class="options-list">
+        <li><label><input type="radio" name="pg9" value="a"><span>Agar terlihat seperti seniman profesional</span></label></li>
+        <li><label><input type="radio" name="pg9" value="b"><span>Menghemat waktu dan memvisualisasikan ide dengan cepat</span></label></li>
+        <li><label><input type="radio" name="pg9" value="c"><span>Menggantikan proses desain digital sepenuhnya</span></label></li>
+        <li><label><input type="radio" name="pg9" value="d"><span>Untuk dinilai oleh guru seni rupa</span></label></li>
+      </ul><div class="feedback"></div>
+    </div>
+
+    <div class="question-block" data-correct="c" data-id="pg10">
+      <div class="question-header"><div class="q-number">10</div><div class="q-text">Tool di CorelDRAW yang berfungsi untuk memotong atau membuang bagian gambar yang tidak diperlukan adalah ...</div><div class="q-score">2 poin</div></div>
+      <ul class="options-list">
+        <li><label><input type="radio" name="pg10" value="a"><span>Zoom Tool</span></label></li>
+        <li><label><input type="radio" name="pg10" value="b"><span>Hand Tool</span></label></li>
+        <li><label><input type="radio" name="pg10" value="c"><span>Crop Tool</span></label></li>
+        <li><label><input type="radio" name="pg10" value="d"><span>Smart Fill Tool</span></label></li>
+      </ul><div class="feedback"></div>
+    </div>
+
+    <div class="question-block" data-correct="a" data-id="pg11">
+      <div class="question-header"><div class="q-number">11</div><div class="q-text">Cara cepat menghilangkan garis tepi (outline) pada objek di CorelDRAW adalah ...</div><div class="q-score">2 poin</div></div>
+      <ul class="options-list">
+        <li><label><input type="radio" name="pg11" value="a"><span>Klik kanan pada ikon 'X' di palet warna</span></label></li>
+        <li><label><input type="radio" name="pg11" value="b"><span>Klik kiri pada warna putih di palet warna</span></label></li>
+        <li><label><input type="radio" name="pg11" value="c"><span>Menekan tombol Delete pada keyboard</span></label></li>
+        <li><label><input type="radio" name="pg11" value="d"><span>Mengubah ukuran objek menjadi 0</span></label></li>
+      </ul><div class="feedback"></div>
+    </div>
+
+    <div class="question-block" data-correct="b" data-id="pg12">
+      <div class="question-header"><div class="q-number">12</div><div class="q-text">Dalam alur kerja desain, "Brief" berfungsi untuk ...</div><div class="q-score">2 poin</div></div>
+      <ul class="options-list">
+        <li><label><input type="radio" name="pg12" value="a"><span>Menentukan harga jual desain</span></label></li>
+        <li><label><input type="radio" name="pg12" value="b"><span>Memahami tujuan, target audiens, dan pesan utama proyek</span></label></li>
+        <li><label><input type="radio" name="pg12" value="c"><span>Membuat sketsa kasar di kertas</span></label></li>
+        <li><label><input type="radio" name="pg12" value="d"><span>Mengekspor file ke format JPG</span></label></li>
+      </ul><div class="feedback"></div>
+    </div>
+
+    <div class="question-block" data-correct="d" data-id="pg13">
+      <div class="question-header"><div class="q-number">13</div><div class="q-text">Format file yang paling umum dan aman digunakan untuk kebutuhan cetak profesional (misalnya brosur) adalah ...</div><div class="q-score">2 poin</div></div>
+      <ul class="options-list">
+        <li><label><input type="radio" name="pg13" value="a"><span>GIF</span></label></li>
+        <li><label><input type="radio" name="pg13" value="b"><span>MP4</span></label></li>
+        <li><label><input type="radio" name="pg13" value="c"><span>DOCX</span></label></li>
+        <li><label><input type="radio" name="pg13" value="d"><span>PDF</span></label></li>
+      </ul><div class="feedback"></div>
+    </div>
+
+    <div class="question-block" data-correct="c" data-id="pg14">
+      <div class="question-header"><div class="q-number">14</div><div class="q-text">Kepanjangan dari DPI dalam konteks resolusi gambar adalah ...</div><div class="q-score">2 poin</div></div>
+      <ul class="options-list">
+        <li><label><input type="radio" name="pg14" value="a"><span>Digital Pixel Image</span></label></li>
+        <li><label><input type="radio" name="pg14" value="b"><span>Design Print Interface</span></label></li>
+        <li><label><input type="radio" name="pg14" value="c"><span>Dots Per Inch</span></label></li>
+        <li><label><input type="radio" name="pg14" value="d"><span>Data Processing Input</span></label></li>
+      </ul><div class="feedback"></div>
+    </div>
+
+    <div class="question-block" data-correct="a" data-id="pg15">
+      <div class="question-header"><div class="q-number">15</div><div class="q-text">Perangkat lunak yang khusus digunakan untuk manipulasi foto realistis (grafis bitmap) adalah ...</div><div class="q-score">2 poin</div></div>
+      <ul class="options-list">
+        <li><label><input type="radio" name="pg15" value="a"><span>Adobe Photoshop</span></label></li>
+        <li><label><input type="radio" name="pg15" value="b"><span>CorelDRAW</span></label></li>
+        <li><label><input type="radio" name="pg15" value="c"><span>Macromedia Flash</span></label></li>
+        <li><label><input type="radio" name="pg15" value="d"><span>AutoCAD</span></label></li>
+      </ul><div class="feedback"></div>
+    </div>
+
+    <div class="section-divider"><h3>✅❌ BAGIAN B — Benar atau Salah</h3><p>Tentukan apakah pernyataan berikut BENAR atau SALAH! (5 soal × 2 poin = 10 poin)</p></div>
+
+    <div class="question-block" data-correct="salah" data-id="tf1">
+      <div class="question-header"><div class="q-number">16</div><div class="q-text">Grafis vektor akan menjadi pecah dan buram jika diperbesar melebihi ukuran aslinya.</div><div class="q-score">2 poin</div></div>
+      <div class="tf-options">
+        <label><input type="radio" name="tf1" value="benar"><span>✅ BENAR</span></label>
+        <label><input type="radio" name="tf1" value="salah"><span>❌ SALAH</span></label>
+      </div><div class="feedback"></div>
+    </div>
+
+    <div class="question-block" data-correct="salah" data-id="tf2">
+      <div class="question-header"><div class="q-number">17</div><div class="q-text">Mode warna RGB adalah mode yang paling direkomendasikan untuk kebutuhan cetak (print).</div><div class="q-score">2 poin</div></div>
+      <div class="tf-options">
+        <label><input type="radio" name="tf2" value="benar"><span>✅ BENAR</span></label>
+        <label><input type="radio" name="tf2" value="salah"><span>❌ SALAH</span></label>
+      </div><div class="feedback"></div>
+    </div>
+
+    <div class="question-block" data-correct="benar" data-id="tf3">
+      <div class="question-header"><div class="q-number">18</div><div class="q-text">F7 adalah shortcut keyboard untuk mengaktifkan Ellipse Tool di CorelDRAW.</div><div class="q-score">2 poin</div></div>
+      <div class="tf-options">
+        <label><input type="radio" name="tf3" value="benar"><span>✅ BENAR</span></label>
+        <label><input type="radio" name="tf3" value="salah"><span>❌ SALAH</span></label>
+      </div><div class="feedback"></div>
+    </div>
+
+    <div class="question-block" data-correct="benar" data-id="tf4">
+      <div class="question-header"><div class="q-number">19</div><div class="q-text">Moodboard adalah kumpulan visual (gambar, warna, font) yang membantu menentukan arah gaya desain.</div><div class="q-score">2 poin</div></div>
+      <div class="tf-options">
+        <label><input type="radio" name="tf4" value="benar"><span>✅ BENAR</span></label>
+        <label><input type="radio" name="tf4" value="salah"><span>❌ SALAH</span></label>
+      </div><div class="feedback"></div>
+    </div>
+
+    <div class="question-block" data-correct="salah" data-id="tf5">
+      <div class="question-header"><div class="q-number">20</div><div class="q-text">Desain grafis yang baik hanya fokus pada estetika (kecantikan) tanpa perlu memperhatikan pesan yang ingin disampaikan.</div><div class="q-score">2 poin</div></div>
+      <div class="tf-options">
+        <label><input type="radio" name="tf5" value="benar"><span>✅ BENAR</span></label>
+        <label><input type="radio" name="tf5" value="salah"><span>❌ SALAH</span></label>
+      </div><div class="feedback"></div>
+    </div>
+
+    <div class="section-divider"><h3>✍️ BAGIAN C — Isian Singkat</h3><p>Isilah titik-titik di bawah dengan jawaban yang tepat! (5 soal × 4 poin = 20 poin)</p></div>
+
+    <div class="question-block" data-keywords="dots per inch" data-id="is1">
+      <div class="question-header"><div class="q-number">21</div><div class="q-text">Kepanjangan dari DPI dalam konteks resolusi gambar adalah ...</div><div class="q-score">4 poin</div></div>
+      <input type="text" class="isian-input" name="is1" placeholder="Ketik jawabanmu di sini..."><div class="feedback"></div>
+    </div>
+
+    <div class="question-block" data-keywords="cmyk" data-id="is2">
+      <div class="question-header"><div class="q-number">22</div><div class="q-text">Mode warna yang digunakan untuk kebutuhan cetak (print) adalah ...</div><div class="q-score">4 poin</div></div>
+      <input type="text" class="isian-input" name="is2" placeholder="Ketik jawabanmu di sini..."><div class="feedback"></div>
+    </div>
+
+    <div class="question-block" data-keywords="ellipse tool" data-id="is3">
+      <div class="question-header"><div class="q-number">23</div><div class="q-text">Tool di CorelDRAW yang digunakan untuk membuat lingkaran atau elips adalah ...</div><div class="q-score">4 poin</div></div>
+      <input type="text" class="isian-input" name="is3" placeholder="Ketik jawabanmu di sini..."><div class="feedback"></div>
+    </div>
+
+    <div class="question-block" data-keywords="300" data-id="is4">
+      <div class="question-header"><div class="q-number">24</div><div class="q-text">Dokumen baru untuk kebutuhan cetak profesional biasanya menggunakan resolusi minimal ... dpi.</div><div class="q-score">4 poin</div></div>
+      <input type="text" class="isian-input" name="is4" placeholder="Ketik jawabanmu di sini..."><div class="feedback"></div>
+    </div>
+
+    <div class="question-block" data-keywords="ruang kosong,white space" data-id="is5">
+      <div class="question-header"><div class="q-number">25</div><div class="q-text">Prinsip desain yang memberikan "ruang bernapas" agar desain tidak terlihat penuh dan berantakan disebut ...</div><div class="q-score">4 poin</div></div>
+      <input type="text" class="isian-input" name="is5" placeholder="Ketik jawabanmu di sini..."><div class="feedback"></div>
+    </div>
+
+    <div class="section-divider"><h3>📝 BAGIAN D — Uraian / Essay</h3><p>Jawablah pertanyaan berikut dengan jelas dan lengkap! (2 soal × 20 poin = 40 poin)</p></div>
+
+    <div class="question-block" data-id="es1">
+      <div class="question-header"><div class="q-number">26</div><div class="q-text">Jelaskan perbedaan mendasar antara Grafis Vektor dan Grafis Bitmap, serta berikan masing-masing 1 (satu) contoh kegunaannya dalam pembuatan poster sekolah!</div><div class="q-score">20 poin</div></div>
+      <textarea class="essay-input" name="es1" placeholder="Tulis jawabanmu di sini secara lengkap dan terstruktur..."></textarea>
+      <div class="feedback info">📝 Jawaban essay akan dinilai manual oleh guru berdasarkan kelengkapan dan kedalaman jawaban.</div>
+    </div>
+
+    <div class="question-block" data-id="es2">
+      <div class="question-header"><div class="q-number">27</div><div class="q-text">Kamu ditugaskan membuat poster "Lomba Pidato Bahasa Arab" di MA Diniyah Limo Jurai. Jelaskan langkah-langkah yang akan kamu lakukan mulai dari menentukan <em>brief</em> hingga <em>finishing</em> ekspor, dengan menerapkan prinsip hierarki visual dan keseimbangan!</div><div class="q-score">20 poin</div></div>
+      <textarea class="essay-input" name="es2" placeholder="Tulis jawabanmu di sini secara lengkap dan terstruktur..."></textarea>
+      <div class="feedback info">📝 Jawaban essay akan dinilai manual oleh guru berdasarkan kelengkapan dan kedalaman jawaban.</div>
+    </div>
+
+    <div class="action-buttons">
+      <button type="button" class="btn-action btn-submit" onclick="submitExam()">📤 Kumpulkan Jawaban</button>
+      <button type="button" class="btn-action btn-reset" onclick="resetExam()">🔄 Ulangi Ujian</button>
+    </div>
+
+    <div id="resultBox" class="result-box">
+      <div class="result-title">🎉 HASIL UJI FORMATIF</div>
+      <div id="resultStudent"></div>
+      <div class="result-score" id="resultScore">0</div>
+      <div class="result-grade" id="resultGrade">-</div>
+      <div class="result-message" id="resultMessage"></div>
+      <div class="result-details">
+        <div class="result-detail-item"><div class="label">Pilihan Ganda</div><div class="value" id="scorePG">0/30</div></div>
+        <div class="result-detail-item"><div class="label">Benar/Salah</div><div class="value" id="scoreTF">0/10</div></div>
+        <div class="result-detail-item"><div class="label">Isian Singkat</div><div class="value" id="scoreIS">0/20</div></div>
+        <div class="result-detail-item"><div class="label">Essay</div><div class="value" id="scoreES">0/40</div></div>
+      </div>
+      <div style="margin-top: 25px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+        <button type="button" class="btn-action btn-gmail" onclick="sendToGmail()">📧 Kirim Hasil & Lembar Jawaban ke Guru</button>
+        <button type="button" class="btn-action btn-print" onclick="window.print()">🖨️ Cetak Hasil</button>
+        <button type="button" class="btn-action btn-back" onclick="location.href='2.html'">← Kembali ke Materi</button>
+      </div>
+      <p style="margin-top: 15px; font-size: 0.85rem; opacity: 0.8;">
+        💡 <em>Tombol Gmail akan membuka tab baru dengan draf email yang sudah terisi otomatis (termasuk seluruh jawabanmu). Kamu tinggal menekan "Kirim".</em>
+      </p>
+    </div>
+  </form>
+</div>
+
+<div class="footer">
+  <p>© 2026 <strong>MAS Diniyah Limo Jurai</strong> • Dibuat oleh <a href="mailto:jefrirangsikumbang@gmail.com">Jefri, S.Pd</a></p>
+  <p style="margin-top:8px; font-size:0.9rem; opacity:0.85;">"Generasi Digital yang Beretika, Kreatif, dan Berbasis Cinta Kasih"</p>
+</div>
+
+<script>
+  let timeLeft = 60 * 60;
+  let timerInterval = null;
+  let timerRunning = false;
+
+  function updateTimerDisplay() {
+    const minutes = Math.floor(timeLeft / 60);
+    const seconds = timeLeft % 60;
+    const display = document.getElementById('timerDisplay');
+    display.textContent = `${String(minutes).padStart(2,'0')}:${String(seconds).padStart(2,'0')}`;
+    display.classList.remove('warning', 'danger');
+    if (timeLeft <= 300 && timeLeft > 60) display.classList.add('warning');
+    else if (timeLeft <= 60) display.classList.add('danger');
+  }
+
+  function startTimer() {
+    if (timerRunning) return;
+    timerRunning = true;
+    document.getElementById('btnStart').style.display = 'none';
+    document.getElementById('btnPause').style.display = 'inline-block';
+    timerInterval = setInterval(() => {
+      timeLeft--;
+      updateTimerDisplay();
+      if (timeLeft <= 0) {
+        clearInterval(timerInterval);
+        timerRunning = false;
+        alert('⏰ WAKTU HABIS! Jawaban akan dikumpulkan otomatis.');
+        submitExam(true);
+      }
+    }, 1000);
+  }
+
+  function pauseTimer() {
+    if (!confirm('⏸️ Yakin ingin menjeda timer?')) return;
+    clearInterval(timerInterval);
+    timerRunning = false;
+    document.getElementById('btnStart').style.display = 'inline-block';
+    document.getElementById('btnPause').style.display = 'none';
+  }
+
+  document.getElementById('tanggal').valueAsDate = new Date();
+
+  const explanations = {
+    pg1: 'Vektor dibentuk oleh garis dan kurva berbasis rumus matematika.',
+    pg2: 'Vektor tidak pecah (resolution independent) saat diperbesar, berbeda dengan bitmap.',
+    pg3: 'F6 adalah shortcut untuk Rectangle Tool (Persegi).',
+    pg4: 'Text Tool (F8) digunakan untuk membuat dan mengedit teks.',
+    pg5: 'Cetak memerlukan mode warna CMYK dan resolusi minimal 300 dpi.',
+    pg6: 'RGB (Red, Green, Blue) digunakan untuk tampilan layar/digital.',
+    pg7: 'Hierarki Visual mengatur elemen terpenting sebagai focal point.',
+    pg8: 'White space memberikan ruang bernapas agar desain tidak berantakan.',
+    pg9: 'Sketsa kasar menghemat waktu dan memvisualisasikan ide dengan cepat sebelum digital.',
+    pg10: 'Crop Tool berfungsi untuk memotong bagian gambar yang tidak diperlukan.',
+    pg11: 'Klik kanan pada ikon \'X\' di palet warna akan menghilangkan outline.',
+    pg12: 'Brief berfungsi memahami tujuan, target audiens, dan pesan utama proyek.',
+    pg13: 'PDF adalah format yang paling aman dan umum untuk cetak profesional.',
+    pg14: 'DPI = Dots Per Inch, ukuran kepadatan titik dalam satu inci.',
+    pg15: 'Adobe Photoshop adalah software utama untuk manipulasi foto (bitmap).',
+    tf1: 'SALAH! Grafis vektor TIDAK akan pecah saat diperbesar.',
+    tf2: 'SALAH! RGB untuk layar. Untuk cetak gunakan CMYK.',
+    tf3: 'BENAR! F7 adalah shortcut untuk Ellipse Tool.',
+    tf4: 'BENAR! Moodboard membantu menentukan arah gaya desain.',
+    tf5: 'SALAH! Desain grafis yang baik harus menyampaikan pesan, bukan hanya cantik.'
+  };
+
+  function submitExam(autoSubmit = false) {
+    const nama = document.getElementById('nama').value.trim();
+    const kelas = document.getElementById('kelas').value;
+    const absen = document.getElementById('absen').value;
+
+    if (!nama || !kelas || !absen) {
+      alert('⚠️ Mohon lengkapi identitas (Nama, Kelas, No. Absen) terlebih dahulu!');
+      return;
+    }
+
+    if (!autoSubmit && !confirm('📤 Yakin ingin mengumpulkan jawaban? Pastikan semua soal sudah dijawab!')) return;
+
+    clearInterval(timerInterval);
+    timerRunning = false;
+
+    let scorePG = 0, scoreTF = 0, scoreIS = 0;
+    const totalPG = 15, totalTF = 5, totalIS = 5;
+
+    for (let i = 1; i <= totalPG; i++) {
+      const q = document.querySelector(`.question-block[data-id="pg${i}"]`);
+      const correct = q.dataset.correct;
+      const selected = document.querySelector(`input[name="pg${i}"]:checked`);
+      const feedback = q.querySelector('.feedback');
+      q.classList.remove('correct', 'wrong');
+      feedback.classList.remove('show', 'correct', 'wrong');
+
+      if (selected) {
+        if (selected.value === correct) {
+          scorePG += 2;
+          q.classList.add('correct');
+          feedback.classList.add('show', 'correct');
+          feedback.innerHTML = `✅ <strong>Benar!</strong> ${explanations['pg'+i]}`;
+        } else {
+          q.classList.add('wrong');
+          feedback.classList.add('show', 'wrong');
+          feedback.innerHTML = `❌ <strong>Salah.</strong> Jawaban benar: <strong>${correct.toUpperCase()}</strong>. ${explanations['pg'+i]}`;
+        }
+      } else {
+        q.classList.add('wrong');
+        feedback.classList.add('show', 'wrong');
+        feedback.innerHTML = `⚠️ <strong>Belum dijawab.</strong> Jawaban benar: <strong>${correct.toUpperCase()}</strong>.`;
+      }
+    }
+
+    for (let i = 1; i <= totalTF; i++) {
+      const q = document.querySelector(`.question-block[data-id="tf${i}"]`);
+      const correct = q.dataset.correct;
+      const selected = document.querySelector(`input[name="tf${i}"]:checked`);
+      const feedback = q.querySelector('.feedback');
+      q.classList.remove('correct', 'wrong');
+      feedback.classList.remove('show', 'correct', 'wrong');
+
+      if (selected) {
+        if (selected.value === correct) {
+          scoreTF += 2;
+          q.classList.add('correct');
+          feedback.classList.add('show', 'correct');
+          feedback.innerHTML = `✅ <strong>Benar!</strong> ${explanations['tf'+i]}`;
+        } else {
+          q.classList.add('wrong');
+          feedback.classList.add('show', 'wrong');
+          feedback.innerHTML = `❌ <strong>Salah.</strong> ${explanations['tf'+i]}`;
+        }
+      } else {
+        q.classList.add('wrong');
+        feedback.classList.add('show', 'wrong');
+        feedback.innerHTML = `⚠️ <strong>Belum dijawab.</strong> Jawaban benar: <strong>${correct.toUpperCase()}</strong>.`;
+      }
+    }
+
+    for (let i = 1; i <= totalIS; i++) {
+      const q = document.querySelector(`.question-block[data-id="is${i}"]`);
+      const keywords = q.dataset.keywords.split(',').map(k => k.trim().toLowerCase());
+      const userAnswer = (document.querySelector(`input[name="is${i}"]`).value || '').trim().toLowerCase();
+      const feedback = q.querySelector('.feedback');
+      q.classList.remove('correct', 'wrong');
+      feedback.classList.remove('show', 'correct', 'wrong');
+
+      if (userAnswer === '') {
+        q.classList.add('wrong');
+        feedback.classList.add('show', 'wrong');
+        feedback.innerHTML = `⚠️ <strong>Belum dijawab.</strong> Jawaban yang diterima: <strong>${keywords.join(' / ')}</strong>.`;
+      } else {
+        const isCorrect = keywords.some(kw => userAnswer.includes(kw));
+        if (isCorrect) {
+          scoreIS += 4;
+          q.classList.add('correct');
+          feedback.classList.add('show', 'correct');
+          feedback.innerHTML = `✅ <strong>Benar!</strong> Jawaban diterima.`;
+        } else {
+          q.classList.add('wrong');
+          feedback.classList.add('show', 'wrong');
+          feedback.innerHTML = `❌ <strong>Kurang tepat.</strong> Jawaban yang diterima: <strong>${keywords.join(' / ')}</strong>.`;
+        }
+      }
+    }
+
+    const scoreES = 0;
+    const totalScore = scorePG + scoreTF + scoreIS + scoreES;
+
+    let grade = '', message = '';
+    if (totalScore >= 90) { grade = 'A (ISTIMEWA)'; message = '🏆 <strong>LUAR BIASA!</strong> Kamu menguasai materi Desain Grafis dengan sangat baik.'; }
+    else if (totalScore >= 80) { grade = 'B (SANGAT BAIK)'; message = '🌟 <strong>HEBAT!</strong> Pemahamanmu sangat baik tentang CorelDRAW.'; }
+    else if (totalScore >= 70) { grade = 'C (BAIK)'; message = '👍 <strong>BAGUS!</strong> Kamu sudah cukup memahami prinsip desain.'; }
+    else if (totalScore >= 60) { grade = 'D (CUKUP)'; message = '💪 <strong>LUMAYAN!</strong> Perlu belajar lebih giat tentang tool CorelDRAW.'; }
+    else { grade = 'E (PERLU BIMBINGAN)'; message = '📚 <strong>SEMANGAT!</strong> Baca kembali materi Bab II dengan teliti.'; }
+
+    document.getElementById('resultStudent').innerHTML = `
+      <div style="background: rgba(255,255,255,0.15); padding: 15px; border-radius: 12px; margin: 15px 0; text-align: left;">
+        <div><strong>👤 Nama:</strong> ${nama}</div>
+        <div><strong>🏫 Kelas:</strong> ${kelas}</div>
+        <div><strong>🔢 No. Absen:</strong> ${absen}</div>
+        <div><strong>📅 Tanggal:</strong> ${document.getElementById('tanggal').value}</div>
+      </div>
+    `;
+    document.getElementById('resultScore').textContent = totalScore;
+    document.getElementById('resultGrade').textContent = grade;
+    document.getElementById('resultMessage').innerHTML = message;
+    document.getElementById('scorePG').textContent = `${scorePG}/30`;
+    document.getElementById('scoreTF').textContent = `${scoreTF}/10`;
+    document.getElementById('scoreIS').textContent = `${scoreIS}/20`;
+    document.getElementById('scoreES').textContent = `${scoreES}/40`;
+    
+    const resultBox = document.getElementById('resultBox');
+    resultBox.classList.add('show');
+    resultBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    document.querySelectorAll('input, textarea, select').forEach(el => {
+      if (el.type !== 'button') el.disabled = true;
+    });
+  }
+
+  function sendToGmail() {
+    const nama = document.getElementById('nama').value.trim();
+    const kelas = document.getElementById('kelas').value;
+    const absen = document.getElementById('absen').value;
+    const tanggal = document.getElementById('tanggal').value;
+    const totalScore = document.getElementById('resultScore').textContent;
+    const grade = document.getElementById('resultGrade').textContent;
+
+    if (!nama || !kelas || totalScore === '0') {
+      alert('⚠️ Harap kumpulkan jawaban terlebih dahulu untuk mendapatkan nilai sebelum mengirim ke guru!');
+      return;
+    }
+
+    let body = `Yth. Bapak Jefri, S.Pd,\n\n`;
+    body += `Berikut adalah hasil dan lembar jawaban Uji Formatif 2 (Desain Grafis CorelDRAW) saya:\n\n`;
+    body += `👤 Nama Lengkap : ${nama}\n`;
+    body += `🏫 Kelas       : ${kelas}\n`;
+    body += `🔢 No. Absen   : ${absen}\n`;
+    body += `📅 Tanggal     : ${tanggal}\n`;
+    body += `🎯 Nilai Total : ${totalScore} / 100\n`;
+    body += `🏆 Predikat    : ${grade}\n\n`;
+    body += `========================================\n`;
+    body += `🎨 LEMBAR JAWABAN SISWA\n`;
+    body += `========================================\n\n`;
+
+    body += `--- BAGIAN A: Pilihan Ganda ---\n`;
+    for (let i = 1; i <= 15; i++) {
+      const selected = document.querySelector(`input[name="pg${i}"]:checked`);
+      const answer = selected ? selected.value.toUpperCase() : "Tidak dijawab";
+      body += `${i}. ${answer}\n`;
+    }
+    body += `\n`;
+
+    body += `--- BAGIAN B: Benar/Salah ---\n`;
+    for (let i = 1; i <= 5; i++) {
+      const selected = document.querySelector(`input[name="tf${i}"]:checked`);
+      const answer = selected ? (selected.value === 'benar' ? 'BENAR' : 'SALAH') : "Tidak dijawab";
+      body += `${i + 15}. ${answer}\n`;
+    }
+    body += `\n`;
+
+    body += `--- BAGIAN C: Isian Singkat ---\n`;
+    for (let i = 1; i <= 5; i++) {
+      const answer = document.querySelector(`input[name="is${i}"]`).value.trim() || "Tidak dijawab";
+      body += `${i + 20}. ${answer}\n`;
+    }
+    body += `\n`;
+
+    body += `--- BAGIAN D: Uraian / Essay ---\n`;
+    for (let i = 1; i <= 2; i++) {
+      const answer = document.querySelector(`textarea[name="es${i}"]`).value.trim() || "Tidak dijawab";
+      const cleanAnswer = answer.replace(/\n/g, ' '); 
+      body += `${i + 25}. ${cleanAnswer}\n\n`;
+    }
+
+    body += `========================================\n`;
+    body += `Saya telah mengerjakan soal dengan jujur dan teliti.\n`;
+    body += `Terima kasih atas bimbingan Bapak.\n\n`;
+    body += `Hormat saya,\n${nama}`;
+
+    const subject = encodeURIComponent(`Hasil Uji Formatif 2 - ${nama} - ${kelas}`);
+    const encodedBody = encodeURIComponent(body);
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=jefrirangsikumbang@gmail.com&su=${subject}&body=${encodedBody}`;
+    
+    window.open(gmailUrl, '_blank');
+  }
+
+  function resetExam() {
+    if (!confirm('🔄 Yakin ingin mengulang ujian? Semua jawaban akan dihapus.')) return;
+    
+    document.getElementById('examForm').reset();
+    document.getElementById('tanggal').valueAsDate = new Date();
+    
+    document.querySelectorAll('.question-block').forEach(q => {
+      q.classList.remove('correct', 'wrong');
+      const feedback = q.querySelector('.feedback');
+      if (feedback && !feedback.classList.contains('info')) {
+        feedback.classList.remove('show', 'correct', 'wrong');
+        feedback.innerHTML = '';
+      }
+    });
+    
+    document.querySelectorAll('input, textarea, select').forEach(el => el.disabled = false);
+    document.getElementById('resultBox').classList.remove('show');
+    
+    timeLeft = 60 * 60;
+    updateTimerDisplay();
+    document.getElementById('btnStart').style.display = 'inline-block';
+    document.getElementById('btnPause').style.display = 'none';
+    
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+
+</body>
+</html>

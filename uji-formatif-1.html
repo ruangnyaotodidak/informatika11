@@ -1,0 +1,1317 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uji Formatif 1 - Dampak Sosial Informatika | Informatika Kelas XI</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  body {
+    font-family: 'Poppins', 'Segoe UI', Tahoma, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%);
+    background-attachment: fixed;
+    color: #2c3e50;
+    line-height: 1.8;
+    min-height: 100vh;
+  }
+  
+  .header {
+    background: linear-gradient(135deg, #ff6b6b 0%, #feca57 25%, #48dbfb 50%, #ff9ff3 75%, #54a0ff 100%);
+    color: white;
+    padding: 60px 20px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+  }
+  
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+    background-size: 30px 30px;
+    animation: moveBackground 20s linear infinite;
+  }
+  
+  @keyframes moveBackground {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(30px, 30px); }
+  }
+  
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 60%);
+  }
+  
+  .header .badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.3);
+    backdrop-filter: blur(10px);
+    padding: 8px 24px;
+    border-radius: 30px;
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+    font-weight: 600;
+    border: 2px solid rgba(255,255,255,0.5);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  }
+  
+  .header h1 {
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+    position: relative;
+    z-index: 1;
+  }
+  
+  .header p {
+    font-size: 1.15rem;
+    opacity: 0.95;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+  }
+  
+  .container {
+    max-width: 1000px;
+    margin: -50px auto 40px;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .nav-back {
+    display: inline-block;
+    margin-bottom: 25px;
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    background: linear-gradient(135deg, #ff6b6b, #feca57);
+    padding: 12px 28px;
+    border-radius: 30px;
+    box-shadow: 0 6px 20px rgba(255,107,107,0.4);
+    transition: all 0.3s;
+    font-size: 1rem;
+  }
+  
+  .nav-back:hover { 
+    transform: translateY(-3px) scale(1.05); 
+    box-shadow: 0 8px 25px rgba(255,107,107,0.6);
+  }
+  
+  .card {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3, #54a0ff);
+  }
+  
+  .card h2 {
+    color: #667eea;
+    font-size: 1.7rem;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 4px solid;
+    border-image: linear-gradient(90deg, #ff6b6b, #feca57, #48dbfb) 1;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .card h2 .num {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 15px rgba(102,126,234,0.4);
+  }
+  
+  .card h3 {
+    color: #ff6b6b;
+    margin: 25px 0 12px;
+    font-size: 1.25rem;
+    padding-left: 15px;
+    border-left: 4px solid #feca57;
+  }
+  
+  .card p { margin-bottom: 12px; text-align: justify; font-size: 1.05rem; }
+  
+  .exam-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin: 20px 0;
+  }
+  
+  .info-item {
+    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    padding: 18px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }
+  
+  .info-item .label {
+    font-size: 0.85rem;
+    color: #667eea;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+  }
+  
+  .info-item .value {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #2c3e50;
+  }
+  
+  .identity-form {
+    background: linear-gradient(135deg, #fff9e6 0%, #ffe8f0 100%);
+    padding: 25px;
+    border-radius: 15px;
+    margin: 20px 0;
+    border: 2px dashed #ff9ff3;
+  }
+  
+  .form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    font-weight: 600;
+    color: #667eea;
+    margin-bottom: 6px;
+    font-size: 0.95rem;
+  }
+  
+  .form-group input, .form-group select {
+    width: 100%;
+    padding: 10px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: all 0.3s;
+    background: white;
+  }
+  
+  .form-group input:focus, .form-group select:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102,126,234,0.2);
+  }
+  
+  .timer-container {
+    position: sticky;
+    top: 15px;
+    z-index: 100;
+    margin-bottom: 20px;
+  }
+  
+  .timer-box {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 8px 25px rgba(102,126,234,0.5);
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .timer-display {
+    font-size: 1.8rem;
+    font-weight: 800;
+    font-family: 'Courier New', monospace;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  }
+  
+  .timer-display.warning { color: #feca57; animation: pulse 1s infinite; }
+  .timer-display.danger { color: #ff6b6b; animation: pulse 0.5s infinite; }
+  
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+  
+  .timer-label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    font-weight: 600;
+  }
+  
+  .btn-timer {
+    padding: 8px 18px;
+    border: none;
+    border-radius: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+    background: white;
+    color: #667eea;
+  }
+  
+  .btn-timer:hover { transform: scale(1.05); }
+  
+  .instruction-box {
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    padding: 22px;
+    border-radius: 15px;
+    margin: 20px 0;
+    border-left: 6px solid #ff6b6b;
+  }
+  
+  .instruction-box h4 {
+    color: #c0392b;
+    margin-bottom: 10px;
+    font-size: 1.15rem;
+  }
+  
+  .instruction-box ol { margin-left: 20px; }
+  .instruction-box li { margin-bottom: 6px; font-size: 1rem; }
+  
+  .section-divider {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 20px 30px;
+    border-radius: 15px;
+    margin: 30px 0 20px;
+    text-align: center;
+    box-shadow: 0 6px 20px rgba(102,126,234,0.4);
+  }
+  
+  .section-divider h3 {
+    color: white;
+    border: none;
+    padding: 0;
+    margin: 0 0 5px;
+    font-size: 1.4rem;
+  }
+  
+  .section-divider p {
+    color: rgba(255,255,255,0.9);
+    font-size: 0.95rem;
+    margin: 0;
+  }
+  
+  .question-block {
+    background: white;
+    border-radius: 15px;
+    padding: 22px;
+    margin-bottom: 18px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    border-left: 5px solid #667eea;
+    transition: all 0.3s;
+  }
+  
+  .question-block:hover {
+    transform: translateX(3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+  }
+  
+  .question-block.correct {
+    border-left-color: #10ac84;
+    background: linear-gradient(135deg, #d4f5e9 0%, #ffffff 100%);
+  }
+  
+  .question-block.wrong {
+    border-left-color: #ee5253;
+    background: linear-gradient(135deg, #ffe0e0 0%, #ffffff 100%);
+  }
+  
+  .question-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  
+  .q-number {
+    background: linear-gradient(135deg, #ff6b6b, #feca57);
+    color: white;
+    min-width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1rem;
+    box-shadow: 0 3px 8px rgba(255,107,107,0.3);
+    flex-shrink: 0;
+  }
+  
+  .q-text {
+    font-weight: 600;
+    color: #2c3e50;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    padding-top: 5px;
+  }
+  
+  .q-score {
+    margin-left: auto;
+    background: linear-gradient(135deg, #48dbfb, #0abde3);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  
+  .options-list {
+    list-style: none;
+    margin: 12px 0 0 50px;
+    padding: 0;
+  }
+  
+  .options-list li { margin-bottom: 8px; }
+  
+  .options-list label {
+    display: block;
+    background: #f8f9ff;
+    padding: 10px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: 2px solid transparent;
+    font-size: 0.98rem;
+  }
+  
+  .options-list label:hover {
+    background: linear-gradient(135deg, #e0c3fc, #8ec5fc);
+    transform: translateX(5px);
+  }
+  
+  .options-list input[type="radio"] {
+    margin-right: 10px;
+    accent-color: #667eea;
+    transform: scale(1.2);
+    cursor: pointer;
+  }
+  
+  .tf-options {
+    display: flex;
+    gap: 15px;
+    margin: 12px 0 0 50px;
+    flex-wrap: wrap;
+  }
+  
+  .tf-options label {
+    flex: 1;
+    min-width: 120px;
+    background: #f8f9ff;
+    padding: 12px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: 2px solid transparent;
+    text-align: center;
+    font-weight: 600;
+  }
+  
+  .tf-options label:hover {
+    background: linear-gradient(135deg, #a8edea, #fed6e3);
+    transform: translateY(-2px);
+  }
+  
+  .tf-options input[type="radio"] {
+    margin-right: 8px;
+    accent-color: #667eea;
+  }
+  
+  .isian-input, .essay-input {
+    width: 100%;
+    margin: 12px 0 0 0;
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: all 0.3s;
+    resize: vertical;
+  }
+  
+  .isian-input:focus, .essay-input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102,126,234,0.2);
+  }
+  
+  .essay-input { min-height: 120px; }
+  
+  .feedback {
+    display: none;
+    margin-top: 12px;
+    padding: 12px 15px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    animation: fadeIn 0.5s;
+  }
+  
+  .feedback.show { display: block; }
+  .feedback.correct { background: linear-gradient(135deg, #10ac84, #1dd1a1); color: white; }
+  .feedback.wrong { background: linear-gradient(135deg, #ee5253, #ff6b6b); color: white; }
+  .feedback.info { background: linear-gradient(135deg, #48dbfb, #0abde3); color: white; }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .action-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 30px 0;
+  }
+  
+  .btn-action {
+    padding: 14px 32px;
+    border: none;
+    border-radius: 35px;
+    font-weight: 700;
+    font-size: 1.05rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  .btn-submit { background: linear-gradient(135deg, #10ac84, #1dd1a1); color: white; }
+  .btn-submit:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(16,172,132,0.5); }
+  
+  .btn-reset { background: linear-gradient(135deg, #ff6b6b, #feca57); color: white; }
+  .btn-reset:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(255,107,107,0.5); }
+  
+  .btn-print { background: linear-gradient(135deg, #667eea, #764ba2); color: white; }
+  .btn-print:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(102,126,234,0.5); }
+  
+  .btn-gmail { 
+    background: linear-gradient(135deg, #EA4335, #FBBC05); 
+    color: white; 
+  }
+  .btn-gmail:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(234,67,53,0.5); }
+  
+  .btn-back { background: linear-gradient(135deg, #48dbfb, #0abde3); color: white; }
+  .btn-back:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(72,219,251,0.5); }
+  
+  .result-box {
+    display: none;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 35px;
+    border-radius: 20px;
+    text-align: center;
+    margin: 30px 0;
+    box-shadow: 0 10px 40px rgba(102,126,234,0.5);
+    animation: slideUp 0.6s;
+  }
+  
+  .result-box.show { display: block; }
+  
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .result-title { font-size: 1.5rem; margin-bottom: 15px; font-weight: 700; }
+  .result-score { font-size: 4.5rem; font-weight: 800; text-shadow: 3px 3px 6px rgba(0,0,0,0.3); margin: 15px 0; }
+  .result-grade {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    padding: 8px 25px;
+    border-radius: 25px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 10px 0;
+    border: 2px solid rgba(255,255,255,0.5);
+  }
+  .result-message { font-size: 1.1rem; margin-top: 15px; line-height: 1.6; }
+  
+  .result-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin-top: 25px;
+    text-align: center;
+  }
+  
+  .result-detail-item {
+    background: rgba(255,255,255,0.15);
+    padding: 15px;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+  }
+  
+  .result-detail-item .label { font-size: 0.85rem; opacity: 0.9; margin-bottom: 5px; }
+  .result-detail-item .value { font-size: 1.5rem; font-weight: 700; }
+  
+  .footer {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 50px;
+    box-shadow: 0 -5px 20px rgba(0,0,0,0.2);
+  }
+  
+  .footer a { color: #feca57; text-decoration: none; font-weight: 700; }
+  
+  @media print {
+    body { background: white; }
+    .header { background: white !important; color: black !important; padding: 20px; box-shadow: none; }
+    .header::before, .header::after { display: none; }
+    .header h1, .header p, .header .badge { color: black !important; text-shadow: none !important; }
+    .nav-back, .timer-container, .action-buttons, .btn-action, .footer { display: none !important; }
+    .card { box-shadow: none; border: 1px solid #ddd; page-break-inside: avoid; }
+    .result-box { background: white !important; color: black !important; border: 2px solid #667eea; }
+    .result-score, .result-title { color: #667eea !important; text-shadow: none !important; }
+  }
+  
+  @media (max-width: 768px) {
+    .header h1 { font-size: 1.8rem; }
+    .header p { font-size: 0.95rem; }
+    .card { padding: 22px; }
+    .card h2 { font-size: 1.4rem; }
+    .options-list { margin-left: 0; }
+    .tf-options { margin-left: 0; }
+    .timer-display { font-size: 1.4rem; }
+    .result-score { font-size: 3rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <span class="badge">📝 UJI FORMATIF 1 • BAB I</span>
+  <h1>📋 Uji Formatif: DSI</h1>
+  <p>Ukur Pemahamanmu tentang Dampak Sosial Informatika</p>
+</div>
+
+<div class="container">
+  <a href="1.html" class="nav-back">← Kembali ke Materi Bab I</a>
+
+  <!-- TIMER -->
+  <div class="timer-container">
+    <div class="timer-box">
+      <div>
+        <div class="timer-label">⏰ Sisa Waktu</div>
+        <div class="timer-display" id="timerDisplay">60:00</div>
+      </div>
+      <div style="display:flex; gap:8px;">
+        <button class="btn-timer" id="btnStart" onclick="startTimer()">▶ Mulai</button>
+        <button class="btn-timer" id="btnPause" onclick="pauseTimer()" style="display:none;">⏸ Jeda</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- INFO UJIAN -->
+  <div class="card">
+    <h2><span class="num">ℹ️</span> Informasi Ujian</h2>
+    <div class="exam-info">
+      <div class="info-item"><div class="label">Materi</div><div class="value">Bab I - DSI</div></div>
+      <div class="info-item"><div class="label">Jumlah Soal</div><div class="value">27 Soal</div></div>
+      <div class="info-item"><div class="label">Waktu</div><div class="value">60 Menit</div></div>
+      <div class="info-item"><div class="label">Nilai Maks</div><div class="value">100</div></div>
+    </div>
+    
+    <div class="instruction-box">
+      <h4>📌 Petunjuk Pengerjaan</h4>
+      <ol>
+        <li><strong>Isi identitas</strong> (Nama, Kelas, No. Absen) dengan lengkap dan benar.</li>
+        <li>Klik tombol <strong>"▶ Mulai"</strong> untuk menjalankan timer 60 menit.</li>
+        <li><strong>Bagian A:</strong> 15 soal Pilihan Ganda (masing-masing 2 poin = 30 poin).</li>
+        <li><strong>Bagian B:</strong> 5 soal Benar/Salah (masing-masing 2 poin = 10 poin).</li>
+        <li><strong>Bagian C:</strong> 5 soal Isian Singkat (masing-masing 4 poin = 20 poin).</li>
+        <li><strong>Bagian D:</strong> 2 soal Uraian/Essay (masing-masing 20 poin = 40 poin, dinilai manual).</li>
+        <li>Kerjakan dengan jujur dan teliti. <strong>Jangan menyontek!</strong></li>
+        <li>Klik <strong>"📤 Kumpulkan Jawaban"</strong> setelah selesai. Timer akan otomatis berhenti.</li>
+        <li>Hasil nilai akan muncul otomatis. Kamu bisa <strong>mencetak</strong> atau <strong>mengirim via Gmail</strong> (lembar jawaban otomatis terisi) untuk dikumpulkan ke guru.</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- FORM IDENTITAS -->
+  <div class="card">
+    <h2><span class="num">👤</span> Identitas Siswa</h2>
+    <div class="identity-form">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="nama">Nama Lengkap *</label>
+          <input type="text" id="nama" placeholder="Masukkan nama lengkap" required>
+        </div>
+        <div class="form-group">
+          <label for="kelas">Kelas *</label>
+          <select id="kelas" required>
+            <option value="">-- Pilih Kelas --</option>
+            <option value="XI A">XI A</option>
+            <option value="XI B">XI B</option>
+			<option value="XI C">XI C</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="absen">No. Absen *</label>
+          <input type="number" id="absen" placeholder="Contoh: 12" min="1" max="40" required>
+        </div>
+        <div class="form-group">
+          <label for="tanggal">Tanggal Mengerjakan</label>
+          <input type="date" id="tanggal">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FORM SOAL -->
+  <form id="examForm">
+
+    <!-- ============ BAGIAN A: PILIHAN GANDA ============ -->
+    <div class="section-divider">
+      <h3>📝 BAGIAN A — Pilihan Ganda</h3>
+      <p>Pilihlah satu jawaban yang paling tepat! (15 soal × 2 poin = 30 poin)</p>
+    </div>
+
+    <div class="question-block" data-correct="c" data-id="pg1">
+      <div class="question-header"><div class="q-number">1</div><div class="q-text">Dampak Sosial Informatika (DSI) adalah kajian tentang ...</div><div class="q-score">2 poin</div></div>
+      <ul class="options-list">
+        <li><label><input type="radio" name="pg1" value="a"><span>Teknik merakit komputer</span></label></li>
+        <li><label><input type="radio" name="pg1" value="b"><span>Cara membuat aplikasi Android</span></label></li>
+        <li><label><input type="radio" name="pg1" value="c"><span>Pengaruh TIK terhadap individu, masyarakat, budaya, hukum, dan lingkungan</span></label></li>
+        <li><label><input type="radio" name="pg1" value="d"><span>Sejarah perkembangan internet dunia</span></label></li>
+      </ul><div class="feedback"></div>
+    </div>
+<br><br>
+    <div class="question-block" data-correct="b" data-id="pg2">
+      <div class="question-header"><div class="q-number">2</div><div class="q-text">Dalam perspektif Kurikulum Berbasis Cinta, teknologi dipandang sebagai ...</div><div class="q-score">2 poin</div></div>
+      <ul class="options-list">
+        <li><label><input type="radio" name="pg2" value="a"><span>Alat untuk bersenang-senang</span></label></li>
+        <li><label><input type="radio" name="pg2" value="b"><span>Amanah yang harus dikelola dengan kasih sayang dan kemaslahatan</span></label></li>
+        <li><label><input type="radio" name="pg2" value="c"><span>Sarana untuk menjadi terkenal</span></label></li>
+        <li><label><input type="radio" name="pg2" value="d"><span>Peluang untuk mencari keuntungan semata</span></label></li>
+      </ul><div class="feedback"></div>
+    </div>
+
+    <div class="question-block" data-correct="a" data-id="pg3">
+      <div class="question-header"><div class="q-number">3</div><div class="q-text">Berikut yang merupakan dampak positif informatika di bidang komunikasi adalah ...</div><div class="q-score">2 poin</div></div>
+      <ul class="options-list">
+        <li><label><input type="radio" name="pg3" value="a"><span>Mempermudah silaturahmi lintas jarak dan waktu</span></label></li>
+        <li><label><input type="radio" name="pg3" value="b"><span>Menyebabkan kecanduan gawai</span></label></li>
+        <li><label><input type="radio" name="pg3" value="c"><span>Menurunkan empati terhadap sesama</span></label></li>
+        <li><label><input type="radio" name="pg3" value="d"><span>Memudahkan penyebaran hoaks</span></label></li>
+      </ul><div class="feedback"></div>
+    </div>
+
+    <div class="question-block" data-correct="d" data-id="pg4">
+      <div class="question-header"><div class="q-number">4</div><div class="q-text">Perundungan yang dilakukan melalui media digital disebut ...</div><div class="q-score">2 poin</div></div>
+      <ul class="options-list">
+        <li><label><input type="radio" name="pg4" value="a"><span>Phishing</span></label></li>
+        <li><label><input type="radio" name="pg4" value="b"><span>Hacking</span></label></li>
+        <li><label><input type="radio" name="pg4" value="c"><span>Doxing</span></label></li>
+        <li><label><input type="radio" name="pg4" value="d"><span>Cyberbullying</span></label></li>
+      </ul><div class="feedback"></div>
+    </div>
+
+    <div class="question-block" data-correct="b" data-id="pg5">
+      <div class="question-header"><div class="q-number">5</div><div class="q-text">Pasal 27 ayat (3) UU ITE mengatur tentang ...</div><div class="q-score">2 poin</div></div>
+      <ul class="options-list">
+        <li><label><input type="radio" name="pg5" value="a"><span>Konten asusila</span></label></li>
+        <li><label><input type="radio" name="pg5" value="b"><span>Pencemaran nama baik melalui media elektronik</span></label></li>
+        <li><label><input type="radio" name="pg5" value="c"><span>Judi online</span></label></li>
+        <li><label><input type="radio" name="pg5" value="d"><span>Akses ilegal (hacking)</span></label></li>
+      </ul><div class="feedback"></div>
+    </div>
+
+    <div class="question-block" data-correct="c" data-id="pg6">
+      <div class="question-header"><div class="q-number">6</div><div class="q-text">Prinsip THINK dalam etika digital, huruf "T" berarti ...</div><div class="q-score">2 poin</div></div>
+      <ul class="options-list">
+        <li><label><input type="radio" name="pg6" value="a"><span>Technology</span></label></li>
+        <li><label><input type="radio" name="pg6" value="b"><span>Think</span></label></li>
+        <li><label><input type="radio" name="pg6" value="c"><span>True (Apakah benar?)</span></label></li>
+        <li><label><input type="radio" name="pg6" value="d"><span>Trust</span></label></li>
+      </ul><div class="feedback"></div>
+    </div>
+
+    <div class="question-block" data-correct="a" data-id="pg7">
+      <div class="question-header"><div class="q-number">7</div><div class="q-text">Orang yang berani bertindak membela korban cyberbullying disebut ...</div><div class="q-score">2 poin</div></div>
+      <ul class="options-list">
+        <li><label><input type="radio" name="pg7" value="a"><span>Upstander</span></label></li>
+        <li><label><input type="radio" name="pg7" value="b"><span>Bystander</span></label></li>
+        <li><label><input type="radio" name="pg7" value="c"><span>Troll</span></label></li>
+        <li><label><input type="radio" name="pg7" value="d"><span>Hacker</span></label></li>
+      </ul><div class="feedback"></div>
+    </div>
+
+    <div class="question-block" data-correct="b" data-id="pg8">
+      <div class="question-header"><div class="q-number">8</div><div class="q-text">UU No. 27 Tahun 2022 mengatur tentang ...</div><div class="q-score">2 poin</div></div>
+      <ul class="options-list">
+        <li><label><input type="radio" name="pg8" value="a"><span>Informasi dan Transaksi Elektronik</span></label></li>
+        <li><label><input type="radio" name="pg8" value="b"><span>Perlindungan Data Pribadi</span></label></li>
+        <li><label><input type="radio" name="pg8" value="c"><span>Perlindungan Anak</span></label></li>
+        <li><label><input type="radio" name="pg8" value="d"><span>Hak Kekayaan Intelektual</span></label></li>
+      </ul><div class="feedback"></div>
+    </div>
+
+    <div class="question-block" data-correct="d" data-id="pg9">
+      <div class="question-header"><div class="q-number">9</div><div class="q-text">Dalam konsep Islam, tindakan mengecek kebenaran informasi sebelum menyebarkannya disebut ...</div><div class="q-score">2 poin</div></div>
+      <ul class="options-list">
+        <li><label><input type="radio" name="pg9" value="a"><span>Tawadhu</span></label></li>
+        <li><label><input type="radio" name="pg9" value="b"><span>Tawakkal</span></label></li>
+        <li><label><input type="radio" name="pg9" value="c"><span>Tazkiyah</span></label></li>
+        <li><label><input type="radio" name="pg9" value="d"><span>Tabayyun</span></label></li>
+      </ul><div class="feedback"></div>
+    </div>
+<br><br><br>
+    <div class="question-block" data-correct="c" data-id="pg10">
+      <div class="question-header"><div class="q-number">10</div><div class="q-text">Berikut yang termasuk dampak negatif di bidang perilaku dan kesehatan adalah ...</div><div class="q-score">2 poin</div></div>
+      <ul class="options-list">
+        <li><label><input type="radio" name="pg10" value="a"><span>Mempermudah silaturahmi</span></label></li>
+        <li><label><input type="radio" name="pg10" value="b"><span>Akses belajar yang luas</span></label></li>
+        <li><label><input type="radio" name="pg10" value="c"><span>Kecanduan gawai yang mengurangi waktu ibadah dan istirahat</span></label></li>
+        <li><label><input type="radio" name="pg10" value="d"><span>Membuka peluang UMKM digital</span></label></li>
+      </ul><div class="feedback"></div>
+    </div>
+
+    <div class="question-block" data-correct="b" data-id="pg11">
+      <div class="question-header"><div class="q-number">11</div><div class="q-text">Penyebaran data pribadi seseorang di internet tanpa izin dengan niat jahat disebut ...</div><div class="q-score">2 poin</div></div>
+      <ul class="options-list">
+        <li><label><input type="radio" name="pg11" value="a"><span>Phishing</span></label></li>
+        <li><label><input type="radio" name="pg11" value="b"><span>Doxing</span></label></li>
+        <li><label><input type="radio" name="pg11" value="c"><span>Spamming</span></label></li>
+        <li><label><input type="radio" name="pg11" value="d"><span>Cracking</span></label></li>
+      </ul><div class="feedback"></div>
+    </div>
+
+    <div class="question-block" data-correct="a" data-id="pg12">
+      <div class="question-header"><div class="q-number">12</div><div class="q-text">FOMO dalam konteks penggunaan media sosial berarti ...</div><div class="q-score">2 poin</div></div>
+      <ul class="options-list">
+        <li><label><input type="radio" name="pg12" value="a"><span>Kecemasan takut ketinggalan tren/informasi</span></label></li>
+        <li><label><input type="radio" name="pg12" value="b"><span>Kegemaran mengikuti berita terbaru</span></label></li>
+        <li><label><input type="radio" name="pg12" value="c"><span>Kemampuan mengelola media sosial</span></label></li>
+        <li><label><input type="radio" name="pg12" value="d"><span>Keterampilan membuat konten viral</span></label></li>
+      </ul><div class="feedback"></div>
+    </div>
+
+    <div class="question-block" data-correct="d" data-id="pg13">
+      <div class="question-header"><div class="q-number">13</div><div class="q-text">Rekam jejak aktivitas seseorang di internet yang bersifat permanen disebut ...</div><div class="q-score">2 poin</div></div>
+      <ul class="options-list">
+        <li><label><input type="radio" name="pg13" value="a"><span>Cookie</span></label></li>
+        <li><label><input type="radio" name="pg13" value="b"><span>Cache</span></label></li>
+        <li><label><input type="radio" name="pg13" value="c"><span>History</span></label></li>
+        <li><label><input type="radio" name="pg13" value="d"><span>Jejak Digital (Digital Footprint)</span></label></li>
+      </ul><div class="feedback"></div>
+    </div>
+
+    <div class="question-block" data-correct="c" data-id="pg14">
+      <div class="question-header"><div class="q-number">14</div><div class="q-text">Sikap yang paling tepat ketika melihat teman menjadi korban cyberbullying adalah ...</div><div class="q-score">2 poin</div></div>
+      <ul class="options-list">
+        <li><label><input type="radio" name="pg14" value="a"><span>Ikut berkomentar agar terlihat seru</span></label></li>
+        <li><label><input type="radio" name="pg14" value="b"><span>Diam saja dan tidak peduli</span></label></li>
+        <li><label><input type="radio" name="pg14" value="c"><span>Menghubungi korban secara pribadi untuk memberikan dukungan dan melaporkan ke guru</span></label></li>
+        <li><label><input type="radio" name="pg14" value="d"><span>Menyebarkan screenshot ke grup lain</span></label></li>
+      </ul><div class="feedback"></div>
+    </div>
+
+    <div class="question-block" data-correct="b" data-id="pg15">
+      <div class="question-header"><div class="q-number">15</div><div class="q-text">Pelanggaran Hak Kekayaan Intelektual (HAKI) di dunia digital contohnya adalah ...</div><div class="q-score">2 poin</div></div>
+      <ul class="options-list">
+        <li><label><input type="radio" name="pg15" value="a"><span>Membagikan resep masakan buatan sendiri</span></label></li>
+        <li><label><input type="radio" name="pg15" value="b"><span>Mengunduh dan menyebarkan software bajakan</span></label></li>
+        <li><label><input type="radio" name="pg15" value="c"><span>Membuat konten orisinal untuk YouTube</span></label></li>
+        <li><label><input type="radio" name="pg15" value="d"><span>Menulis artikel di blog pribadi</span></label></li>
+      </ul><div class="feedback"></div>
+    </div>
+
+    <!-- ============ BAGIAN B: BENAR/SALAH ============ -->
+    <div class="section-divider">
+      <h3>✅❌ BAGIAN B — Benar atau Salah</h3>
+      <p>Tentukan apakah pernyataan berikut BENAR atau SALAH! (5 soal × 2 poin = 10 poin)</p>
+    </div>
+
+    <div class="question-block" data-correct="salah" data-id="tf1">
+      <div class="question-header"><div class="q-number">16</div><div class="q-text">Informatika hanya membawa dampak negatif bagi kehidupan sosial masyarakat.</div><div class="q-score">2 poin</div></div>
+      <div class="tf-options">
+        <label><input type="radio" name="tf1" value="benar"><span>✅ BENAR</span></label>
+        <label><input type="radio" name="tf1" value="salah"><span>❌ SALAH</span></label>
+      </div><div class="feedback"></div>
+    </div>
+
+    <div class="question-block" data-correct="benar" data-id="tf2">
+      <div class="question-header"><div class="q-number">17</div><div class="q-text">Cyberbullying dapat dikenakan sanksi hukum berdasarkan UU ITE.</div><div class="q-score">2 poin</div></div>
+      <div class="tf-options">
+        <label><input type="radio" name="tf2" value="benar"><span>✅ BENAR</span></label>
+        <label><input type="radio" name="tf2" value="salah"><span>❌ SALAH</span></label>
+      </div><div class="feedback"></div>
+    </div>
+
+    <div class="question-block" data-correct="salah" data-id="tf3">
+      <div class="question-header"><div class="q-number">18</div><div class="q-text">Jejak digital yang kita tinggalkan di internet dapat dihapus secara permanen dengan mudah.</div><div class="q-score">2 poin</div></div>
+      <div class="tf-options">
+        <label><input type="radio" name="tf3" value="benar"><span>✅ BENAR</span></label>
+        <label><input type="radio" name="tf3" value="salah"><span>❌ SALAH</span></label>
+      </div><div class="feedback"></div>
+    </div>
+<br><br>
+    <div class="question-block" data-correct="benar" data-id="tf4">
+      <div class="question-header"><div class="q-number">19</div><div class="q-text">Tabayyun adalah konsep Islam yang mengajarkan kita untuk mengecek kebenaran informasi sebelum menyebarkannya.</div><div class="q-score">2 poin</div></div>
+      <div class="tf-options">
+        <label><input type="radio" name="tf4" value="benar"><span>✅ BENAR</span></label>
+        <label><input type="radio" name="tf4" value="salah"><span>❌ SALAH</span></label>
+      </div><div class="feedback"></div>
+    </div>
+
+    <div class="question-block" data-correct="salah" data-id="tf5">
+      <div class="question-header"><div class="q-number">20</div><div class="q-text">Bystander adalah orang yang aktif membela korban saat melihat perundungan siber.</div><div class="q-score">2 poin</div></div>
+      <div class="tf-options">
+        <label><input type="radio" name="tf5" value="benar"><span>✅ BENAR</span></label>
+        <label><input type="radio" name="tf5" value="salah"><span>❌ SALAH</span></label>
+      </div><div class="feedback"></div>
+    </div>
+
+    <!-- ============ BAGIAN C: ISIAN SINGKAT ============ -->
+    <div class="section-divider">
+      <h3>✍️ BAGIAN C — Isian Singkat</h3>
+      <p>Isilah titik-titik di bawah dengan jawaban yang tepat! (5 soal × 4 poin = 20 poin)</p>
+    </div>
+
+    <div class="question-block" data-keywords="dampak sosial informatika,dsi" data-id="is1">
+      <div class="question-header"><div class="q-number">21</div><div class="q-text">Kajian tentang pengaruh teknologi informasi terhadap kehidupan individu, masyarakat, dan lingkungan disebut ...</div><div class="q-score">4 poin</div></div>
+      <input type="text" class="isian-input" name="is1" placeholder="Ketik jawabanmu di sini...">
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question-block" data-keywords="cyberbullying,perundungan siber" data-id="is2">
+      <div class="question-header"><div class="q-number">22</div><div class="q-text">Tindakan menyakiti, mengintimidasi, atau mempermalukan orang lain melalui media digital disebut ...</div><div class="q-score">4 poin</div></div>
+      <input type="text" class="isian-input" name="is2" placeholder="Ketik jawabanmu di sini...">
+      <div class="feedback"></div>
+    </div>
+<br><br><br>
+    <div class="question-block" data-keywords="27,27 ayat 3,pasal 27" data-id="is3">
+      <div class="question-header"><div class="q-number">23</div><div class="q-text">Pasal dalam UU ITE yang mengatur tentang pencemaran nama baik melalui media elektronik adalah Pasal ...</div><div class="q-score">4 poin</div></div>
+      <input type="text" class="isian-input" name="is3" placeholder="Ketik jawabanmu di sini...">
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question-block" data-keywords="true,helpful,inspiring,necessary,kind" data-id="is4">
+      <div class="question-header"><div class="q-number">24</div><div class="q-text">Sebutkan salah satu prinsip dari THINK dalam etika digital! (True, Helpful, Inspiring, Necessary, atau Kind)</div><div class="q-score">4 poin</div></div>
+      <input type="text" class="isian-input" name="is4" placeholder="Ketik jawabanmu di sini...">
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question-block" data-keywords="perlindungan data pribadi,pdp,uu pdp,uu no 27 tahun 2022" data-id="is5">
+      <div class="question-header"><div class="q-number">25</div><div class="q-text">UU No. 27 Tahun 2022 mengatur tentang perlindungan ...</div><div class="q-score">4 poin</div></div>
+      <input type="text" class="isian-input" name="is5" placeholder="Ketik jawabanmu di sini...">
+      <div class="feedback"></div>
+    </div>
+
+    <!-- ============ BAGIAN D: URAIAN/ESSAY ============ -->
+    <div class="section-divider">
+      <h3>📝 BAGIAN D — Uraian / Essay</h3>
+      <p>Jawablah pertanyaan berikut dengan jelas dan lengkap! (2 soal × 20 poin = 40 poin)</p>
+    </div>
+
+    <div class="question-block" data-id="es1">
+      <div class="question-header"><div class="q-number">26</div><div class="q-text">Jelaskan 3 (tiga) dampak positif informatika di bidang pendidikan, dan bagaimana seorang pelajar MA dapat memanfaatkannya sebagai bentuk ibadah menuntut ilmu!</div><div class="q-score">20 poin</div></div>
+      <textarea class="essay-input" name="es1" placeholder="Tulis jawabanmu di sini secara lengkap dan terstruktur..."></textarea>
+      <div class="feedback info">📝 Jawaban essay akan dinilai manual oleh guru. Poin diberikan berdasarkan kelengkapan dan kedalaman jawaban.</div>
+    </div>
+
+    <div class="question-block" data-id="es2">
+      <div class="question-header"><div class="q-number">27</div><div class="q-text">Seorang temanmu melihat foto aib seorang siswa lain disebar di grup WhatsApp sekolah beserta caption menghina. Sebagai seorang <strong>upstander</strong>, jelaskan langkah-langkah konkret yang akan kamu lakukan untuk membela korban, dengan mengaitkan nilai-nilai Kurikulum Berbasis Cinta (cinta kepada Allah, sesama, dan bangsa)!</div><div class="q-score">20 poin</div></div>
+      <textarea class="essay-input" name="es2" placeholder="Tulis jawabanmu di sini secara lengkap dan terstruktur..."></textarea>
+      <div class="feedback info">📝 Jawaban essay akan dinilai manual oleh guru. Poin diberikan berdasarkan kelengkapan dan kedalaman jawaban.</div>
+    </div>
+
+    <!-- TOMBOL AKSI -->
+    <div class="action-buttons">
+      <button type="button" class="btn-action btn-submit" onclick="submitExam()">📤 Kumpulkan Jawaban</button>
+      <button type="button" class="btn-action btn-reset" onclick="resetExam()">🔄 Ulangi Ujian</button>
+    </div>
+
+    <!-- HASIL -->
+    <div id="resultBox" class="result-box">
+      <div class="result-title">🎉 HASIL UJI FORMATIF</div>
+      <div id="resultStudent"></div>
+      <div class="result-score" id="resultScore">0</div>
+      <div class="result-grade" id="resultGrade">-</div>
+      <div class="result-message" id="resultMessage"></div>
+      <div class="result-details">
+        <div class="result-detail-item"><div class="label">Pilihan Ganda</div><div class="value" id="scorePG">0/30</div></div>
+        <div class="result-detail-item"><div class="label">Benar/Salah</div><div class="value" id="scoreTF">0/10</div></div>
+        <div class="result-detail-item"><div class="label">Isian Singkat</div><div class="value" id="scoreIS">0/20</div></div>
+        <div class="result-detail-item"><div class="label">Essay</div><div class="value" id="scoreES">0/40</div></div>
+      </div>
+      <div style="margin-top: 25px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+        <button type="button" class="btn-action btn-gmail" onclick="sendToGmail()">📧 Kirim Hasil & Lembar Jawaban ke Guru</button>
+        <button type="button" class="btn-action btn-print" onclick="window.print()">🖨️ Cetak Hasil</button>
+        <button type="button" class="btn-action btn-back" onclick="location.href='1.html'">← Kembali ke Materi</button>
+      </div>
+      <p style="margin-top: 15px; font-size: 0.85rem; opacity: 0.8;">
+        💡 <em>Tombol Gmail akan membuka tab baru dengan draf email yang sudah terisi otomatis (termasuk seluruh jawabanmu). Kamu tinggal menekan "Kirim".</em>
+      </p>
+    </div>
+  </form>
+</div>
+
+<div class="footer">
+  <p>© 2026 <strong>MAS Diniyah Limo Jurai</strong> • Dibuat oleh <a href="mailto:jefrirangsikumbang@gmail.com">Jefri, S.Pd</a></p>
+  <p style="margin-top:8px; font-size:0.9rem; opacity:0.85;">"Generasi Digital yang Beretika, Kreatif, dan Berbasis Cinta Kasih"</p>
+</div>
+
+<script>
+  // ====== TIMER ======
+  let timeLeft = 60 * 60;
+  let timerInterval = null;
+  let timerRunning = false;
+
+  function updateTimerDisplay() {
+    const minutes = Math.floor(timeLeft / 60);
+    const seconds = timeLeft % 60;
+    const display = document.getElementById('timerDisplay');
+    display.textContent = `${String(minutes).padStart(2,'0')}:${String(seconds).padStart(2,'0')}`;
+    
+    display.classList.remove('warning', 'danger');
+    if (timeLeft <= 300 && timeLeft > 60) display.classList.add('warning');
+    else if (timeLeft <= 60) display.classList.add('danger');
+  }
+
+  function startTimer() {
+    if (timerRunning) return;
+    timerRunning = true;
+    document.getElementById('btnStart').style.display = 'none';
+    document.getElementById('btnPause').style.display = 'inline-block';
+    
+    timerInterval = setInterval(() => {
+      timeLeft--;
+      updateTimerDisplay();
+      if (timeLeft <= 0) {
+        clearInterval(timerInterval);
+        timerRunning = false;
+        alert('⏰ WAKTU HABIS! Jawaban akan dikumpulkan otomatis.');
+        submitExam(true);
+      }
+    }, 1000);
+  }
+
+  function pauseTimer() {
+    if (!confirm('⏸️ Yakin ingin menjeda timer?')) return;
+    clearInterval(timerInterval);
+    timerRunning = false;
+    document.getElementById('btnStart').style.display = 'inline-block';
+    document.getElementById('btnPause').style.display = 'none';
+  }
+
+  document.getElementById('tanggal').valueAsDate = new Date();
+
+  // ====== PENILAIAN ======
+  const explanations = {
+    pg1: 'DSI adalah kajian tentang pengaruh TIK terhadap individu, masyarakat, budaya, hukum, dan lingkungan.',
+    pg2: 'Dalam Kurikulum Berbasis Cinta, teknologi dipandang sebagai amanah yang harus dikelola dengan kasih sayang.',
+    pg3: 'Mempermudah silaturahmi lintas jarak dan waktu adalah dampak positif di bidang komunikasi.',
+    pg4: 'Cyberbullying = perundungan melalui media digital.',
+    pg5: 'Pasal 27 ayat (3) UU ITE mengatur tentang pencemaran nama baik.',
+    pg6: 'T dalam THINK = True (Apakah benar?).',
+    pg7: 'Upstander = orang yang berani membela korban. Bystander hanya menonton.',
+    pg8: 'UU No. 27 Tahun 2022 = UU Perlindungan Data Pribadi (PDP).',
+    pg9: 'Tabayyun = cek kebenaran informasi sebelum menyebarkannya (QS. Al-Hujurat: 6).',
+    pg10: 'Kecanduan gawai adalah dampak negatif di bidang perilaku dan kesehatan.',
+    pg11: 'Doxing = penyebaran data pribadi tanpa izin dengan niat jahat.',
+    pg12: 'FOMO = Fear of Missing Out, kecemasan takut ketinggalan tren.',
+    pg13: 'Jejak Digital (Digital Footprint) = rekam jejak permanen di internet.',
+    pg14: 'Sikap upstander: dukung korban secara pribadi dan laporkan ke guru.',
+    pg15: 'Mengunduh software bajakan = pelanggaran HAKI.',
+    tf1: 'SALAH! Informatika membawa dampak positif DAN negatif.',
+    tf2: 'BENAR! Cyberbullying diatur dalam UU ITE Pasal 27 ayat (3).',
+    tf3: 'SALAH! Jejak digital bersifat permanen dan sulit dihapus sepenuhnya.',
+    tf4: 'BENAR! Tabayyun adalah konsep Islam untuk cek kebenaran informasi.',
+    tf5: 'SALAH! Bystander hanya menonton. Yang membela korban adalah UPSTANDER.'
+  };
+
+  function submitExam(autoSubmit = false) {
+    const nama = document.getElementById('nama').value.trim();
+    const kelas = document.getElementById('kelas').value;
+    const absen = document.getElementById('absen').value;
+
+    if (!nama || !kelas || !absen) {
+      alert('⚠️ Mohon lengkapi identitas (Nama, Kelas, No. Absen) terlebih dahulu!');
+      return;
+    }
+
+    if (!autoSubmit && !confirm('📤 Yakin ingin mengumpulkan jawaban? Pastikan semua soal sudah dijawab!')) return;
+
+    clearInterval(timerInterval);
+    timerRunning = false;
+
+    let scorePG = 0, scoreTF = 0, scoreIS = 0;
+    const totalPG = 15, totalTF = 5, totalIS = 5;
+
+    // PG
+    for (let i = 1; i <= totalPG; i++) {
+      const q = document.querySelector(`.question-block[data-id="pg${i}"]`);
+      const correct = q.dataset.correct;
+      const selected = document.querySelector(`input[name="pg${i}"]:checked`);
+      const feedback = q.querySelector('.feedback');
+      q.classList.remove('correct', 'wrong');
+      feedback.classList.remove('show', 'correct', 'wrong');
+
+      if (selected) {
+        if (selected.value === correct) {
+          scorePG += 2;
+          q.classList.add('correct');
+          feedback.classList.add('show', 'correct');
+          feedback.innerHTML = `✅ <strong>Benar!</strong> ${explanations['pg'+i]}`;
+        } else {
+          q.classList.add('wrong');
+          feedback.classList.add('show', 'wrong');
+          feedback.innerHTML = `❌ <strong>Salah.</strong> Jawaban benar: <strong>${correct.toUpperCase()}</strong>. ${explanations['pg'+i]}`;
+        }
+      } else {
+        q.classList.add('wrong');
+        feedback.classList.add('show', 'wrong');
+        feedback.innerHTML = `⚠️ <strong>Belum dijawab.</strong> Jawaban benar: <strong>${correct.toUpperCase()}</strong>.`;
+      }
+    }
+
+    // True/False
+    for (let i = 1; i <= totalTF; i++) {
+      const q = document.querySelector(`.question-block[data-id="tf${i}"]`);
+      const correct = q.dataset.correct;
+      const selected = document.querySelector(`input[name="tf${i}"]:checked`);
+      const feedback = q.querySelector('.feedback');
+      q.classList.remove('correct', 'wrong');
+      feedback.classList.remove('show', 'correct', 'wrong');
+
+      if (selected) {
+        if (selected.value === correct) {
+          scoreTF += 2;
+          q.classList.add('correct');
+          feedback.classList.add('show', 'correct');
+          feedback.innerHTML = `✅ <strong>Benar!</strong> ${explanations['tf'+i]}`;
+        } else {
+          q.classList.add('wrong');
+          feedback.classList.add('show', 'wrong');
+          feedback.innerHTML = `❌ <strong>Salah.</strong> ${explanations['tf'+i]}`;
+        }
+      } else {
+        q.classList.add('wrong');
+        feedback.classList.add('show', 'wrong');
+        feedback.innerHTML = `⚠️ <strong>Belum dijawab.</strong> Jawaban benar: <strong>${correct.toUpperCase()}</strong>.`;
+      }
+    }
+
+    // Isian Singkat
+    for (let i = 1; i <= totalIS; i++) {
+      const q = document.querySelector(`.question-block[data-id="is${i}"]`);
+      const keywords = q.dataset.keywords.split(',').map(k => k.trim().toLowerCase());
+      const userAnswer = (document.querySelector(`input[name="is${i}"]`).value || '').trim().toLowerCase();
+      const feedback = q.querySelector('.feedback');
+      q.classList.remove('correct', 'wrong');
+      feedback.classList.remove('show', 'correct', 'wrong');
+
+      if (userAnswer === '') {
+        q.classList.add('wrong');
+        feedback.classList.add('show', 'wrong');
+        feedback.innerHTML = `⚠️ <strong>Belum dijawab.</strong> Jawaban yang diterima: <strong>${keywords.join(' / ')}</strong>.`;
+      } else {
+        const isCorrect = keywords.some(kw => userAnswer.includes(kw));
+        if (isCorrect) {
+          scoreIS += 4;
+          q.classList.add('correct');
+          feedback.classList.add('show', 'correct');
+          feedback.innerHTML = `✅ <strong>Benar!</strong> Jawaban diterima.`;
+        } else {
+          q.classList.add('wrong');
+          feedback.classList.add('show', 'wrong');
+          feedback.innerHTML = `❌ <strong>Kurang tepat.</strong> Jawaban yang diterima: <strong>${keywords.join(' / ')}</strong>.`;
+        }
+      }
+    }
+
+    const scoreES = 0;
+    const totalScore = scorePG + scoreTF + scoreIS + scoreES;
+
+    let grade = '', message = '';
+    if (totalScore >= 90) { grade = 'A (ISTIMEWA)'; message = '🏆 <strong>LUAR BIASA!</strong> Kamu menguasai materi DSI dengan sangat baik.'; }
+    else if (totalScore >= 80) { grade = 'B (SANGAT BAIK)'; message = '🌟 <strong>HEBAT!</strong> Pemahamanmu sangat baik.'; }
+    else if (totalScore >= 70) { grade = 'C (BAIK)'; message = '👍 <strong>BAGUS!</strong> Kamu sudah cukup memahami materi.'; }
+    else if (totalScore >= 60) { grade = 'D (CUKUP)'; message = '💪 <strong>LUMAYAN!</strong> Perlu belajar lebih giat.'; }
+    else { grade = 'E (PERLU BIMBINGAN)'; message = '📚 <strong>SEMANGAT!</strong> Baca kembali materi Bab I dengan teliti.'; }
+
+    document.getElementById('resultStudent').innerHTML = `
+      <div style="background: rgba(255,255,255,0.15); padding: 15px; border-radius: 12px; margin: 15px 0; text-align: left;">
+        <div><strong>👤 Nama:</strong> ${nama}</div>
+        <div><strong>🏫 Kelas:</strong> ${kelas}</div>
+        <div><strong>🔢 No. Absen:</strong> ${absen}</div>
+        <div><strong>📅 Tanggal:</strong> ${document.getElementById('tanggal').value}</div>
+      </div>
+    `;
+    document.getElementById('resultScore').textContent = totalScore;
+    document.getElementById('resultGrade').textContent = grade;
+    document.getElementById('resultMessage').innerHTML = message;
+    document.getElementById('scorePG').textContent = `${scorePG}/30`;
+    document.getElementById('scoreTF').textContent = `${scoreTF}/10`;
+    document.getElementById('scoreIS').textContent = `${scoreIS}/20`;
+    document.getElementById('scoreES').textContent = `${scoreES}/40`;
+    
+    const resultBox = document.getElementById('resultBox');
+    resultBox.classList.add('show');
+    resultBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    document.querySelectorAll('input, textarea, select').forEach(el => {
+      if (el.type !== 'button') el.disabled = true;
+    });
+  }
+
+  // ====== FITUR BARU: KIRIM KE GMAIL DENGAN LEMBAR JAWABAN LENGKAP ======
+  function sendToGmail() {
+    const nama = document.getElementById('nama').value.trim();
+    const kelas = document.getElementById('kelas').value;
+    const absen = document.getElementById('absen').value;
+    const tanggal = document.getElementById('tanggal').value;
+    const totalScore = document.getElementById('resultScore').textContent;
+    const grade = document.getElementById('resultGrade').textContent;
+
+    if (!nama || !kelas || totalScore === '0') {
+      alert('⚠️ Harap kumpulkan jawaban terlebih dahulu untuk mendapatkan nilai sebelum mengirim ke guru!');
+      return;
+    }
+
+    // Mulai menyusun badan email
+    let body = `Yth. Bapak Jefri, S.Pd,\n\n`;
+    body += `Berikut adalah hasil dan lembar jawaban Uji Formatif 1 (Dampak Sosial Informatika) saya:\n\n`;
+    body += `👤 Nama Lengkap : ${nama}\n`;
+    body += `🏫 Kelas       : ${kelas}\n`;
+    body += `🔢 No. Absen   : ${absen}\n`;
+    body += `📅 Tanggal     : ${tanggal}\n`;
+    body += `🎯 Nilai Total : ${totalScore} / 100\n`;
+    body += `🏆 Predikat    : ${grade}\n\n`;
+    body += `========================================\n`;
+    body += `📝 LEMBAR JAWABAN SISWA\n`;
+    body += `========================================\n\n`;
+
+    // 1. Kumpulkan Jawaban Pilihan Ganda
+    body += `--- BAGIAN A: Pilihan Ganda ---\n`;
+    for (let i = 1; i <= 15; i++) {
+      const selected = document.querySelector(`input[name="pg${i}"]:checked`);
+      const answer = selected ? selected.value.toUpperCase() : "Tidak dijawab";
+      body += `${i}. ${answer}\n`;
+    }
+    body += `\n`;
+
+    // 2. Kumpulkan Jawaban Benar/Salah
+    body += `--- BAGIAN B: Benar/Salah ---\n`;
+    for (let i = 1; i <= 5; i++) {
+      const selected = document.querySelector(`input[name="tf${i}"]:checked`);
+      const answer = selected ? (selected.value === 'benar' ? 'BENAR' : 'SALAH') : "Tidak dijawab";
+      body += `${i + 15}. ${answer}\n`;
+    }
+    body += `\n`;
+
+    // 3. Kumpulkan Jawaban Isian Singkat
+    body += `--- BAGIAN C: Isian Singkat ---\n`;
+    for (let i = 1; i <= 5; i++) {
+      const answer = document.querySelector(`input[name="is${i}"]`).value.trim() || "Tidak dijawab";
+      body += `${i + 20}. ${answer}\n`;
+    }
+    body += `\n`;
+
+    // 4. Kumpulkan Jawaban Essay
+    body += `--- BAGIAN D: Uraian / Essay ---\n`;
+    for (let i = 1; i <= 2; i++) {
+      const answer = document.querySelector(`textarea[name="es${i}"]`).value.trim() || "Tidak dijawab";
+      // Ganti baris baru di textarea menjadi spasi agar rapi di email
+      const cleanAnswer = answer.replace(/\n/g, ' '); 
+      body += `${i + 25}. ${cleanAnswer}\n\n`;
+    }
+
+    body += `========================================\n`;
+    body += `Saya telah mengerjakan soal dengan jujur dan teliti.\n`;
+    body += `Terima kasih atas bimbingan Bapak.\n\n`;
+    body += `Hormat saya,\n${nama}`;
+
+    // Encode untuk URL Gmail
+    const subject = encodeURIComponent(`Hasil Uji Formatif 1 - ${nama} - ${kelas}`);
+    const encodedBody = encodeURIComponent(body);
+    
+    // URL khusus untuk membuka Gmail compose di browser
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=jefrirangsikumbang@gmail.com&su=${subject}&body=${encodedBody}`;
+    
+    window.open(gmailUrl, '_blank');
+  }
+
+  function resetExam() {
+    if (!confirm('🔄 Yakin ingin mengulang ujian? Semua jawaban akan dihapus.')) return;
+    
+    document.getElementById('examForm').reset();
+    document.getElementById('tanggal').valueAsDate = new Date();
+    
+    document.querySelectorAll('.question-block').forEach(q => {
+      q.classList.remove('correct', 'wrong');
+      const feedback = q.querySelector('.feedback');
+      if (feedback && !feedback.classList.contains('info')) {
+        feedback.classList.remove('show', 'correct', 'wrong');
+        feedback.innerHTML = '';
+      }
+    });
+    
+    document.querySelectorAll('input, textarea, select').forEach(el => el.disabled = false);
+    document.getElementById('resultBox').classList.remove('show');
+    
+    timeLeft = 60 * 60;
+    updateTimerDisplay();
+    document.getElementById('btnStart').style.display = 'inline-block';
+    document.getElementById('btnPause').style.display = 'none';
+    
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+
+</body>
+</html>

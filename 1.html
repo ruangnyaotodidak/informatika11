@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bab 1 - Dampak Sosial Informatika | Informatika Kelas XI</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  body {
+    font-family: 'Poppins', 'Segoe UI', Tahoma, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%);
+    background-attachment: fixed;
+    color: #2c3e50;
+    line-height: 1.8;
+    min-height: 100vh;
+  }
+  
+  .header {
+    background: linear-gradient(135deg, #ff6b6b 0%, #feca57 25%, #48dbfb 50%, #ff9ff3 75%, #54a0ff 100%);
+    color: white;
+    padding: 80px 20px 100px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+  }
+  
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+    background-size: 30px 30px;
+    animation: moveBackground 20s linear infinite;
+  }
+  
+  @keyframes moveBackground {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(30px, 30px); }
+  }
+  
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 60%);
+  }
+  
+  .header .badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.3);
+    backdrop-filter: blur(10px);
+    padding: 8px 24px;
+    border-radius: 30px;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    font-weight: 600;
+    border: 2px solid rgba(255,255,255,0.5);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  }
+  
+  .header h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+    position: relative;
+    z-index: 1;
+  }
+  
+  .header p {
+    font-size: 1.2rem;
+    opacity: 0.95;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+  }
+  
+  .container {
+    max-width: 1000px;
+    margin: -50px auto 40px;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .nav-back {
+    display: inline-block;
+    margin-bottom: 25px;
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    background: linear-gradient(135deg, #ff6b6b, #feca57);
+    padding: 12px 28px;
+    border-radius: 30px;
+    box-shadow: 0 6px 20px rgba(255,107,107,0.4);
+    transition: all 0.3s;
+    font-size: 1rem;
+  }
+  
+  .nav-back:hover { 
+    transform: translateY(-3px) scale(1.05); 
+    box-shadow: 0 8px 25px rgba(255,107,107,0.6);
+  }
+  
+  .card {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+    border: 3px solid transparent;
+    background-clip: padding-box;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3, #54a0ff);
+  }
+  
+  .card h2 {
+    color: #667eea;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 4px solid;
+    border-image: linear-gradient(90deg, #ff6b6b, #feca57, #48dbfb) 1;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .card h2 .num {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 15px rgba(102,126,234,0.4);
+  }
+  
+  .card h3 {
+    color: #ff6b6b;
+    margin: 25px 0 12px;
+    font-size: 1.3rem;
+    padding-left: 15px;
+    border-left: 4px solid #feca57;
+  }
+  
+  .card p { margin-bottom: 15px; text-align: justify; font-size: 1.05rem; }
+  .card ul, .card ol { margin: 12px 0 18px 25px; }
+  .card li { margin-bottom: 10px; font-size: 1.05rem; }
+  
+  .highlight-box {
+    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    border-left: 6px solid #48dbfb;
+    padding: 20px 25px;
+    border-radius: 12px;
+    margin: 20px 0;
+    box-shadow: 0 4px 15px rgba(72,219,251,0.2);
+  }
+  
+  .highlight-box.warn {
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    border-left-color: #ff9a56;
+    box-shadow: 0 4px 15px rgba(255,154,86,0.2);
+  }
+  
+  .highlight-box.danger {
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    border-left-color: #ff6b6b;
+    box-shadow: 0 4px 15px rgba(255,107,107,0.2);
+  }
+  
+  .highlight-box.love {
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 50%, #ff9a9e 100%);
+    border-left-color: #ff6b6b;
+    box-shadow: 0 4px 15px rgba(255,107,107,0.3);
+  }
+  
+  .highlight-box strong { color: #667eea; }
+  
+  .case-study {
+    background: linear-gradient(135deg, #fff5e6 0%, #ffe0f0 100%);
+    border: 3px dashed #ff9ff3;
+    padding: 25px;
+    border-radius: 15px;
+    margin: 25px 0;
+    box-shadow: 0 6px 20px rgba(255,159,243,0.2);
+  }
+  
+  .case-study h4 {
+    color: #ff6b6b;
+    margin-bottom: 12px;
+    font-size: 1.2rem;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  }
+  
+  table th {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 15px;
+    text-align: left;
+    font-weight: 700;
+    font-size: 1.05rem;
+  }
+  
+  table td {
+    padding: 15px;
+    border-bottom: 2px solid #f0f0f0;
+    font-size: 1rem;
+  }
+  
+  table tr:last-child td { border-bottom: none; }
+  table tr:nth-child(even) { background: linear-gradient(90deg, #f8f9ff, #fff0f5); }
+  table tr:hover { background: linear-gradient(90deg, #e8f4ff, #ffe8f5); }
+  
+  .glosarium dt {
+    font-weight: 700;
+    color: #667eea;
+    margin-top: 15px;
+    font-size: 1.1rem;
+  }
+  
+  .glosarium dd { 
+    margin-left: 25px; 
+    color: #555; 
+    padding-left: 15px;
+    border-left: 3px solid #feca57;
+  }
+  
+  .activity-box {
+    background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+    border-radius: 15px;
+    padding: 25px;
+    margin: 20px 0;
+    border-left: 6px solid #ff9ff3;
+    box-shadow: 0 6px 20px rgba(224,195,252,0.3);
+  }
+  
+  .activity-box h4 { 
+    color: #667eea; 
+    margin-bottom: 12px; 
+    font-size: 1.2rem;
+  }
+  
+  .checklist { list-style: none; margin-left: 0; }
+  .checklist li {
+    padding: 10px 0 10px 35px;
+    position: relative;
+    font-size: 1.05rem;
+  }
+  
+  .checklist li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    background: linear-gradient(135deg, #48dbfb, #0abde3);
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(72,219,251,0.4);
+  }
+  
+  /* ====== KUIS PILIHAN GANDA ====== */
+  .quiz-container {
+    background: linear-gradient(135deg, #fff9e6 0%, #ffe8f0 50%, #e8f4ff 100%);
+    border-radius: 15px;
+    padding: 25px;
+    margin: 15px 0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  }
+  
+  .quiz-question {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 18px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #667eea;
+    transition: all 0.3s;
+  }
+  
+  .quiz-question.correct {
+    border-left-color: #10ac84;
+    background: linear-gradient(135deg, #d4f5e9 0%, #ffffff 100%);
+  }
+  
+  .quiz-question.wrong {
+    border-left-color: #ee5253;
+    background: linear-gradient(135deg, #ffe0e0 0%, #ffffff 100%);
+  }
+  
+  .quiz-question .q-number {
+    display: inline-block;
+    background: linear-gradient(135deg, #ff6b6b, #feca57);
+    color: white;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 35px;
+    font-weight: 700;
+    margin-right: 10px;
+    box-shadow: 0 3px 8px rgba(255,107,107,0.3);
+  }
+  
+  .quiz-question .q-text {
+    font-weight: 600;
+    color: #2c3e50;
+    font-size: 1.05rem;
+    margin-bottom: 12px;
+    display: inline;
+  }
+  
+  .quiz-options {
+    list-style: none;
+    margin: 12px 0 0 0;
+    padding: 0;
+  }
+  
+  .quiz-options li {
+    margin-bottom: 8px;
+  }
+  
+  .quiz-options label {
+    display: block;
+    background: #f8f9ff;
+    padding: 12px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: 2px solid transparent;
+    font-size: 1rem;
+  }
+  
+  .quiz-options label:hover {
+    background: linear-gradient(135deg, #e0c3fc, #8ec5fc);
+    transform: translateX(5px);
+  }
+  
+  .quiz-options input[type="radio"] {
+    margin-right: 10px;
+    accent-color: #667eea;
+    transform: scale(1.2);
+    cursor: pointer;
+  }
+  
+  .quiz-options input[type="radio"]:checked + span {
+    font-weight: 600;
+    color: #667eea;
+  }
+  
+  .feedback {
+    display: none;
+    margin-top: 12px;
+    padding: 12px 15px;
+    border-radius: 10px;
+    font-weight: 600;
+    animation: fadeIn 0.5s;
+  }
+  
+  .feedback.show { display: block; }
+  
+  .feedback.correct {
+    background: linear-gradient(135deg, #10ac84, #1dd1a1);
+    color: white;
+  }
+  
+  .feedback.wrong {
+    background: linear-gradient(135deg, #ee5253, #ff6b6b);
+    color: white;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .quiz-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 25px;
+  }
+  
+  .btn-quiz {
+    padding: 14px 30px;
+    border: none;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  }
+  
+  .btn-check {
+    background: linear-gradient(135deg, #10ac84, #1dd1a1);
+    color: white;
+  }
+  
+  .btn-check:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(16,172,132,0.5);
+  }
+  
+  .btn-reset {
+    background: linear-gradient(135deg, #ff6b6b, #feca57);
+    color: white;
+  }
+  
+  .btn-reset:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255,107,107,0.5);
+  }
+  
+  .score-result {
+    display: none;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    margin-top: 20px;
+    box-shadow: 0 8px 25px rgba(102,126,234,0.4);
+    animation: fadeIn 0.6s;
+  }
+  
+  .score-result.show { display: block; }
+  
+  .score-result .score-number {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin: 10px 0;
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+  }
+  
+  .score-result .score-message {
+    font-size: 1.2rem;
+    margin-top: 10px;
+  }
+  
+  /* ====== TOMBOL UJI FORMATIF ====== */
+  .btn-formatif {
+    display: inline-block;
+    background: linear-gradient(135deg, #10ac84 0%, #1dd1a1 50%, #48dbfb 100%);
+    color: white;
+    padding: 16px 35px;
+    border-radius: 35px;
+    text-decoration: none;
+    font-weight: 700;
+    margin: 10px 8px;
+    box-shadow: 0 6px 20px rgba(16,172,132,0.4);
+    transition: all 0.3s;
+    font-size: 1.05rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .btn-formatif::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s;
+  }
+  
+  .btn-formatif:hover::before { left: 100%; }
+  
+  .btn-formatif:hover { 
+    transform: translateY(-5px) scale(1.05); 
+    box-shadow: 0 10px 30px rgba(16,172,132,0.6);
+  }
+  
+  .footer {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 50px;
+    box-shadow: 0 -5px 20px rgba(0,0,0,0.2);
+  }
+  
+  .footer a { color: #feca57; text-decoration: none; font-weight: 700; }
+  .footer a:hover { text-decoration: underline; }
+  
+  .next-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #ff6b6b, #feca57, #48dbfb);
+    color: white;
+    padding: 16px 35px;
+    border-radius: 35px;
+    text-decoration: none;
+    font-weight: 700;
+    margin: 10px 8px;
+    box-shadow: 0 6px 20px rgba(255,107,107,0.4);
+    transition: all 0.3s;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .next-btn:hover { 
+    transform: translateY(-5px) scale(1.05); 
+    box-shadow: 0 10px 30px rgba(255,107,107,0.6);
+  }
+  
+  @media (max-width: 768px) {
+    .header h1 { font-size: 2rem; }
+    .header p { font-size: 1rem; }
+    .card { padding: 25px; }
+    .card h2 { font-size: 1.5rem; }
+    table { font-size: 0.9rem; }
+    table th, table td { padding: 10px; }
+    .score-result .score-number { font-size: 2.5rem; }
+    .btn-formatif, .next-btn { padding: 14px 25px; font-size: 0.95rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <span class="badge">📘 BAB I • PERTEMUAN 1</span>
+  <h1>Dampak Sosial Informatika (DSI)</h1>
+  <p><h2><i>Mencegah Perundungan Siber (Cyberbullying) dan Menyebarkan Kebaikan Digital</i></h2></p>
+</div>
+
+<div class="container">
+  <a href="index.html" class="nav-back">← Kembali ke Beranda</a>
+
+  <!-- PENGANTAR -->
+  <div class="card">
+    <h2><span class="num">🌟</span> Pengantar Bab</h2>
+    <p>Teknologi informasi telah merasuk ke setiap sendi kehidupan kita — dari cara kita berkomunikasi, belajar, berdagang, hingga beribadah. Namun, setiap kemajuan selalu membawa dua sisi: <strong>peluang kebaikan</strong> dan <strong>ujian kehati-hatian</strong>.</p>
+    <p>Dalam bab ini, kita akan mempelajari <em>Dampak Sosial Informatika (DSI)</em> bukan hanya sebagai materi akademik, melainkan sebagai <strong>cerminan akhlak kita di ruang digital</strong>. Dengan pendekatan <em>Kurikulum Berbasis Cinta</em>, teknologi dipandang sebagai <strong>amanah</strong> yang harus dikelola dengan kasih sayang kepada Allah, sesama, alam, dan bangsa.</p>
+    <div class="highlight-box love">
+      💡 <strong>Renungan:</strong> "Jari-jarimu adalah cerminan hatimu. Apa yang kamu ketik, itu yang akan kamu pertanggungjawabkan — di dunia dan di akhirat."
+    <br><br>
+	</div><br>
+  </div>
+
+  <!-- BAGIAN A -->
+  <div class="card">
+    <h2><span class="num">A</span> Konsep Dasar Dampak Sosial Informatika (DSI)</h2>
+    <p><strong>Dampak Sosial Informatika (DSI)</strong> adalah kajian mendalam, komprehensif, dan berkelanjutan tentang pengaruh perkembangan teknologi informasi dan komunikasi (TIK) terhadap seluruh aspek kehidupan: mulai dari individu, hubungan antarmanusia, struktur masyarakat, warisan budaya, sistem hukum dan kebijakan, hingga keseimbangan lingkungan serta tata nilai kemanusiaan.</p>
+    <p>DSI tidak hanya berhenti pada membahas "apa yang bisa dilakukan teknologi" atau sekadar mencatat manfaat dan risiko yang muncul, tetapi menggali lebih dalam pertanyaan mendasar: <strong>"apa yang seharusnya kita lakukan sebagai manusia yang berakhlak, bermoral, dan bertanggung jawab"</strong> dalam menghadapi, menggunakan, dan mengembangkan teknologi tersebut. Ia mengajak kita menyadari bahwa teknologi bukanlah tujuan akhir, melainkan sarana yang nilainya sangat bergantung pada niat, sikap, dan keputusan manusia yang mengendalikannya..</p>
+    <p>Kajian ini mengajak kita untuk tidak hanya menjadi pengguna pasif yang terhanyut dalam kemudahan atau pesatnya perubahan, melainkan menjadi perancang dan pengawas yang sadar akan dampak yang ditimbulkan—memastikan setiap kemajuan teknologi senantiasa berpihak pada martabat manusia, keadilan sosial, kelestarian budaya, serta kesejahteraan bersama secara berkelanjutan.</p>
+	<div class="highlight-box">
+      <strong>🔑 Kata Kunci:</strong> Teknologi sebagai <em>amanah</em> → harus dikelola dengan nilai kasih sayang dan kemaslahatan bersama.
+<br><br>   
+   </div>
+  </div>
+
+  <!-- BAGIAN B -->
+  <div class="card">
+    <h2><span class="num">B</span> Dampak Positif Informatika</h2>
+    <p>Ditinjau dari nilai <strong>kasih sayang dan kemaslahatan bersama</strong>, informatika membawa banyak kebaikan di berbagai bidang:</p>
+
+    <h3>1. Bidang Komunikasi & Hubungan Sosial</h3>
+    <ul>
+      <li>Mempermudah <strong>silaturahmi</strong> lintas jarak dan waktu.</li>
+      <li>Mempererat <strong>ukhuwah</strong>, toleransi, dan saling memahami perbedaan.</li>
+      <li>Menjadi sarana berbagi kebaikan, ilmu, dan kepedulian.</li>
+    </ul>
+
+    <h3>2. Bidang Pendidikan & Ilmu Pengetahuan</h3>
+    <ul>
+      <li>Akses belajar yang <strong>luas dan merata</strong> (ruang kelas tanpa dinding).</li>
+      <li>Memudahkan berbagi ilmu bermanfaat bagi sesama (<em>sedekah jariyah digital</em>).</li>
+      <li>Menumbuhkan kecintaan menuntut ilmu sebagai bentuk <strong>ibadah</strong>.</li>
+    </ul>
+
+    <h3>3. Bidang Ekonomi & Kesejahteraan</h3>
+    <ul>
+      <li>Membuka peluang usaha dan kerja baru (UMKM digital, freelancer, konten kreator).</li>
+      <li>Mempermudah berbagi rezeki melalui platform donasi terpercaya (Kitabisa, Baznas digital, dll).</li>
+      <li>Mendorong kemandirian dan kesejahteraan bersama.</li>
+    </ul>
+
+    <h3>4. Bidang Pelestarian & Kebersamaan</h3>
+    <ul>
+      <li>Sarana mengajak menjaga alam dan lingkungan (kampanye digital).</li>
+      <li>Memperkuat persatuan dan cinta tanah air.</li>
+      <li>Mempercepat tanggap bencana dan kepedulian sosial.</li>
+    </ul>
+  </div>
+
+  <!-- BAGIAN C -->
+  <div class="card">
+    <h2><span class="num">C</span> Dampak Negatif & Tantangan</h2>
+    <p>Ditinjau sebagai <strong>ujian kehati-hatian</strong> dan menjaga nilai kasih, berikut tantangan yang perlu kita waspadai:</p>
+
+    <h3>1. Bidang Perilaku & Kesehatan</h3>
+    <ul>
+      <li><strong>Kecanduan gawai:</strong> mengurangi waktu ibadah, bergaul langsung, dan istirahat.</li>
+      <li>Menurunnya empati, kesabaran, dan rasa hormat kepada orang lain.</li>
+      <li>Gangguan kesehatan sakit leher, mata lelah, hingga kecemasan dan depresi akibat perbandingan sosial di media sosial..</li>
+	  <li>Gangguan mental FOMO (Fear of Missing Out) membuat pengguna terus memeriksa ponsel, mengurangi waktu ibadah, interaksi tatap muka, dan kualitas istirahat).</li>
+    </ul>
+
+    <h3>2. Bidang Etika & Hukum</h3>
+    <ul>
+      <li><strong>Perundungan siber (cyberbullying):</strong> menyakiti hati sesama, bertentangan dengan kasih sayang.</li>
+      <li><strong>Penyebaran hoaks:</strong> menimbulkan keresahan dan perpecahan.</li>
+      <li>Pelanggaran privasi, pencurian data, dan penipuan online.</li>
+      <li>Pelanggaran Hak Kekayaan Intelektual (HAKI) — membajak karya orang lain.</li>
+    </ul>
+
+    <h3>3. Bidang Sosial & Budaya</h3>
+    <ul>
+      <li>Gaya hidup tidak sesuai nilai agama dan norma (flexing, hedonisme).</li>
+      <li>Perpecahan akibat <em>hate speech</em> dan perdebatan tidak sehat.</li>
+      <li>Menurunnya budaya lokal dan sopan santun.</li>
+    </ul>
+
+    <div class="case-study"><br>
+      <h4>📌 Studi Kasus Nyata: Perundungan Siber di Kalangan Pelajar</h4>
+      <p><strong>Kasus:</strong> Seorang siswa MA di Jawa Tengah mengalami depresi akibat foto aibnya disebarluaskan di grup WhatsApp sekolah disertai caption menghina. Korban menarik diri dari pergaulan dan prestasi akademiknya anjlok.</p>
+      <p><strong>Analisis Hukum:</strong> Tindakan ini melanggar <strong>UU ITE Pasal 27 ayat (3)</strong> tentang pencemaran nama baik, serta <strong>UU No. 17 Tahun 2016 tentang Perlindungan Anak</strong> (jika pelaku di bawah umur, tetap ada sanksi pembinaan).</p>
+      <p><strong>Solusi Berbasis Cinta:</strong></p>
+      <ol>
+        <li>Sekolah mengadakan <strong>literasi digital empatik</strong> secara berkala.</li>
+        <li>Siswa dilatih menjadi <strong>"upstander"</strong> (pembela) bukan "bystander" (penonton diam).</li>
+        <li>Pendampingan konseling berbasis nilai-nilai agama untuk memulihkan trauma korban.</li>
+        <li>Mediasi restoratif antar siswa dengan melibatkan orang tua dan guru BK.</li>
+      </ol>
+    </div><br>
+  </div>
+<br><br><br>
+  <!-- BAGIAN D -->
+  <div class="card">
+    <h2><span class="num">D</span> Sikap & Penerapan Sesuai KBC</h2>
+
+    <h3>1. Menjadi Warga Digital yang Baik</h3>
+    <ul class="checklist">
+      <li><strong>Cinta kepada Allah:</strong> gunakan teknologi untuk ketaatan, hindari konten haram.</li>
+      <li><strong>Cinta kepada sesama:</strong> berkomunikasi santun, <em>tabayyun</em> sebelum <em>share</em>.</li>
+      <li><strong>Cinta kepada alam:</strong> manfaatkan teknologi untuk pelestarian lingkungan.</li>
+      <li><strong>Cinta kepada bangsa:</strong> dukung kemajuan dan persatuan negara.</li>
+    </ul>
+
+    <h3>2. Prinsip Etika Penggunaan (THINK sebelum memposting)</h3>
+    <div class="highlight-box">
+      <strong>T</strong> — <em>Is it True?</em> (Apakah benar?)<br>
+      <strong>H</strong> — <em>Is it Helpful?</em> (Apakah bermanfaat?)<br>
+      <strong>I</strong> — <em>Is it Inspiring?</em> (Apakah menginspirasi?)<br>
+      <strong>N</strong> — <em>Is it Necessary?</em> (Apakah perlu?)<br>
+      <strong>K</strong> — <em>Is it Kind?</em> (Apakah baik/santun?)
+    </div>
+
+    <h3>3. Peran Sebagai Pelajar</h3>
+    <ul>
+      <li>Jadikan teknologi alat untuk berbuat baik dan bermanfaat.</li>
+      <li>Menjadi pelopor perubahan positif di lingkungan.</li>
+      <li>Menjaga kehormatan diri, keluarga, dan almamater di ruang digital.</li>
+      <li>Memahami aturan hukum: <strong>UU ITE</strong> dan <strong>UU Perlindungan Data Pribadi (UU PDP)</strong>.</li>
+    </ul>
+  </div>
+
+  <!-- RANGKUMAN -->
+  <div class="card">
+    <h2><span class="num">📝</span> Rangkuman</h2>
+    <p>Informatika membawa <strong>kemudahan sekaligus risiko</strong>. Dengan semangat cinta dan tanggung jawab, kita dapat mengoptimalkan manfaatnya untuk kebaikan bersama, menjauhi bahayanya, serta menjadikan teknologi sebagai sarana <strong>mendekatkan diri kepada Allah</strong> dan <strong>menyejahterakan sesama</strong>.</p>
+    <div class="highlight-box love">
+      🌸 <strong>Pesan Kunci:</strong> "Jadilah generasi digital yang tidak hanya <em>pintar</em>, tetapi juga <em>benar</em>; tidak hanya <em>cakap</em>, tetapi juga <em>berakhlak</em>."
+    </div>
+  </div>
+
+  <!-- PENGAYAAN 1: UU ITE -->
+  <div class="card">
+    <h2><span class="num">⭐</span> Pengayaan 1 — Pasal Penting UU ITE</h2>
+    <p>Sebagai pelajar yang cerdas secara hukum, kamu perlu mengenal pasal-pasal krusial berikut:</p>
+    <table>
+      <tr><th>Pasal</th><th>Isi Singkat</th><th>Ancaman</th></tr>
+      <tr><td>Pasal 27 ayat (1)</td><td>Menyebarkan konten asusila</td><td>6 tahun / Rp1 Miliar</td></tr>
+      <tr><td>Pasal 27 ayat (2)</td><td>Judi online</td><td>6 tahun / Rp1 Miliar</td></tr>
+      <tr><td>Pasal 27 ayat (3)</td><td>Pencemaran nama baik / ujaran kebencian</td><td>4 tahun / Rp750 Juta</td></tr>
+      <tr><td>Pasal 27 ayat (4)</td><td>Pemerasan/pengancaman online</td><td>4 tahun / Rp750 Juta</td></tr>
+      <tr><td>Pasal 28 ayat (1)</td><td>Menyebarkan berita bohong yang merugikan konsumen</td><td>6 tahun / Rp1 Miliar</td></tr>
+      <tr><td>Pasal 28 ayat (2)</td><td>Ujaran kebencian berbasis SARA</td><td>6 tahun / Rp1 Miliar</td></tr>
+      <tr><td>Pasal 29</td><td>Ancaman kekerasan/teror</td><td>4 tahun / Rp750 Juta</td></tr>
+      <tr><td>Pasal 30</td><td>Akses ilegal (hacking)</td><td>6-8 tahun / Rp600-800 Juta</td></tr>
+    </table>
+    <div class="highlight-box warn">
+      ⚠️ <strong>Catatan:</strong> UU ITE telah diperbarui dengan <strong>UU No. 1 Tahun 2024</strong> (Perubahan Kedua atas UU No. 11/2008). Selalu ikuti perkembangan hukum terbaru!
+    </div>
+  </div>
+
+  <!-- PENGAYAAN 2: TIPS UPSTANDER -->
+  <div class="card">
+    <h2><span class="num">⭐</span> Pengayaan 2 — Menjadi "Upstander" Digital</h2>
+    <p><strong>Upstander</strong> adalah orang yang melihat ketidakadilan dan <em>bertindak</em> untuk membela korban. Berbeda dengan <em>bystander</em> yang hanya menonton.</p>
+    <h3>5 Langkah Menjadi Upstander saat Melihat Cyberbullying:</h3>
+    <ol>
+      <li><strong>Jangan ikut berkomentar</strong> — bahkan "like" bisa memperparah.</li>
+      <li><strong>Dukung korban secara pribadi</strong> — kirim pesan pribadi yang menenangkan.</li>
+      <li><strong>Laporkan (Report)</strong> konten ke platform dan guru/orang tua.</li>
+      <li><strong>Simpan bukti</strong> — <em>screenshot</em> sebagai bukti jika diperlukan.</li>
+      <li><strong>Alihkan percakapan</strong> — arahkan grup ke topik positif.</li>
+    </ol>
+    <div class="highlight-box">
+      💬 <strong>Kalimat pendukung untuk korban:</strong> <em>"Aku lihat apa yang terjadi, dan itu tidak adil. Kamu tidak sendirian. Kalau kamu butuh teman bicara, aku di sini."</em>
+    </div>
+  </div>
+
+  <!-- PENGAYAAN 3: CHECKLIST -->
+  <div class="card">
+    <h2><span class="num">⭐</span> Pengayaan 3 — Checklist Warga Digital Beretika</h2>
+    <p>Refleksikan dirimu setiap hari dengan checklist berikut:</p>
+    <ul class="checklist">
+      <li>Saya sudah menggunakan teknologi untuk hal yang bermanfaat hari ini.</li>
+      <li>Saya tidak menyebarkan informasi yang belum saya verifikasi kebenarannya.</li>
+      <li>Saya menghargai privasi orang lain (tidak menyebarkan foto/chat tanpa izin).</li>
+      <li>Saya tetap santun meski berbeda pendapat di media sosial.</li>
+      <li>Saya menghormati karya orang lain (mencantumkan sumber).</li>
+      <li>Saya membatasi waktu layar dan tetap berinteraksi dengan keluarga.</li>
+      <li>Saya menjaga jejak digital agar tidak merugikan diri sendiri di masa depan.</li>
+    </ul>
+  </div>
+<br>
+  <!-- PENGAYAAN 4: AKTIVITAS REFLEKSI -->
+  <div class="card">
+    <h2><span class="num">⭐</span> Pengayaan 4 — Aktivitas Refleksi Diri</h2>
+    <div class="activity-box">
+      <h4>🪞 Aktivitas: "Jejak Digitalku"</h4>
+      <p><strong>Tujuan:</strong> Menyadari bahwa setiap aktivitas online meninggalkan jejak permanen.</p>
+      <p><strong>Langkah:</strong></p>
+      <ol>
+        <li>Buka mesin pencari (Google), ketik <strong>nama lengkapmu</strong>.</li>
+        <li>Amati apa yang muncul: foto, komentar, akun media sosial, dll.</li>
+        <li>Tuliskan di buku catatanmu:
+          <ul>
+            <li>3 hal positif yang muncul tentang dirimu</li>
+            <li>3 hal yang ingin kamu perbaiki/hapus</li>
+            <li>3 komitmen untuk jejak digital yang lebih baik</li>
+          </ul>
+        </li>
+        <li>Diskusikan hasilnya dengan teman sebangku secara santun.</li>
+      </ol>
+    </div>
+    <div class="activity-box">
+      <h4>🎭 Aktivitas: "Roleplay Upstander"</h4>
+      <p>Bermain peran dalam kelompok (4-5 orang): satu orang menjadi korban, satu pelaku, sisanya bystander yang berubah menjadi upstander. Simulasikan cara membela korban dengan santun dan efektif. Presentasikan di depan kelas.</p>
+    </div>
+  </div>
+<br><br>
+  <!-- PENGAYAAN 5: KUIS PILIHAN GANDA 10 SOAL -->
+  <div class="card">
+    <h2><span class="num">⭐</span> Pengayaan 5 — Kuis Pilihan Ganda (10 Soal)</h2>
+    <p>Pilih jawaban yang tepat, lalu klik tombol <strong>"Cek Jawaban"</strong> untuk melihat hasilnya.</p>
+    
+    <form id="quizForm" class="quiz-container">
+      
+      <!-- Soal 1 -->
+      <div class="quiz-question" data-correct="c" data-id="1">
+        <span class="q-number">1</span>
+        <span class="q-text">Apa yang dimaksud dengan Dampak Sosial Informatika (DSI)?</span>
+        <ul class="quiz-options">
+          <li><label><input type="radio" name="q1" value="a"><span>Studi tentang cara membuat aplikasi mobile</span></label></li>
+          <li><label><input type="radio" name="q1" value="b"><span>Kajian tentang sejarah komputer dari masa ke masa</span></label></li>
+          <li><label><input type="radio" name="q1" value="c"><span>Kajian tentang pengaruh teknologi informasi terhadap individu, masyarakat, budaya, hukum, dan lingkungan</span></label></li>
+          <li><label><input type="radio" name="q1" value="d"><span>Teknik merakit perangkat keras komputer</span></label></li>
+        </ul>
+        <div class="feedback"></div>
+      </div>
+
+      <!-- Soal 2 -->
+      <div class="quiz-question" data-correct="b" data-id="2">
+        <span class="q-number">2</span>
+        <span class="q-text">Berikut yang termasuk dampak positif informatika di bidang pendidikan adalah ...</span>
+        <ul class="quiz-options">
+          <li><label><input type="radio" name="q2" value="a"><span>Meningkatnya kecanduan gawai pada pelajar</span></label></li>
+          <li><label><input type="radio" name="q2" value="b"><span>Akses belajar yang luas dan merata melalui e-learning</span></label></li>
+          <li><label><input type="radio" name="q2" value="c"><span>Maraknya plagiarisme tugas sekolah</span></label></li>
+          <li><label><input type="radio" name="q2" value="d"><span>Berkurangnya waktu ibadah siswa</span></label></li>
+        </ul>
+        <div class="feedback"></div>
+      </div>
+
+      <!-- Soal 3 -->
+      <div class="quiz-question" data-correct="a" data-id="3">
+        <span class="q-number">3</span>
+        <span class="q-text">Perundungan yang dilakukan melalui media digital seperti media sosial, chat, atau email disebut ...</span>
+        <ul class="quiz-options">
+          <li><label><input type="radio" name="q3" value="a"><span>Cyberbullying</span></label></li>
+          <li><label><input type="radio" name="q3" value="b"><span>Phishing</span></label></li>
+          <li><label><input type="radio" name="q3" value="c"><span>Hacking</span></label></li>
+          <li><label><input type="radio" name="q3" value="d"><span>Spamming</span></label></li>
+        </ul>
+        <div class="feedback"></div>
+      </div>
+
+      <!-- Soal 4 -->
+      <div class="quiz-question" data-correct="d" data-id="4">
+        <span class="q-number">4</span>
+        <span class="q-text">Pasal berapa dalam UU ITE yang mengatur tentang pencemaran nama baik melalui media elektronik?</span>
+        <ul class="quiz-options">
+          <li><label><input type="radio" name="q4" value="a"><span>Pasal 28 ayat (1)</span></label></li>
+          <li><label><input type="radio" name="q4" value="b"><span>Pasal 30</span></label></li>
+          <li><label><input type="radio" name="q4" value="c"><span>Pasal 29</span></label></li>
+          <li><label><input type="radio" name="q4" value="d"><span>Pasal 27 ayat (3)</span></label></li>
+        </ul>
+        <div class="feedback"></div>
+      </div>
+
+      <!-- Soal 5 -->
+      <div class="quiz-question" data-correct="b" data-id="5">
+        <span class="q-number">5</span>
+        <span class="q-text">Apa kepanjangan dari prinsip etika digital "THINK"?</span>
+        <ul class="quiz-options">
+          <li><label><input type="radio" name="q5" value="a"><span>Think, Hope, Imagine, Need, Know</span></label></li>
+          <li><label><input type="radio" name="q5" value="b"><span>True, Helpful, Inspiring, Necessary, Kind</span></label></li>
+          <li><label><input type="radio" name="q5" value="c"><span>Technology, Human, Internet, Network, Knowledge</span></label></li>
+          <li><label><input type="radio" name="q5" value="d"><span>Trust, Honest, Intelligent, Nice, Knowledgeable</span></label></li>
+        </ul>
+        <div class="feedback"></div>
+      </div>
+
+      <!-- Soal 6 -->
+      <div class="quiz-question" data-correct="c" data-id="6">
+        <span class="q-number">6</span>
+        <span class="q-text">Orang yang melihat ketidakadilan di dunia digital dan berani bertindak membela korban disebut ...</span>
+        <ul class="quiz-options">
+          <li><label><input type="radio" name="q6" value="a"><span>Bystander</span></label></li>
+          <li><label><input type="radio" name="q6" value="b"><span>Hacker</span></label></li>
+          <li><label><input type="radio" name="q6" value="c"><span>Upstander</span></label></li>
+          <li><label><input type="radio" name="q6" value="d"><span>Troll</span></label></li>
+        </ul>
+        <div class="feedback"></div>
+      </div>
+
+      <!-- Soal 7 -->
+      <div class="quiz-question" data-correct="a" data-id="7">
+        <span class="q-number">7</span>
+        <span class="q-text">UU No. 27 Tahun 2022 mengatur tentang ...</span>
+        <ul class="quiz-options">
+          <li><label><input type="radio" name="q7" value="a"><span>Perlindungan Data Pribadi (UU PDP)</span></label></li>
+          <li><label><input type="radio" name="q7" value="b"><span>Informasi dan Transaksi Elektronik</span></label></li>
+          <li><label><input type="radio" name="q7" value="c"><span>Perlindungan Anak</span></label></li>
+          <li><label><input type="radio" name="q7" value="d"><span>Hak Kekayaan Intelektual</span></label></li>
+        </ul>
+        <div class="feedback"></div>
+      </div>
+
+      <!-- Soal 8 -->
+      <div class="quiz-question" data-correct="d" data-id="8">
+        <span class="q-number">8</span>
+        <span class="q-text">Berikut yang termasuk dampak negatif informatika di bidang perilaku dan kesehatan adalah ...</span>
+        <ul class="quiz-options">
+          <li><label><input type="radio" name="q8" value="a"><span>Mempermudah silaturahmi lintas jarak</span></label></li>
+          <li><label><input type="radio" name="q8" value="b"><span>Membuka peluang UMKM digital</span></label></li>
+          <li><label><input type="radio" name="q8" value="c"><span>Mempercepat tanggap bencana</span></label></li>
+          <li><label><input type="radio" name="q8" value="d"><span>Kecanduan gawai yang mengurangi waktu ibadah dan istirahat</span></label></li>
+        </ul>
+        <div class="feedback"></div>
+      </div>
+
+      <!-- Soal 9 -->
+      <div class="quiz-question" data-correct="b" data-id="9">
+        <span class="q-number">9</span>
+        <span class="q-text">Dalam konsep Islam, tindakan mengecek kebenaran informasi sebelum menyebarkannya disebut ...</span>
+        <ul class="quiz-options">
+          <li><label><input type="radio" name="q9" value="a"><span>Tawadhu</span></label></li>
+          <li><label><input type="radio" name="q9" value="b"><span>Tabayyun</span></label></li>
+          <li><label><input type="radio" name="q9" value="c"><span>Tawakkal</span></label></li>
+          <li><label><input type="radio" name="q9" value="d"><span>Tazkiyah</span></label></li>
+        </ul>
+        <div class="feedback"></div>
+      </div>
+<br><br><br><br><br>
+      <!-- Soal 10 -->
+      <div class="quiz-question" data-correct="c" data-id="10">
+        <span class="q-number">10</span>
+        <span class="q-text">Sikap yang paling tepat dilakukan ketika melihat teman menjadi korban cyberbullying di grup WhatsApp adalah ...</span>
+        <ul class="quiz-options">
+          <li><label><input type="radio" name="q10" value="a"><span>Ikut berkomentar agar terlihat keren</span></label></li>
+          <li><label><input type="radio" name="q10" value="b"><span>Diam saja dan tidak peduli</span></label></li>
+          <li><label><input type="radio" name="q10" value="c"><span>Menghubungi korban secara pribadi untuk memberikan dukungan dan melaporkan konten ke admin/guru</span></label></li>
+          <li><label><input type="radio" name="q10" value="d"><span>Menyebarkan screenshot percakapan ke grup lain</span></label></li>
+        </ul>
+        <div class="feedback"></div>
+      </div>
+
+      <!-- Tombol Aksi -->
+      <div class="quiz-buttons">
+        <button type="button" class="btn-quiz btn-check" onclick="checkQuiz()">✅ Cek Jawaban</button>
+        <button type="button" class="btn-quiz btn-reset" onclick="resetQuiz()">🔄 Ulangi Kuis</button>
+      </div>
+
+      <!-- Hasil Skor -->
+      <div id="scoreResult" class="score-result">
+        <div>🎯 Skor Kamu:</div>
+        <div class="score-number" id="scoreNumber">0/10</div>
+        <div class="score-message" id="scoreMessage"></div>
+      </div>
+    </form>
+  </div>
+
+  <!-- PENGAYAAN 6: GLOSARIUM -->
+  <div class="card">
+    <h2><span class="num">⭐</span> Pengayaan 6 — Glosarium</h2>
+    <dl class="glosarium">
+      <dt>Cyberbullying</dt>
+      <dd>Perundungan yang dilakukan melalui media digital (media sosial, chat, dll).</dd>
+
+      <dt>Doxing</dt>
+      <dd>Penyebaran data pribadi seseorang di internet tanpa izin dengan niat jahat.</dd>
+
+      <dt>Hoaks</dt>
+      <dd>Berita bohong yang dibuat untuk menipu atau menimbulkan keresahan.</dd>
+
+      <dt>Tabayyun</dt>
+      <dd>Klarifikasi/check kebenaran informasi sebelum menyebarkannya (konsep Islami).</dd>
+
+      <dt>UU ITE</dt>
+      <dd>Undang-Undang Informasi dan Transaksi Elektronik — payung hukum aktivitas digital di Indonesia.</dd>
+
+      <dt>UU PDP</dt>
+      <dd>Undang-Undang Perlindungan Data Pribadi (UU No. 27 Tahun 2022).</dd>
+
+      <dt>Jejak Digital</dt>
+      <dd>Rekam jejak aktivitas seseorang di internet yang bersifat permanen.</dd>
+
+      <dt>FOMO</dt>
+      <dd><em>Fear of Missing Out</em> — kecemasan takut ketinggalan tren/informasi.</dd>
+
+      <dt>Upstander</dt>
+      <dd>Orang yang bertindak membela korban saat melihat ketidakadilan.</dd>
+    </dl>
+  </div>
+
+  <!-- REFERENSI -->
+  <div class="card">
+    <h2><span class="num">📚</span> Referensi</h2>
+    <ol>
+      <li>Kemendikbudristek. (2022). <em>Informatika untuk SMA/MA Kelas XI</em>. Jakarta: Pusat Perbukuan.</li>
+      <li>Ramadhan, A. (2024). <em>Etika Digital dan Literasi Siber untuk Pelajar Indonesia</em>. Bandung: Remaja Rosdakarya.</li>
+      <li>UU No. 1 Tahun 2024 tentang Perubahan Kedua atas UU No. 11 Tahun 2008 (UU ITE).</li>
+      <li>UU No. 27 Tahun 2022 tentang Perlindungan Data Pribadi (UU PDP).</li>
+      <li>Kominfo RI. (2024). <em>Modul Literasi Digital: Bijak Bermedia Sosial</em>.</li>
+    </ol>
+  </div>
+<br>
+  <!-- NAVIGASI + TOMBOL UJI FORMATIF -->
+  <div class="card" style="text-align:center;">
+    <h2 style="border:none; justify-content:center;">🚀 Lanjutkan Perjalanan Belajarmu</h2>
+    <p>Setelah memahami materi dan mengikuti kuis, saatnya mengukur pemahamanmu secara lebih mendalam melalui <strong>Uji Formatif 1</strong>, lalu lanjut ke Bab II!</p>
+    
+    <div style="margin-top: 25px;">
+      <a href="uji-formatif-1.html" target="_blank" class="next-btn">📝 Uji Formatif 1</a>
+      <a href="2.html" class="next-btn">Lanjut ke Bab II →</a>
+    </div>
+    
+    <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">
+      💡 <em>Tips: Kerjakan Uji Formatif setelah kamu yakin memahami seluruh materi Bab I.</em>
+    </p>
+  </div>
+</div>
+
+<div class="footer">
+  <p>© 2026 <strong>MAS Diniyah Limo Jurai</strong> • Dibuat oleh <a href="mailto:jefrirangsikumbang@gmail.com">Jefri, S.Pd</a></p>
+  <p style="margin-top:8px; font-size:0.9rem; opacity:0.85;">"Generasi Digital yang Beretika, Kreatif, dan Berbasis Cinta Kasih"</p>
+</div>
+
+<script>
+  // ====== LOGIKA KUIS PILIHAN GANDA ======
+  const correctAnswers = {
+    1: 'c', 2: 'b', 3: 'a', 4: 'd', 5: 'b',
+    6: 'c', 7: 'a', 8: 'd', 9: 'b', 10: 'c'
+  };
+
+  const explanations = {
+    1: 'DSI adalah kajian tentang pengaruh TIK terhadap individu, masyarakat, budaya, hukum, dan lingkungan.',
+    2: 'E-learning membuka akses belajar luas dan merata, sesuai dengan nilai kemaslahatan di bidang pendidikan.',
+    3: 'Cyberbullying = perundungan melalui media digital (cyber = dunia maya, bullying = perundungan).',
+    4: 'Pasal 27 ayat (3) UU ITE mengatur tentang pencemaran nama baik melalui media elektronik.',
+    5: 'THINK = True, Helpful, Inspiring, Necessary, Kind — filter etis sebelum memposting.',
+    6: 'Upstander = orang yang bertindak membela korban. Berbeda dengan bystander yang hanya menonton.',
+    7: 'UU No. 27 Tahun 2022 adalah UU Perlindungan Data Pribadi (PDP).',
+    8: 'Kecanduan gawai termasuk dampak negatif di bidang perilaku dan kesehatan.',
+    9: 'Tabayyun = klarifikasi/cek kebenaran informasi sebelum menyebarkannya (konsep Islami dari QS. Al-Hujurat: 6).',
+    10: 'Sikap upstander: dukung korban secara pribadi, laporkan konten, jangan ikut berkomentar atau menyebarkan screenshot.'
+  };
+
+  function checkQuiz() {
+    let score = 0;
+    const totalQuestions = 10;
+    let allAnswered = true;
+
+    for (let i = 1; i <= totalQuestions; i++) {
+      const questionDiv = document.querySelector(`.quiz-question[data-id="${i}"]`);
+      const selected = document.querySelector(`input[name="q${i}"]:checked`);
+      const feedback = questionDiv.querySelector('.feedback');
+      const correct = correctAnswers[i];
+
+      // Reset state
+      questionDiv.classList.remove('correct', 'wrong');
+      feedback.classList.remove('show', 'correct', 'wrong');
+
+      if (!selected) {
+        allAnswered = false;
+        continue;
+      }
+
+      const userAnswer = selected.value;
+
+      if (userAnswer === correct) {
+        score++;
+        questionDiv.classList.add('correct');
+        feedback.classList.add('show', 'correct');
+        feedback.innerHTML = `✅ <strong>Benar!</strong> ${explanations[i]}`;
+      } else {
+        questionDiv.classList.add('wrong');
+        feedback.classList.add('show', 'wrong');
+        feedback.innerHTML = `❌ <strong>Salah.</strong> Jawaban yang benar adalah <strong>${correct.toUpperCase()}</strong>. ${explanations[i]}`;
+      }
+    }
+
+    if (!allAnswered) {
+      alert('⚠️ Mohon jawab semua 10 soal terlebih dahulu sebelum mengecek jawaban!');
+      return;
+    }
+
+    // Tampilkan skor
+    const scoreResult = document.getElementById('scoreResult');
+    const scoreNumber = document.getElementById('scoreNumber');
+    const scoreMessage = document.getElementById('scoreMessage');
+
+    scoreNumber.textContent = `${score}/${totalQuestions}`;
+
+    let message = '';
+    if (score === 10) {
+      message = '🏆 <strong>SEMPURNA!</strong> Kamu luar biasa! Sudah menguasai materi DSI dengan sangat baik. Lanjut ke Uji Formatif!';
+    } else if (score >= 8) {
+      message = '🌟 <strong>HEBAT!</strong> Pemahamanmu sangat baik. Tinggal sedikit lagi untuk sempurna!';
+    } else if (score >= 6) {
+      message = '👍 <strong>BAGUS!</strong> Kamu sudah cukup memahami materi. Baca kembali bagian yang belum dikuasai ya!';
+    } else if (score >= 4) {
+      message = '💪 <strong>LUMAYAN!</strong> Perlu belajar lebih giat. Coba baca ulang materinya dan ulangi kuis ini.';
+    } else {
+      message = '📚 <strong>SEMANGAT!</strong> Jangan menyerah! Baca kembali materi Bab I dengan teliti, lalu coba lagi.';
+    }
+
+    scoreMessage.innerHTML = message;
+    scoreResult.classList.add('show');
+    scoreResult.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  function resetQuiz() {
+    // Reset semua radio button
+    document.querySelectorAll('input[type="radio"]').forEach(radio => {
+      radio.checked = false;
+    });
+
+    // Reset feedback dan state
+    document.querySelectorAll('.quiz-question').forEach(q => {
+      q.classList.remove('correct', 'wrong');
+      const feedback = q.querySelector('.feedback');
+      feedback.classList.remove('show', 'correct', 'wrong');
+      feedback.innerHTML = '';
+    });
+
+    // Sembunyikan hasil skor
+    document.getElementById('scoreResult').classList.remove('show');
+
+    // Scroll ke atas kuis
+    document.querySelector('.quiz-container').scrollIntoView({ behavior: 'smooth' });
+  }
+</script>
+
+</body>
+</html>
