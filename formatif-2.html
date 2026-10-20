@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uji Formatif Desain Grafis CorelDRAW X7 | INFORMATIKA KELAS XI</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --bg: #f8fafc;
+            --text: #1e293b;
+            --border: #cbd5e1;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--bg);
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3 {
+            color: var(--primary-dark);
+        }
+        .header-info {
+            background: #eff6ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 5px solid var(--primary);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="date"], select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        .question-block {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #f8fafc;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+        .question-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #0f172a;
+        }
+        .options label {
+            display: block;
+            font-weight: normal;
+            margin-bottom: 8px;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+        .options label:hover {
+            background: #e0f2fe;
+        }
+        table.bs-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        table.bs-table th, table.bs-table td {
+            border: 1px solid var(--border);
+            padding: 10px;
+            text-align: left;
+        }
+        table.bs-table th {
+            background: #f1f5f9;
+            text-align: center;
+        }
+        table.bs-table td:nth-child(2), table.bs-table td:nth-child(3) {
+            text-align: center;
+            width: 80px;
+        }
+        .matching-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            gap: 15px;
+        }
+        .matching-term {
+            flex: 1;
+            font-weight: 500;
+        }
+        .matching-select {
+            flex: 2;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-right: 10px;
+            margin-top: 10px;
+            text-decoration: none;
+            text-align: center;
+        }
+        .btn:hover {
+            background: var(--primary-dark);
+        }
+        .btn-secondary {
+            background: #64748b;
+        }
+        .btn-secondary:hover {
+            background: #475569;
+        }
+        .btn-success {
+            background: #16a34a;
+        }
+        .btn-success:hover {
+            background: #15803d;
+        }
+        #result-section {
+            display: none;
+            background: #f0fdf4;
+            border: 2px solid #16a34a;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+        .score-display {
+            font-size: 24px;
+            font-weight: bold;
+            color: #16a34a;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            color: #64748b;
+            font-size: 14px;
+        }
+        .required {
+            color: #ef4444;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header-info">
+        <h2>📘 UJI FORMATIF DESAIN GRAFIS CORELDRAW X7</h2>
+        <p><strong>Materi:</strong> Bab 2 - Desain Grafis CorelDRAW X7 | INFORMATIKA KELAS XI</p>
+        <p><strong>Jumlah Soal:</strong> 20 Pilihan Ganda + 10 Pilihan Ganda Kompleks + 10 Menjodohkan</p>
+        <p><strong>Total Skor:</strong> 200 Poin | <strong>Waktu:</strong> Tidak Terbatas</p>
+        <p><strong>Pengumpulan:</strong> Jawaban dan nilai akan dikirim ke <em>jefrirangsikumbang@gmail.com</em></p>
+    </div>
+
+    <form id="quizForm">
+        <h3>📋 Data Siswa</h3>
+        <div class="form-group">
+            <label>Nama Lengkap <span class="required">*</span></label>
+            <input type="text" id="nama" required placeholder="Masukkan nama lengkap">
+        </div>
+        <div class="form-group">
+            <label>NIS <span class="required">*</span></label>
+            <input type="text" id="nis" required placeholder="Masukkan NIS">
+        </div>
+        <div class="form-group">
+            <label>Kelas <span class="required">*</span></label>
+            <input type="text" id="kelas" required placeholder="Contoh: XI IPA 1">
+        </div>
+
+        <hr style="margin: 30px 0; border: 0; border-top: 2px solid #e2e8f0;">
+
+        <h3>📝 Bagian A – Pilihan Ganda (20 Soal)</h3>
+        <p><em>Setiap soal bernilai 5 poin (Total: 100 poin). Pilihlah satu jawaban yang paling benar!</em></p>
+        <div id="pg-questions"></div>
+
+        <hr style="margin: 30px 0; border: 0; border-top: 2px solid #e2e8f0;">
+
+        <h3>📝 Bagian B – Pilihan Ganda Kompleks (10 Soal)</h3>
+        <p><em>Setiap soal bernilai 5 poin (Total: 50 poin). Tentukan apakah pernyataan berikut <strong>Benar</strong> atau <strong>Salah</strong> berdasarkan materi CorelDRAW X7!</em></p>
+        <div id="pgk-questions"></div>
+
+        <hr style="margin: 30px 0; border: 0; border-top: 2px solid #e2e8f0;">
+
+        <h3>📝 Bagian C – Menjodohkan (10 Soal)</h3>
+        <p><em>Setiap soal bernilai 5 poin (Total: 50 poin). Jadohkan istilah di sebelah kiri dengan definisi/fungsi yang tepat di sebelah kanan!</em></p>
+        <div id="matching-questions"></div>
+
+        <div style="text-align: center; margin-top: 40px;">
+            <button type="button" class="btn btn-success" onclick="calculateAndSubmit()">📤 Kirim Jawaban & Lihat Hasil</button>
+        </div>
+    </form>
+
+    <div id="result-section">
+        <h3 style="text-align: center;">📊 Hasil Uji Formatif</h3>
+        <p style="text-align: center;">Terima kasih telah menyelesaikan uji formatif ini, <span id="result-name"></span>!</p>
+        <div class="score-display">
+            Skor Total: <span id="total-score">0</span> / 200
+        </div>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 20px;">
+            <a id="gmail-link" href="#" class="btn" target="_blank">📧 Buka di Gmail</a>
+            <button class="btn btn-secondary" onclick="copyToClipboard()">📋 Copy ke Clipboard</button>
+            <button class="btn btn-secondary" onclick="window.print()">🖨️ Cetak / Unduh PDF</button>
+            <button class="btn btn-secondary" onclick="location.reload()">🔄 Mulai Ulang</button>
+        </div>
+        <textarea id="email-body" style="width: 100%; height: 200px; margin-top: 20px; padding: 10px; border: 1px solid #cbd5e1; border-radius: 6px; font-family: monospace; display: none;"></textarea>
+    </div>
+
+    <div class="footer">
+        <p><strong>MAS DINIYAH LIMO JURAI</strong><br>
+        Jln. Raya Sungai Pua, Kabupaten Agam, Sumatera Barat<br>
+        © 2026 — Uji Formatif Informatika Kelas XI oleh JEFRI, S.Pd<br>
+        <em>"Menuntut ilmu adalah ibadah, menyebarkannya adalah sedekah."</em></p>
+    </div>
+</div>
+
+<script>
+    // --- DATA SOAL ---
+    const pgQuestions = [
+        { q: "1. Langkah pertama yang paling penting sebelum menyentuh software desain adalah...", options: ["Membuat sketsa kasar", "Menentukan Brief dan Tujuan Desain", "Memilih palet warna", "Ekspor format file"], answer: 1 },
+        { q: "2. Perbedaan mendasar antara grafis Vektor dan Bitmap adalah...", options: ["Vektor berbasis piksel, Bitmap berbasis rumus matematika", "Vektor tidak pecah saat di-zoom, Bitmap pecah/buram saat di-zoom", "Vektor ukuran filenya selalu lebih besar dari Bitmap", "Vektor untuk manipulasi foto, Bitmap untuk desain logo"], answer: 1 },
+        { q: "3. Komponen antarmuka CorelDRAW X7 yang terletak di sebelah kiri dan berisi tool untuk menggambar serta mengedit objek disebut...", options: ["Menu Bar", "Property Bar", "Toolbox", "Docker"], answer: 2 },
+        { q: "4. Shortcut keyboard untuk membuat objek persegi sempurna menggunakan Rectangle Tool adalah...", options: ["Shift", "Ctrl", "Alt", "Ctrl + Shift"], answer: 1 },
+        { q: "5. Tool yang digunakan untuk melakukan proses editing node pada komponen garis objek adalah...", options: ["Pick Tool (F5)", "Shape Tool (F10)", "Text Tool (F8)", "Crop Tool"], answer: 1 },
+        { q: "6. Perintah 'Convert to Curves' yang menjadikan objek dapat diubah bentuknya secara bebas memiliki shortcut...", options: ["Ctrl + K", "Ctrl + Q", "Ctrl + G", "Ctrl + U"], answer: 1 },
+        { q: "7. Untuk meratakan beberapa objek secara horizontal (Rata Tengah Horizontal), shortcut yang digunakan adalah...", options: ["C", "E", "L", "P"], answer: 1 },
+        { q: "8. Fitur Shaping yang berfungsi menggabungkan dua objek menjadi satu objek utuh dan menghilangkan garis potong di area tumpang tindih adalah...", options: ["Trim", "Intersect", "Weld", "Combine"], answer: 2 },
+        { q: "9. Fitur Shaping yang menghasilkan objek baru hanya dari area yang saling tumpang tindih (irisan) antara dua objek disebut...", options: ["Intersect", "Simplify", "Front Minus Back", "Create Boundary"], answer: 0 },
+        { q: "10. Shortcut untuk membatalkan perintah terakhir (Undo) adalah...", options: ["Ctrl + Y", "Ctrl + Z", "Ctrl + S", "Delete"], answer: 1 },
+        { q: "11. Mode warna yang direkomendasikan untuk kebutuhan cetak (print) dengan resolusi 300 dpi adalah...", options: ["RGB", "HSV", "CMYK", "Grayscale"], answer: 2 },
+        { q: "12. Prinsip desain yang memberikan 'ruang bernapas' agar desain tidak terlihat penuh dan berantakan disebut...", options: ["Hierarki Visual", "Kontras", "Keseimbangan", "White Space"], answer: 3 },
+        { q: "13. Cara memberi warna garis tepi (Outline Color) pada objek di CorelDRAW adalah...", options: ["Klik kiri pada warna di palet", "Klik kanan pada warna di palet", "Klik kiri pada ikon 'X'", "Tekan tombol F10"], answer: 1 },
+        { q: "14. Tool yang digunakan untuk membuat kurva presisi dengan node dan handle adalah...", options: ["Freehand Tool", "2-Point Line Tool", "Bezier Tool", "Smart Fill Tool"], answer: 2 },
+        { q: "15. Fitur yang memungkinkan teks melengkung atau mengikuti bentuk suatu garis/path adalah...", options: ["Fit Text to Path", "Envelope Tool", "Contour", "Drop Shadow"], answer: 0 },
+        { q: "16. Perintah untuk memindahkan objek ke lapisan paling depan di seluruh halaman adalah...", options: ["To Front of Layer", "Forward One (Ctrl+PgUp)", "To Front of Page (Ctrl+Home)", "In Front Of..."], answer: 2 },
+        { q: "17. Efek yang digunakan untuk memberi bayangan pada objek agar terlihat lebih hidup adalah...", options: ["Transparency Tool", "Drop Shadow", "Contour", "Envelope"], answer: 1 },
+        { q: "18. Kumpulan visual (gambar, warna, font) yang dibuat untuk membantu memvisualisasikan arah desain disebut...", options: ["Brief", "Wireframe", "Moodboard", "Prototype"], answer: 2 },
+        { q: "19. Saat menduplikat objek agar posisinya presisi/sejajar, tombol keyboard yang harus ditahan adalah...", options: ["Ctrl", "Alt", "Shift", "Tab"], answer: 2 },
+        { q: "20. Singkatan DPI dalam konteks resolusi gambar adalah...", options: ["Data Per Inch", "Dots Per Inch", "Digital Pixel Image", "Display Performance Index"], answer: 1 }
+    ];
+
+    const pgkQuestions = [
+        { q: "Grafis Vektor berbasis pada rumus matematika sehingga tidak pecah saat diperbesar, sedangkan Bitmap berbasis pada kumpulan piksel.", correct: "Benar" },
+        { q: "Shortcut F6 digunakan untuk mengaktifkan Ellipse Tool, sedangkan F7 untuk Rectangle Tool.", correct: "Salah" },
+        { q: "Fitur 'Trim' berfungsi memotong bagian objek yang tumpang tindih menggunakan objek lain sebagai pemotong.", correct: "Benar" },
+        { q: "Untuk kebutuhan digital/layar, file sebaiknya diekspor dalam mode warna CMYK dengan resolusi 300 dpi.", correct: "Salah" },
+        { q: "Klik kiri pada palet warna memberi warna isi (Fill), sedangkan klik kanan memberi warna garis tepi (Outline).", correct: "Benar" },
+        { q: "Shortcut Ctrl+G digunakan untuk memisahkan objek yang sudah digroup (Ungroup).", correct: "Salah" },
+        { q: "Hierarki Visual adalah prinsip desain yang mengatur elemen terpenting sebagai focal point yang pertama kali dilihat.", correct: "Benar" },
+        { q: "Tool 'Smart Fill' dapat membuat objek baru dari dua gambar yang tumpang tindih dan menerapkannya secara otomatis.", correct: "Benar" },
+        { q: "Perintah 'Back Minus Front' memotong objek bagian bawah (belakang) menggunakan objek bagian atas (depan).", correct: "Salah" },
+        { q: "Brief adalah ringkasan tujuan, target audiens, dan pesan utama dari sebuah proyek desain.", correct: "Benar" }
+    ];
+
+    const matchingTerms = [
+        "1. Shape Tool",
+        "2. Convert to Curves",
+        "3. Weld",
+        "4. White Space",
+        "5. CMYK",
+        "6. Drop Shadow",
+        "7. Bezier Tool",
+        "8. Ctrl + Home",
+        "9. Moodboard",
+        "10. Brief"
+    ];
+
+    const matchingOptions = [
+        "A. Menggabungkan dua objek menjadi satu objek utuh",
+        "B. Memberi efek bayangan pada objek",
+        "C. Ringkasan tujuan, target audiens, dan pesan utama proyek",
+        "D. Mengedit node dan bentuk objek setelah dibuat",
+        "E. Membuat kurva presisi dengan node dan handle",
+        "F. Mode warna untuk kebutuhan cetak",
+        "G. Ruang kosong agar desain tidak berantakan",
+        "H. Kumpulan visual untuk menentukan arah gaya desain",
+        "I. Memindahkan objek ke lapisan paling depan (To Front of Page)",
+        "J. Mengubah objek menjadi kurva yang dapat diubah bentuknya"
+    ];
+
+    // Kunci Jawaban Menjodohkan (Index dari matchingOptions, mulai dari 0)
+    // 1-D, 2-J, 3-A, 4-G, 5-F, 6-B, 7-E, 8-I, 9-H, 10-C
+    const matchingKeys = [3, 9, 0, 6, 5, 1, 4, 8, 7, 2];
+
+    // --- RENDER SOAL ---
+    function renderPG() {
+        const container = document.getElementById('pg-questions');
+        pgQuestions.forEach((item, index) => {
+            let html = `<div class="question-block"><div class="question-title">${item.q}</div><div class="options">`;
+            item.options.forEach((opt, optIndex) => {
+                html += `<label><input type="radio" name="pg_${index}" value="${optIndex}"> ${String.fromCharCode(97 + optIndex)}) ${opt}</label>`;
+            });
+            html += `</div></div>`;
+            container.innerHTML += html;
+        });
+    }
+
+    function renderPGK() {
+        const container = document.getElementById('pgk-questions');
+        let html = `<table class="bs-table"><tr><th>Pernyataan</th><th>Benar</th><th>Salah</th></tr>`;
+        pgkQuestions.forEach((item, index) => {
+            html += `<tr>
+                <td>${item.q}</td>
+                <td><input type="radio" name="pgk_${index}" value="Benar"></td>
+                <td><input type="radio" name="pgk_${index}" value="Salah"></td>
+            </tr>`;
+        });
+        html += `</table>`;
+        container.innerHTML = html;
+    }
+
+    function renderMatching() {
+        const container = document.getElementById('matching-questions');
+        let html = ``;
+        // Acak opsi untuk menjodohkan agar tidak terlalu mudah (opsional, tapi kita buat tetap urut A-J untuk kemudahan penilaian, atau diacak)
+        // Kita biarkan urut A-J, siswa yang harus memilih.
+        let optionsHtml = `<option value="-1">-- Pilih Jawaban --</option>`;
+        matchingOptions.forEach((opt, idx) => {
+            optionsHtml += `<option value="${idx}">${opt}</option>`;
+        });
+
+        matchingTerms.forEach((term, index) => {
+            html += `<div class="matching-row">
+                <div class="matching-term">${term}</div>
+                <div class="matching-select">
+                    <select name="match_${index}" style="width: 100%; padding: 8px; border: 1px solid #cbd5e1; border-radius: 4px;">
+                        ${optionsHtml}
+                    </select>
+                </div>
+            </div>`;
+        });
+        container.innerHTML = html;
+    }
+
+    renderPG();
+    renderPGK();
+    renderMatching();
+
+    // --- LOGIKA PENILAIAN & PENGIRIMAN ---
+    function calculateAndSubmit() {
+        const nama = document.getElementById('nama').value.trim();
+        const nis = document.getElementById('nis').value.trim();
+        const kelas = document.getElementById('kelas').value.trim();
+
+        if (!nama || !nis || !kelas) {
+            alert("Harap lengkapi Data Siswa (Nama, NIS, Kelas) terlebih dahulu!");
+            return;
+        }
+
+        let scorePG = 0;
+        let pgAnswers = [];
+        pgQuestions.forEach((item, index) => {
+            const selected = document.querySelector(`input[name="pg_${index}"]:checked`);
+            const ans = selected ? parseInt(selected.value) : -1;
+            pgAnswers.push(`${index + 1}. ${ans !== -1 ? item.options[ans] : "Tidak dijawab"}`);
+            if (ans === item.answer) scorePG += 5;
+        });
+
+        let scorePGK = 0;
+        let pgkAnswers = [];
+        pgkQuestions.forEach((item, index) => {
+            const selected = document.querySelector(`input[name="pgk_${index}"]:checked`);
+            const ans = selected ? selected.value : "Tidak dijawab";
+            pgkAnswers.push(`${index + 1}. ${ans}`);
+            if (ans === item.correct) scorePGK += 5;
+        });
+
+        let scoreMatch = 0;
+        let matchAnswers = [];
+        matchingTerms.forEach((term, index) => {
+            const selected = document.querySelector(`select[name="match_${index}"]`);
+            const ans = selected ? parseInt(selected.value) : -1;
+            const ansText = ans !== -1 ? matchingOptions[ans] : "Tidak dijawab";
+            matchAnswers.push(`${term.split('.')[1].trim()} -> ${ansText}`);
+            if (ans === matchingKeys[index]) scoreMatch += 5;
+        });
+
+        const totalScore = scorePG + scorePGK + scoreMatch;
+
+        // Tampilkan Hasil
+        document.getElementById('result-name').textContent = nama;
+        document.getElementById('total-score').textContent = totalScore;
+        document.getElementById('result-section').style.display = 'block';
+        
+        // Scroll ke hasil
+        document.getElementById('result-section').scrollIntoView({ behavior: 'smooth' });
+
+        // Format Email Body
+        const emailBody = `Yth. Bapak JEFRI, S.Pd,
+
+Berikut adalah hasil Uji Formatif Desain Grafis CorelDRAW X7 saya:
+
+DATA SISWA:
+Nama Lengkap : ${nama}
+NIS          : ${nis}
+Kelas        : ${kelas}
+Tanggal      : ${new Date().toLocaleDateString('id-ID')}
+
+HASIL PENILAIAN:
+- Skor Pilihan Ganda (20 Soal) : ${scorePG} / 100
+- Skor Pilihan Ganda Kompleks  : ${scorePGK} / 50
+- Skor Menjodohkan             : ${scoreMatch} / 50
+--------------------------------------------------
+TOTAL SKOR                     : ${totalScore} / 200
+
+RINCIAN JAWABAN:
+[Bagian A: Pilihan Ganda]
+${pgAnswers.join('\n')}
+
+[Bagian B: Pilihan Ganda Kompleks]
+${pgkAnswers.join('\n')}
+
+[Bagian C: Menjodohkan]
+${matchAnswers.join('\n')}
+
+Terima kasih.
+Hormat saya,
+${nama}`;
+
+        document.getElementById('email-body').value = emailBody;
+
+        // Buat link Gmail
+        const subject = encodeURIComponent(`Hasil Uji Formatif CorelDRAW X7 - ${nama} - Kelas ${kelas}`);
+        const bodyEncoded = encodeURIComponent(emailBody);
+        const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=jefrirangsikumbang@gmail.com&su=${subject}&body=${bodyEncoded}`;
+        
+        document.getElementById('gmail-link').href = gmailLink;
+    }
+
+    function copyToClipboard() {
+        const copyText = document.getElementById('email-body');
+        copyText.style.display = 'block';
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); 
+        navigator.clipboard.writeText(copyText.value).then(() => {
+            alert("Hasil ujian berhasil disalin ke clipboard! Silakan tempel (paste) di email atau WhatsApp.");
+        });
+    }
+</script>
+
+</body>
+</html>
