@@ -185,12 +185,12 @@
             <input type="text" id="nama" required placeholder="Masukkan nama lengkap">
         </div>
         <div class="form-group">
-            <label>NIS <span class="required">*</span></label>
+            <label>NIS/Nomor Absen <span class="required">*</span></label>
             <input type="text" id="nis" required placeholder="Masukkan NIS">
         </div>
         <div class="form-group">
             <label>Kelas <span class="required">*</span></label>
-            <input type="text" id="kelas" required placeholder="Contoh: XI IPA 1">
+            <input type="text" id="kelas" required placeholder="Contoh: XI A">
         </div>
 
         <hr style="margin: 30px 0; border: 0; border-top: 2px solid #e2e8f0;">
@@ -218,12 +218,12 @@
 
     <div id="result-section">
         <h3 style="text-align: center;">📊 Hasil Uji Formatif</h3>
-        <p style="text-align: center;">Terima kasih telah menyelesaikan uji formatif ini, <span id="result-name"></span>!</p>
+        <p style="text-align: center;">Terima kasih telah menyelesaikan uji formatif ini, Hasil ujian berhasil disalin ke clipboard! Silakan tempel (paste) di email atau WhatsApp. <span id="result-name"></span>!</p>
         <div class="score-display">
             Skor Total: <span id="total-score">0</span> / 200
         </div>
         <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 20px;">
-            <a id="gmail-link" href="#" class="btn" target="_blank">📧 Buka di Gmail</a>
+            <a id="gmail-link" href="#" class="btn" target="_blank">📧 Kirim ke Gmail</a>
             <button class="btn btn-secondary" onclick="copyToClipboard()">📋 Copy ke Clipboard</button>
             <button class="btn btn-secondary" onclick="window.print()">🖨️ Cetak / Unduh PDF</button>
             <button class="btn btn-secondary" onclick="location.reload()">🔄 Mulai Ulang</button>
